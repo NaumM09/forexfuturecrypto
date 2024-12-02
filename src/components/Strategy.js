@@ -40,10 +40,6 @@ const Strategy = () => {
           <p>Price action trading eliminates reliance on indicators, focusing solely on reading the market's natural movements. A great choice for traders who prefer a pure, hands-on approach without relying on extra tools.</p>
         </div>
       </div>
-
-      <div className="cta">
-        <a href="#contact" className="cta-btn">Find Your Strategy</a>
-      </div>
     </section>
   );
 };

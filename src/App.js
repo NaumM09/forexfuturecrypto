@@ -10,6 +10,7 @@ import Footer from "./components/Footer";   // Import Footer section
 import TradingMemeCarousel from "./components/TradingMemeCarousel";
 import MarketCarousel from './components/MarketCarousel';
 import WhyChooseUs from "./components/WhyChooseUs";
+import FAQ from "./components/FAQ";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,6 +26,7 @@ const App = () => {
       <WhyChooseUs />
       <PricingPlan />
       <CertificateSection />
+      <FAQ />
       <Contact />
       <Disclaimer />
       <Footer />
