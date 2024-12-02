@@ -38,6 +38,13 @@ const FAQ = () => {
 
   return (
     <div className="faq-section">
+         <Helmet>
+                <title>Frequently Asked Questions</title>
+                <meta 
+                    name="description" 
+                    content="Get answers to common questions about our trading mentorship programs." 
+                />
+            </Helmet>
       <h2 className="faq-title">Frequently Asked Questions</h2>
       <div className="faq-list">
         {faqs.map((faq, index) => (

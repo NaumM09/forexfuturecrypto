@@ -10,6 +10,13 @@ import priceActionIcon from '../images/strategy4.jpg';
 const Strategy = () => {
   return (
     <section className="strategy">
+       <Helmet>
+                <title>Proven Trading Strategies for Success | Learn Forex, Crypto, and Meme Coin Techniques</title>
+                <meta 
+                    name="description" 
+                    content="Discover proven trading strategies for forex, crypto, and meme coins. Our expert mentorship teaches you the techniques to succeed in today's markets." 
+                />
+            </Helmet>
       <div className="strategy-header">
         <h2>Trading Strategies for Every Trader</h2>
         <p>From trendline strategies to advanced ICT methods, we help you find the method that suits your time and trading needs.</p>
