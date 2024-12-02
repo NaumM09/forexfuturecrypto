@@ -1,26 +1,16 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom'; // For navigation between pages
+import '../styles/Navbar.css';  // Import the CSS for styling the navbar
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        {/* Logo */}
-        <Link to="/" className="navbar-logo">
-          ForexFutureCrypto
-        </Link>
-
-        {/* Menu */}
-        <ul className="navbar-menu">
-          <li><Link to="/strategies">Strategies</Link></li>
-          <li><Link to="/testimonials">Testimonials</Link></li>
-          <li><Link to="/why-choose-us">Why Choose Us</Link></li>
-          <li><Link to="/pricing-plan">Pricing Plan</Link></li>
-          <li><Link to="/contact-us">Contact Us</Link></li>
-        </ul>
+      <div className="navbar-brand">
+        <h1 className="brand-name">ForexFuturesCrypto</h1>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+

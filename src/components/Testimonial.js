@@ -1,40 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/Testimonial.css'; // Import your CSS for styling
+import React, { useState } from 'react';
+import '../styles/Testimonial.css';  // Import the styles for the testimonial section
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
-      text: "This mentorship has transformed my approach to Forex trading. Highly recommended!",
-      author: "John Doe",
+      text: "The mentorship program has completely changed my perspective on Forex trading. I now approach each trade with confidence.",
+      author: "Sipho Mthembu",
+      province: "KwaZulu-Natal",
     },
     {
-      text: "The strategies taught here are incredible. I finally feel confident in my trades.",
-      author: "Jane Smith",
+      text: "I was struggling with trading before joining, but now I feel much more in control of my decisions. The strategies are practical and effective.",
+      author: "Zanele Khumalo",
+      province: "Gauteng",
     },
     {
-      text: "I’ve learned more in a month than I did in years of trial and error. Amazing!",
-      author: "Samuel Lee",
+      text: "I’ve been in trading for years, but the community here has helped me fine-tune my strategy and improve my results significantly.",
+      author: "Thabo Ndlovu",
+      province: "Limpopo",
     },
     {
-      text: "The community support is unmatched. This is the best place to learn trading!",
-      author: "Alex Johnson",
+      text: "The support and mentorship have been outstanding. It’s like having a personal coach with you at every step.",
+      author: "Kgomotso Motsepe",
+      province: "Free State",
     },
     {
-      text: "The mentors are top-notch, and the materials are clear and concise. Absolutely worth it.",
-      author: "Jessica Brown",
+      text: "I was skeptical at first, but after applying the techniques taught, my trading results speak for themselves. Highly recommended.",
+      author: "Lebogang Dlamini",
+      province: "Western Cape",
     },
-    // Add more testimonials here
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // Change testimonial every 5 seconds
+  const goToNextTestimonial = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
 
-    return () => clearInterval(interval); // Clean up interval on unmount
-  }, [testimonials.length]);
+  const goToPrevTestimonial = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   return (
     <section className="testimonial">
@@ -44,15 +50,14 @@ const Testimonial = () => {
       </div>
 
       <div className="testimonial-carousel">
-        {testimonials.map((testimonial, index) => (
-          <div
-            className={`testimonial-slide ${index === currentIndex ? 'active' : ''}`}
-            key={index}
-          >
-            <p className="testimonial-text">"{testimonial.text}"</p>
-            <p className="testimonial-author">- {testimonial.author}</p>
-          </div>
-        ))}
+        <button className="carousel-button prev" onClick={goToPrevTestimonial}>←</button>
+
+        <div className="testimonial-slide">
+          <p className="testimonial-text">"{testimonials[currentIndex].text}"</p>
+          <p className="testimonial-author">- {testimonials[currentIndex].author}, {testimonials[currentIndex].province}</p>
+        </div>
+
+        <button className="carousel-button next" onClick={goToNextTestimonial}>→</button>
       </div>
     </section>
   );
