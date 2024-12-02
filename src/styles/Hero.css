@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;  /* Ensures the hero section takes at least 100vh */
+  background: url('https://media.giphy.com/media/Auhvsp2K3B8j0HiurA/giphy.gif') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  color: white;  /* Default text color */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+  z-index: 0;  /* Keeps the overlay below the text */
+}
+
+.hero-content {
+  z-index: 1;  /* Ensures the text is above the overlay */
+  position: relative;
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;  /* Ensures the heading is white */
+  animation: fadeIn 2s ease-out;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #fff;  /* White color for tagline text */
+  opacity: 0;
+  animation: fadeIn 3s ease-out 0.5s forwards;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #00b4d8;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.1);
+  background-color: #0077b6;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.content {
+  padding: 40px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}

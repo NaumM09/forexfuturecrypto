@@ -1,0 +1,91 @@
+/* Service Section Styling */
+.services {
+  padding: 60px 20px; /* Add space around the content */
+  background-color: #f4f4f4;  /* Light gray background */
+  text-align: center;
+}
+
+/* Header Styling */
+.service-header {
+  margin-bottom: 40px;
+}
+
+.service-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service-header p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 30px; /* Center text and add bottom margin */
+}
+
+/* Service Cards Grid */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive layout */
+  gap: 30px;
+  margin-bottom: 50px;
+  justify-items: center; /* Center the items in the grid */
+}
+
+/* Individual Service Card */
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Align content inside the card */
+}
+
+.service-card:hover {
+  transform: translateY(-10px); /* Slight elevation effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.service-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Call to Action Button */
+.cta {
+  margin-top: 50px;
+}
+
+.cta-btn {
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #00b4d8;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.1);
+  background-color: #0077b6;
+}

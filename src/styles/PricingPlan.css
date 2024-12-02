@@ -1,0 +1,129 @@
+/* Pricing Section Styling */
+.pricing {
+  padding: 80px 20px; /* Add space around the content */
+  background-color: #f9f9f9; /* Light background */
+  text-align: center;
+}
+
+/* Header Styling */
+.pricing-header {
+  margin-bottom: 50px;
+}
+
+.pricing-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.pricing-header p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Pricing Cards Layout */
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap; /* Allow cards to wrap on small screens */
+}
+
+/* Individual Pricing Card Styling */
+.pricing-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  text-align: center;
+}
+
+.pricing-card:hover {
+  transform: translateY(-15px); /* Hover animation for card lift */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Highlight Featured Plan */
+.pricing-card.featured {
+  transform: scale(1.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  border: 2px solid #00b4d8; /* Add a border for distinction */
+}
+
+/* Pricing Card Header */
+.pricing-card-header {
+  margin-bottom: 20px;
+}
+
+.pricing-card-header h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.pricing-card-header .price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00b4d8;
+}
+
+.pricing-card-header p {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* Pricing Card Features List */
+.pricing-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.pricing-card ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.pricing-card ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #00b4d8; /* Green checkmark color */
+}
+
+/* Select Plan Button */
+.btn-select {
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #00b4d8;
+  border: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-select:hover {
+  background-color: #0077b6;
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

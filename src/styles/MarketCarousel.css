@@ -1,0 +1,44 @@
+.market-carousel {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+  display: inline-flex;
+  animation: scroll-left 15s linear infinite;
+}
+
+.forex-item {
+  flex: 0 0 auto;
+  margin: 0 10px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.symbol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.price {
+  font-size: 1rem;
+  color: #666;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

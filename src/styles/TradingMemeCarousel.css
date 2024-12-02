@@ -1,0 +1,115 @@
+/* Trading Meme Section Styling */
+.trading-meme-gallery {
+  display: flex;
+  flex-direction: column;  /* Stack heading and memes vertically */
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 60px 20px;
+}
+
+.meme-heading {
+  text-align: center;
+  margin-bottom: 30px;  /* Space between heading and carousel */
+}
+
+.meme-heading h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #d9534f;  /* Red color for the heading */
+  text-transform: uppercase;  /* Uppercase for emphasis */
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeInFromTop 1s ease-out;  /* Animation for smooth heading appearance */
+}
+
+.meme-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;  /* Hide overflow to keep images within bounds */
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  padding: 0 10px;
+}
+
+/* Meme Image Carousel Styling */
+.meme-images {
+  display: flex;
+  transition: transform 1s ease;  /* Smooth transition for sliding images */
+  gap: 10px;  /* Space between images */
+}
+
+.meme {
+  width: 33.33%;  /* Each meme takes up 1/3 of the container */
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect for Memes */
+.meme:hover {
+  transform: scale(1.05);  /* Scale up the meme image slightly on hover */
+}
+
+/* Optional: Shadow effect on hover for better interaction */
+.meme-container img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .meme {
+    width: 50%;  /* Display 2 memes at a time on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .meme {
+    width: 100%;  /* On mobile, display 1 meme at a time */
+    margin-bottom: 20px;  /* Space between memes on mobile */
+  }
+}
+
+/* Animation Effects */
+@keyframes fadeInFromTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* For Carousel Navigation (Optional) */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
