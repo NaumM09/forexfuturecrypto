@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from 'react-helmet';
 import "../styles/FAQ.css"; // Ensure to link the new CSS
 
 const FAQ = () => {

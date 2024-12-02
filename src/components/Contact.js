@@ -31,10 +31,14 @@ const Contact = () => {
       return;
     }
 
-    // Here you would call your backend to send the email (e.g., using an API or service)
-    // For now, we'll just simulate a successful send
+    // Validate other fields
+    if (!formData.name || !formData.message) {
+      setStatus('Please fill in all the fields.');
+      return;
+    }
+
+    // Here we would call an API to send the email. This is a placeholder for actual email functionality.
     try {
-      // Simulate email sending
       setTimeout(() => {
         setStatus('Your message has been sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form
@@ -48,7 +52,7 @@ const Contact = () => {
   return (
     <div className="contact-section">
       <h2>Contact Us</h2>
-      <p>Have questions or need assistance? Reach out to us😊!</p>
+      <p>Have questions or need assistance? Reach out to us at <a href="mailto:naum@globalexpedyte.co.za">naum@globalexpedyte.co.za</a>!</p>
 
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
@@ -94,3 +98,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

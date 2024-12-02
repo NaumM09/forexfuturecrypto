@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../styles/Strategy.css';  // Import the CSS for styling
 
 // Import images for strategy icons

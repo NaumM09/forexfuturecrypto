@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '../styles/PricingPlan.css';  // Import your CSS for styling
 
 const PricingPlan = () => {
