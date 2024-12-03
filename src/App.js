@@ -39,6 +39,17 @@ const App = () => {
       ) : (
         <>
           <Helmet>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJYF73XDWR"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KJYF73XDWR');
+          `}
+        </script>
+      </Helmet>
+          <Helmet>
             <title>ForexFuturesCrypto | Start Your Trading Journey</title>
             <meta 
               name="description" 
