@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from "./components/Navbar";
@@ -14,40 +14,58 @@ import Footer from "./components/Footer";   // Import Footer section
 import TradingMemeCarousel from "./components/TradingMemeCarousel";
 import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
+import Loader from "./components/Loader";   // Import Loader component
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./App.css"
+import "./App.css";
 
 const App = () => {
+  const [loading, setLoading] = useState(true); // State to track loading
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Simulate loading completion after 3 seconds
+    }, 3000);
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
+
   return (
     <div className="app">
-         <Helmet>
-                <title>ForexFuturesCrypto | Start Your Trading Journey</title>
-                <meta 
-                    name="description" 
-                    content="Join our mentorship program to start your funded trading journey and achieve financial freedom." 
-                />
-            </Helmet>
-        <Router>
-      <Navbar />
-    </Router>
-      <Hero />
-      <Services />
-      <Strategy />
-      <Testimonial />
-      <WhyChooseUs />
-      <PricingPlan />
-      <CertificateSection />
-      <FAQ />
-      <TradingMemeCarousel />
-      <Contact />
-      <Disclaimer />
-      <Footer />
+      {loading ? (
+        <Loader /> // Show loader while loading is true
+      ) : (
+        <>
+          <Helmet>
+            <title>ForexFuturesCrypto | Start Your Trading Journey</title>
+            <meta 
+              name="description" 
+              content="Join our mentorship program to start your funded trading journey and achieve financial freedom." 
+            />
+          </Helmet>
+          <Router>
+            <Navbar />
+          </Router>
+          <Hero />
+          <Services />
+          <Strategy />
+          <Testimonial />
+          <WhyChooseUs />
+          <PricingPlan />
+          <CertificateSection />
+          <FAQ />
+          <TradingMemeCarousel />
+          <Contact />
+          <Disclaimer />
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
 
 export default App;
+
 
 
