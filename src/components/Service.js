@@ -19,7 +19,7 @@ const Services = () => {
           </div>
           <div className="service-content">
             <h3>Forex Trading</h3>
-            <p>Our Forex trading service offers personalized strategies and expert analysis to help you navigate the global currency markets. Whether you’re new to trading or an experienced investor, we’ll help you make informed decisions with up-to-date insights and risk management strategies.</p>
+            <p>Our Forex trading service offers personalised strategies and expert analysis to help you navigate the global currency markets. Whether you’re new to trading or an experienced investor, we’ll help you make informed decisions with up-to-date insights and risk management strategies.</p>
           </div>
         </div>
         

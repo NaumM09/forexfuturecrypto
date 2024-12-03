@@ -18,7 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -117,14 +117,33 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     gap: 1rem;
-    width: 80%;
+    width: 70%;
+    border-radius: 8px;
   }
 
   .nav-links.open {
     display: flex;
   }
 
+  .nav-links a {
+    font-size: 1.2rem; /* Larger font for better readability on mobile */
+    text-align: center; /* Center align links */
+  }
+
   .hamburger-menu {
     display: flex;
   }
+
+  .hamburger-menu span {
+    width: 30px; /* Slightly larger for easier tapping on mobile */
+  }
+}
+
+/* Hover and Focus Effects */
+.nav-links a:focus {
+  outline: none;
+  color: #00b4d8;
+  background-color: rgba(0, 180, 216, 0.1);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
 }
