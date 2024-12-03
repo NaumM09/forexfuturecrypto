@@ -1,91 +1,99 @@
 /* Service Section Styling */
-.services {
-  padding: 60px 20px; /* Add space around the content */
-  background-color: #f4f4f4;  /* Light gray background */
+.service {
+  padding: 60px 20px;
+  background-color: #007bff; /* Solid background for the entire section */
   text-align: center;
-}
-
-/* Header Styling */
-.service-header {
-  margin-bottom: 40px;
+  color: #fff; /* White text for contrast */
 }
 
 .service-header h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.service-header p {
-  font-size: 1.2rem;
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto 30px; /* Center text and add bottom margin */
-}
-
-/* Service Cards Grid */
-.service-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive layout */
-  gap: 30px;
-  margin-bottom: 50px;
-  justify-items: center; /* Center the items in the grid */
-}
-
-/* Individual Service Card */
-.service-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Align content inside the card */
-}
-
-.service-card:hover {
-  transform: translateY(-10px); /* Slight elevation effect */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
-}
-
-.service-card img {
-  width: 60px;
-  height: 60px;
+  font-size: 2.5rem;
+  color: #fff; /* White color for header */
   margin-bottom: 20px;
 }
 
-.service-card h3 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.service-card p {
-  font-size: 1rem;
-  color: #555;
+.service-header p {
+  font-size: 1.1rem;
+  color: #fff; /* White text for description */
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.6;
 }
 
-/* Call to Action Button */
-.cta {
-  margin-top: 50px;
+/* Grid Layout for Services */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.cta-btn {
-  padding: 12px 35px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  background-color: #00b4d8;
-  text-decoration: none;
-  border-radius: 50px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+/* Service Item Styling */
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #007bff; /* Same solid background as section */
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border-radius: 10px; /* Added rounded corners for a smooth look */
 }
 
-.cta-btn:hover {
-  transform: scale(1.1);
-  background-color: #0077b6;
+/* Hover Effect */
+.service-item:hover {
+  transform: translateY(-10px); /* Slight lift effect on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.service-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+/* Text Content Styling */
+.service-content h3 {
+  font-size: 1.6rem;
+  color: #fff; /* White text for headings */
+  margin-bottom: 15px;
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: #fff; /* White text for description */
+  line-height: 1.5;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .service-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .service-header p {
+    font-size: 1rem;
+  }
+
+  .service-item {
+    padding: 20px;
+  }
+
+  .service-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .service-content p {
+    font-size: 0.95rem;
+  }
 }

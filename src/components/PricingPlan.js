@@ -1,17 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import '../styles/PricingPlan.css';  // Import your CSS for styling
 
 const PricingPlan = () => {
   return (
     <section className="pricing">
-       <Helmet>
-                <title>Affordable Trading Plans | Start Your Trading Journey Today</title>
-                <meta 
-                    name="description" 
-                    content="Explore our affordable trading mentorship plans. Learn forex, crypto, and meme coin strategies from experts and start your trading journey now." 
-                />
-            </Helmet>
       <div className="pricing-header">
         <h2>Choose Your Pricing Plan</h2>
         <p>Find the perfect plan for your trading journey. Whether you're just starting or are a seasoned pro, we have the right option for you!</p>

@@ -7,13 +7,13 @@ const Contact = () => {
     email: '',
     message: '',
   });
-  const [status, setStatus] = useState(''); // For success/error message
-  const [charCount, setCharCount] = useState(0); // To track the remaining characters
+  const [status, setStatus] = useState('');
+  const [charCount, setCharCount] = useState(0);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'message') {
-      setCharCount(value.length); // Update character count on message change
+      setCharCount(value.length);
     }
     setFormData({
       ...formData,
@@ -21,29 +21,33 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Simple client-side email validation (Regex for proper email format)
+    // Simple client-side email validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
       setStatus('Invalid email address. Please enter a valid email.');
       return;
     }
 
-    // Validate other fields
-    if (!formData.name || !formData.message) {
-      setStatus('Please fill in all the fields.');
-      return;
-    }
-
-    // Here we would call an API to send the email. This is a placeholder for actual email functionality.
+    // Send data to backend server
     try {
-      setTimeout(() => {
+      const response = await fetch('/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
         setStatus('Your message has been sent successfully!');
-        setFormData({ name: '', email: '', message: '' }); // Reset form
-        setCharCount(0); // Reset character count
-      }, 1000);
+        setFormData({ name: '', email: '', message: '' });
+        setCharCount(0);
+      } else {
+        setStatus('Oops! Something went wrong. Please try again later.');
+      }
     } catch (error) {
       setStatus('Oops! Something went wrong. Please try again later.');
     }
@@ -52,7 +56,7 @@ const Contact = () => {
   return (
     <div className="contact-section">
       <h2>Contact Us</h2>
-      <p>Have questions or need assistance? Reach out to us at <a href="mailto:naum@globalexpedyte.co.za">naum@globalexpedyte.co.za</a>!</p>
+      <p>Have questions or need assistance? Reach out to us!😊</p>
 
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
@@ -84,10 +88,10 @@ const Contact = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            maxLength="1600" // Adding max length for the message
+            maxLength="1600"
             required
           />
-          <div className="char-count">{1600 - charCount} characters remaining</div> {/* Display remaining characters */}
+          <div className="char-count">{1600 - charCount} characters remaining</div>
         </div>
         <button type="submit" className="submit-btn">Send Message</button>
       </form>

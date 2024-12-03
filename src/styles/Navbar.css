@@ -1,46 +1,130 @@
-/* Global Reset */
-* {
+/* General Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95); /* Slightly transparent background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 1); /* Solid background on scroll */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Brand Name */
+.navbar-brand .brand-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-brand .brand-name:hover {
+  color: #007bff; /* Accent color on hover */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Navbar Styling */
-.navbar {
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
   width: 100%;
-  background-color: #333; /* Dark background for contrast */
-  padding: 20px 0; /* Vertical padding for spacing */
-  display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Aligns content vertically */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
 
-/* Navbar Brand */
-.navbar-brand {
-  font-family: 'Arial', sans-serif;
-  color: #fff; /* White color for brand */
-  text-align: center; /* Center text inside brand div */
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 0.4rem;
 }
 
-/* Brand Name Styling */
-.brand-name {
-  font-size: 1.5rem; /* Large text for emphasis */
-  font-weight: bold; /* Bold font for prominence */
-  letter-spacing: 2px; /* Slightly increased letter spacing for modern touch */
-  text-transform: uppercase; /* Uppercase for a clean, professional look */
-  padding: 0 15px; /* Horizontal padding to give space around text */
-  transition: all 0.3s ease; /* Smooth transition for hover effect */
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.brand-name:hover {
-  color: #00b4d8; /* Light blue color on hover for a dynamic effect */
-  transform: scale(1.05); /* Slightly enlarge the text on hover */
+/* Open Hamburger Animation */
+.hamburger-menu.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-/* Responsive Styling */
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .brand-name {
-    font-size: 1rem; /* Slightly smaller font on smaller screens */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    gap: 1rem;
+    width: 80%;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: flex;
   }
 }

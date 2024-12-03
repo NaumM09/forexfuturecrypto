@@ -36,6 +36,7 @@
 
 /* Cards for Each Strategy */
 .strategy-cards {
+  background: linear-gradient(135deg, #f7f7f7, #e6f7ff);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid layout */
   gap: 30px;
@@ -47,13 +48,13 @@
 
 /* Individual Strategy Cards */
 .strategy-card {
-  background: #fff;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   text-align: left;
   position: relative;
+  opacity: 0.9;  /* Slight transparency by default */
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -85,25 +86,18 @@
   margin-right: auto;
 }
 
-/* Glowing Effect Behind Strategy Cards */
-.strategy-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 123, 255, 0.2); /* Soft blue glow */
-  border-radius: 15px;
-  z-index: -1;
-  box-shadow: 0 0 30px rgba(0, 123, 255, 0.6); /* Glowing shadow */
-  animation: glowingEffect 2s infinite alternate;
-}
 
 /* Hover Effect for Strategy Cards */
 .strategy-card:hover {
   transform: translateY(-10px); /* Lift effect on hover */
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  background: #e6f7ff;  /* Change background on hover */
+  opacity: 1;  /* Make the card fully opaque */
+}
+
+/* Remove glowing outline on hover */
+.strategy-card:hover::before {
+  box-shadow: none; /* Remove glowing effect */
 }
 
 /* Call-to-Action Button */
@@ -186,15 +180,6 @@
   }
 }
 
-/* Glowing Effect Animation */
-@keyframes glowingEffect {
-  0% {
-    box-shadow: 0 0 30px rgba(0, 123, 255, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 50px rgba(0, 123, 255, 1);
-  }
-}
 
 /* Sequential Appearance of Strategy Cards */
 .strategy-card:nth-child(1) {

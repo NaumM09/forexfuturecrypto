@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Services from './components/Service';
 import PricingPlan from "./components/PricingPlan";
 import Disclaimer from "./components/Disclaimer";
 import Testimonial from "./components/Testimonial";
@@ -19,15 +22,25 @@ import "./App.css"
 const App = () => {
   return (
     <div className="app">
+         <Helmet>
+                <title>ForexFuturesCrypto | Start Your Trading Journey</title>
+                <meta 
+                    name="description" 
+                    content="Join our mentorship program to start your funded trading journey and achieve financial freedom." 
+                />
+            </Helmet>
+        <Router>
       <Navbar />
+    </Router>
       <Hero />
+      <Services />
       <Strategy />
-      <TradingMemeCarousel />
       <Testimonial />
       <WhyChooseUs />
       <PricingPlan />
       <CertificateSection />
       <FAQ />
+      <TradingMemeCarousel />
       <Contact />
       <Disclaimer />
       <Footer />

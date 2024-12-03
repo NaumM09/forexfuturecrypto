@@ -22,7 +22,7 @@ const Testimonial = () => {
     },
     {
       text: "The support and mentorship have been outstanding. It’s like having a personal coach with you at every step.",
-      author: "Kgomotso Motsepe",
+      author: "Kgomotso Lesiamo",
       province: "Free State",
     },
     {
