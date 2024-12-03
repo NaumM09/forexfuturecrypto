@@ -15,6 +15,7 @@ import TradingMemeCarousel from "./components/TradingMemeCarousel";
 import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
 import Loader from "./components/Loader";   // Import Loader component
+import WhatsAppButton from "./components/Whatsapp";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -58,6 +59,11 @@ const App = () => {
           <TradingMemeCarousel />
           <Contact />
           <Disclaimer />
+          <div>
+      <h1>Welcome to My App</h1>
+      <p>This is your application content.</p>
+      <WhatsAppButton />
+    </div>
           <Footer />
         </>
       )}

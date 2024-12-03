@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../styles/TradingMemeCarousel.css';  // Import the CSS for styling
 
 // Import your meme images
-import meme1 from '../images/meme1.PNG';
-import meme2 from '../images/meme2.PNG';
+import meme1 from '../images/meme1.png';
+import meme2 from '../images/meme2.png';
 
 const TradingMemeCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

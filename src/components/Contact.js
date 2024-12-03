@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css'; // For styling
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -31,22 +32,23 @@ const Contact = () => {
       return;
     }
 
-    // Send data to backend server
+    // Send data to backend API
     try {
-      const response = await fetch('/send-email', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         setStatus('Your message has been sent successfully!');
         setFormData({ name: '', email: '', message: '' });
         setCharCount(0);
       } else {
-        setStatus('Oops! Something went wrong. Please try again later.');
+        const { error } = await response.json();
+        setStatus(`Error: ${error || 'Something went wrong. Please try again later.'}`);
       }
     } catch (error) {
       setStatus('Oops! Something went wrong. Please try again later.');
@@ -102,4 +104,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
