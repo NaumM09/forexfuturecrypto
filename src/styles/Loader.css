@@ -4,8 +4,9 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #1e1e2f; /* Dark background */
-    color: white;
+    background-color: #e0f7fa; /* Soft pastel blue */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Gentle shadow */
+    color: #333;
     font-family: Arial, sans-serif;
 }
 
