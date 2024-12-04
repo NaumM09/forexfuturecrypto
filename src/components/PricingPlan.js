@@ -63,7 +63,7 @@ const PricingPlan = () => {
           </div>
           <ul>
             <li>Live price action analysis</li>
-            <li>Sunday trade recaps</li>
+            <li>Weekly Trade Forecasts</li>
             <li>Access to recordings</li>
             <li>Join Telegram Community</li>
           </ul>
