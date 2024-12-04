@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/PricingPlan.css';  // Import your CSS for styling
+import '../styles/PricingPlan.css'; // Import your CSS for styling
 
 const PricingPlan = () => {
   return (
@@ -52,10 +52,30 @@ const PricingPlan = () => {
           </ul>
           <button className="btn-select">Select Plan</button>
         </div>
+
+        {/* Bootcamp Plan */}
+        <div className="pricing-card bootcamp">
+          <div className="coming-soon-banner">Coming Soon</div>
+          <div className="pricing-card-header">
+            <h3>Bootcamp</h3>
+            <span className="price">R1999</span>
+            <p>1 month</p>
+          </div>
+          <ul>
+            <li>Live price action analysis</li>
+            <li>Sunday trade recaps</li>
+            <li>Access to recordings</li>
+            <li>Join Telegram Community</li>
+          </ul>
+          <button className="btn-select" disabled>
+            Not Available
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
 export default PricingPlan;
+
 

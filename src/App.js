@@ -11,7 +11,6 @@ import CertificateSection from "./components/CertificateSection";
 import Strategy from "./components/Strategy";
 import Contact from "./components/Contact"; // Import Contact section
 import Footer from "./components/Footer";   // Import Footer section
-import TradingMemeCarousel from "./components/TradingMemeCarousel";
 import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
 import Loader from "./components/Loader";   // Import Loader component
@@ -67,7 +66,6 @@ const App = () => {
           <PricingPlan />
           <CertificateSection />
           <FAQ />
-          <TradingMemeCarousel />
           <Contact />
           <Disclaimer />
           <div>

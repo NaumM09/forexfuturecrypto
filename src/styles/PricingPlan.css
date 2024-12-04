@@ -115,6 +115,31 @@
   cursor: pointer;
 }
 
+/* Coming Soon Banner */
+.coming-soon-banner {
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background-color: #ffcc00; /* Bright yellow for attention */
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  transform: rotate(45deg);
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Bootcamp Card */
+.pricing-card.bootcamp {
+  position: relative;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 .btn-select:hover {
   background-color: #0077b6;
   transform: scale(1.05); /* Slight scale effect on hover */

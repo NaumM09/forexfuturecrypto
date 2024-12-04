@@ -21,17 +21,13 @@
   animation: fadeInLeft 1s ease-out;
 }
 
-/* Highlighted Text with Gradient */
-.hero-title span {
-  color: transparent; /* Make the text transparent */
-  background: linear-gradient(45deg, #ff4500, #ff6347); /* Gradient background */
-  -webkit-background-clip: text; /* For Webkit-based browsers */
-  background-clip: text; /* For modern browsers */
+.hero-title {
+  font-size: 3rem;
   font-weight: bold;
-  display: inline;
-  -webkit-text-fill-color: transparent; /* Ensure text is transparent for Safari */
+  color: #333;
+  margin-bottom: 20px;
+  animation: slideInUp 1.5s ease-out;
 }
-
 
 .hero-tagline {
   font-size: 1.5rem;
