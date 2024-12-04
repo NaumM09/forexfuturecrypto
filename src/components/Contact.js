@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTelegram } from 'react-icons/fa'; // Import Telegram icon
 import '../styles/Contact.css'; // Update styling file
 
 const Contact = () => {
@@ -66,6 +67,13 @@ const Contact = () => {
           {status}
         </div>
       )}
+
+      <div className="telegram-section">
+        <a href="https://t.me/forexfuturescryptofree" target="_blank" rel="noopener noreferrer" className="telegram-link">
+          <FaTelegram className="telegram-icon" />
+          Join our free Telegram Group 
+        </a>
+      </div>
     </div>
   );
 };

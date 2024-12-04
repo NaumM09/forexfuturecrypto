@@ -1,72 +1,93 @@
+/* General Styles for the Subscribe Section */
 .subscribe-section {
   text-align: center;
   padding: 2rem;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.subscribe-section h2 {
-  font-size: 2rem;
-  color: #333;
-}
-
-.subscribe-section p {
-  color: #555;
+/* Form Styles */
+.subscribe-form {
   margin-bottom: 1.5rem;
 }
 
-.subscribe-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
 .form-group {
-  width: 100%;
-  max-width: 400px;
+  margin-bottom: 1rem;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.form-group input {
+input[type="email"] {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.8rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+input[type="email"]:focus {
+  border-color: #34af23;
+  outline: none;
 }
 
 .submit-btn {
-  background: #007bff;
+  background-color: #34af23;
   color: white;
+  padding: 0.8rem 1.2rem;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 1rem;
   transition: background 0.3s ease;
 }
 
 .submit-btn:hover {
-  background: #0056b3;
+  background-color: #2a8f1c;
 }
 
+/* Status Message Styles */
 .status-message {
   margin-top: 1rem;
-  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 .status-message.success {
-  color: #28a745;
+  background-color: #d4edda;
+  color: #155724;
 }
 
 .status-message.error {
-  color: #dc3545;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Telegram Section */
+.telegram-section {
+  margin-top: 1.5rem;
+}
+
+.telegram-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  background: #0088cc;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.telegram-link:hover {
+  background: #005f99;
+}
+
+.telegram-icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
 }
