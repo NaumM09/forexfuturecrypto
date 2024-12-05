@@ -1,0 +1,48 @@
+/* Announcement Banner CSS */
+.announcement-banner {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to right, #f4f7fc, #eaf0ff); /* Light gradient */
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .announcement-banner .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .announcement-banner .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .announcement-banner .text {
+    font-size: 16px;
+    color: #343a40; /* Dark grey text */
+    font-weight: 500;
+    margin-right: 20px;
+  }
+  
+  .announcement-banner .cta-btn {
+    background-color: #5a67d8; /* Cool medium blue */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .announcement-banner .cta-btn:hover {
+    background-color: #434d9d; /* Slightly darker blue on hover */
+    transform: scale(1.05);
+  }
+  

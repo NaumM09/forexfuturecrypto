@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import AnnouncementBanner from "./components/AnnouncementBanner" ;
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from './components/Service';
@@ -55,6 +56,7 @@ const App = () => {
               content="Join our mentorship program to start your funded trading journey and achieve financial freedom." 
             />
           </Helmet>
+          <AnnouncementBanner />
           <Router>
             <Navbar />
           </Router>
