@@ -10,24 +10,11 @@ const PricingPlan = () => {
       </div>
 
       <div className="pricing-cards">
+
         <div className="pricing-card">
           <div className="pricing-card-header">
-            <h3>Basic Plan</h3>
-            <span className="price">R1499</span>
-            <p>once off</p>
-          </div>
-          <ul>
-            <li>Access to basic trading strategies</li>
-            <li>1-on-1 mentorship (limited)</li>
-            <li>Join Telegram Community</li>
-          </ul>
-          <button className="btn-select">Select Plan</button>
-        </div>
-
-        <div className="pricing-card featured">
-          <div className="pricing-card-header">
-            <h3>Pro Plan</h3>
-            <span className="price">R2599</span>
+            <h3>Beginner Plan</h3>
+            <span className="price">R650</span>
             <p>once off</p>
           </div>
           <ul>
@@ -38,10 +25,10 @@ const PricingPlan = () => {
           <button className="btn-select">Select Plan</button>
         </div>
 
-        <div className="pricing-card">
+        <div className="pricing-card featured">
           <div className="pricing-card-header">
-            <h3>Ultimate Plan</h3>
-            <span className="price">R6500</span>
+            <h3>Pro Plan</h3>
+            <span className="price">R2500</span>
             <p>once off</p>
           </div>
           <ul>
@@ -58,8 +45,8 @@ const PricingPlan = () => {
           <div className="coming-soon-banner">Coming Soon</div>
           <div className="pricing-card-header">
             <h3>Bootcamp</h3>
-            <span className="price">R1999</span>
-            <p>1 month</p>
+            <span className="price">R500</span>
+            <p>2 Weeks</p>
           </div>
           <ul>
             <li>Live price action analysis</li>
