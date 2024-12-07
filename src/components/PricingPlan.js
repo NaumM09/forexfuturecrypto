@@ -45,7 +45,7 @@ const PricingPlan = () => {
           <div className="coming-soon-banner">Coming Soon</div>
           <div className="pricing-card-header">
             <h3>Bootcamp</h3>
-            <span className="price">R500</span>
+            <span className="price">R250</span>
             <p>2 Weeks</p>
           </div>
           <ul>
