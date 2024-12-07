@@ -14,7 +14,7 @@ const PricingPlan = () => {
         <div className="pricing-card">
           <div className="pricing-card-header">
             <h3>Beginner Plan</h3>
-            <span className="price">R650</span>
+            <span className="price">R800</span>
             <p>once off</p>
           </div>
           <ul>
@@ -46,16 +46,16 @@ const PricingPlan = () => {
           <div className="pricing-card-header">
             <h3>Bootcamp</h3>
             <span className="price">R250</span>
-            <p>2 Weeks</p>
+            <p>1 Day</p>
           </div>
           <ul>
             <li>Live price action analysis</li>
-            <li>Weekly Trade Forecasts</li>
+            <li>Trade Forecasts</li>
             <li>Access to recordings</li>
             <li>Join Telegram Community</li>
           </ul>
           <button className="btn-select" disabled>
-            Not Available
+            Limited Availability
           </button>
         </div>
       </div>
