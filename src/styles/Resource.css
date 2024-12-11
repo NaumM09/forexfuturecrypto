@@ -1,0 +1,48 @@
+.download-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+}
+
+.download-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.download-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 114, 255, 0.5);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.download-button:hover {
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    transform: scale(1.05);
+}
+
+.pdf-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}

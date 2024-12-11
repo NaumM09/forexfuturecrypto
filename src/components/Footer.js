@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa'; // Importing social media icons
+import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa'; // Importing Facebook icon
 import '../styles/Footer.css'; // For styling
 
 const Footer = () => {

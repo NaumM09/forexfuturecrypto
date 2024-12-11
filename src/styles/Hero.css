@@ -4,8 +4,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* Light background */
   padding: 0 2rem;
+  color: #333;
 }
 
 .hero-content {
@@ -14,54 +15,38 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  gap: 2rem;
 }
 
+/* Text Column */
 .text-column {
-  width: 50%;
+  flex: 1;
   animation: fadeInLeft 1s ease-out;
 }
 
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #333;
   margin-bottom: 20px;
-  animation: slideInUp 1.5s ease-out;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title span {
+  color: #007bff;
+  font-weight: bold;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .hero-tagline {
   font-size: 1.5rem;
-  color: #555;
   margin-bottom: 30px;
-  animation: fadeIn 2s ease-out;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.cta-btn {
-  padding: 15px 25px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  animation: bounceIn 2s ease-out;
-}
-
-.cta-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Highlighted Text */
-.hero-title span {
-  color: #ff4500; /* Highlight color for key phrases */
-  font-weight: bold;
-  background: linear-gradient(45deg, #ff4500, #ff6347);
-  -webkit-background-clip: text;
-  color: transparent;
-  display: inline;
-}
-
-/* Underline Effect */
 .hero-tagline span {
   text-decoration: underline;
   text-decoration-color: #007bff;
@@ -70,11 +55,48 @@
 }
 
 .hero-tagline span:hover {
-  text-decoration-color: #ff4500; /* Change color on hover */
+  text-decoration-color: #ff4500;
 }
 
+/* Buttons */
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* CTA Button */
+.cta-btn {
+  margin-right:50px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: #fff;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(90deg, #00c6ff, #007bff);
+  transform: scale(1.05);
+}
+
+/* Download Button */
+.download-btn {
+  background: linear-gradient(90deg, #ff4500, #ff6347);
+  color: #fff;
+}
+
+.download-btn:hover {
+  background: linear-gradient(90deg, #ff6347, #ff4500);
+  transform: scale(1.05);
+}
+
+/* Image Column */
 .image-column {
-  width: 50%;
+  flex: 1;
   display: flex;
   justify-content: center;
   animation: fadeInRight 1.5s ease-out;
@@ -83,7 +105,7 @@
 .hero-image {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -110,46 +132,16 @@
   }
 }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
   }
 
-  .text-column, .image-column {
+  .text-column,
+  .image-column {
     width: 100%;
+    text-align: center;
   }
 
   .hero-title {
@@ -160,8 +152,8 @@
     font-size: 1.2rem;
   }
 
-  .cta-btn {
-    font-size: 1rem;
-    padding: 12px 20px;
+  .button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
   }
 }

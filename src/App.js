@@ -8,7 +8,6 @@ import Services from './components/Service';
 import PricingPlan from "./components/PricingPlan";
 import Disclaimer from "./components/Disclaimer";
 import Testimonial from "./components/Testimonial";
-import CertificateSection from "./components/CertificateSection";
 import Strategy from "./components/Strategy";
 import Contact from "./components/Contact"; // Import Contact section
 import Footer from "./components/Footer";   // Import Footer section
@@ -16,6 +15,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
 import Loader from "./components/Loader";   // Import Loader component
 import WhatsAppButton from "./components/Whatsapp";
+import FreeResource from "./components/Resource";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -66,7 +66,7 @@ const App = () => {
           <Testimonial />
           <WhyChooseUs />
           <PricingPlan />
-          <CertificateSection />
+          <FreeResource />
           <FAQ />
           <Contact />
           <Disclaimer />
