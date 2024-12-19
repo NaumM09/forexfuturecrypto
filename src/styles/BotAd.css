@@ -1,4 +1,4 @@
-/* BotAdvertisement Styling */
+/* Base Styles for the Bot Advertisement */
 .bot-ad {
     display: flex;
     justify-content: space-between;
@@ -11,6 +11,7 @@
     font-family: 'Poppins', sans-serif;
     position: relative;
     overflow: hidden;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
   }
   
   .bot-content {
@@ -28,6 +29,22 @@
     text-transform: uppercase;
     animation: slideInLeft 1s ease-out;
   }
+
+  /* Styling for price offer */
+.original-price {
+    color: #ff4d4d; /* Red for strikethrough price */
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+  
+  .discounted-price {
+    color: #ff9900; /* Orange for discounted price */
+    font-size: 1.5em;
+    font-weight: bold;
+    animation: popIn 0.5s ease-out;
+  }
   
   .bot-description {
     font-size: 18px;
@@ -39,12 +56,12 @@
   }
   
   .bot-description strong {
-    color: #fff;
+    color: #ff9900;
     font-weight: 600;
   }
   
   .cta-button {
-    background-color: #ff9900;
+    background-color: #ff6600;
     color: #fff;
     font-size: 20px;
     font-weight: bold;
@@ -56,6 +73,7 @@
     transition: transform 0.3s ease, background-color 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: zoomIn 0.5s ease-out;
+    display: inline-block;
   }
   
   .cta-button:hover {
@@ -75,34 +93,84 @@
     animation: floatIn 2s ease-out infinite;
   }
   
-  /* Styling for price offer */
-.original-price {
-    color: #ff4d4d; /* Red for strikethrough price */
-    font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: line-through;
-    margin-right: 10px;
-  }
-  
-  .discounted-price {
-    color: #ff9900; /* Orange for discounted price */
-    font-size: 1.5em;
-    font-weight: bold;
-    animation: popIn 0.5s ease-out;
-  }
-  
-  /* Animation for the discounted price */
-  @keyframes popIn {
-    0% {
-      transform: scale(0.8);
-      opacity: 0;
+  /* Responsive Media Queries */
+  @media (max-width: 1024px) {
+    .bot-ad {
+      padding: 40px 60px;
+      flex-direction: column;
+      text-align: center;
     }
-    100% {
-      transform: scale(1);
-      opacity: 1;
+  
+    .bot-content {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .bot-title {
+      font-size: 28px;
+    }
+  
+    .bot-description {
+      font-size: 16px;
+    }
+  
+    .cta-button {
+      font-size: 18px;
+      padding: 12px 25px;
+    }
+  
+    .bot-animation {
+      max-width: 80%;
     }
   }
   
+  @media (max-width: 768px) {
+    .bot-ad {
+      padding: 30px 40px;
+    }
+  
+    .bot-title {
+      font-size: 24px;
+    }
+  
+    .bot-description {
+      font-size: 14px;
+    }
+  
+    .cta-button {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  
+    .bot-animation {
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bot-ad {
+      padding: 20px 30px;
+    }
+  
+    .bot-title {
+      font-size: 22px;
+    }
+  
+    .bot-description {
+      font-size: 12px;
+    }
+  
+    .cta-button {
+      font-size: 14px;
+      padding: 8px 18px;
+    }
+  
+    .bot-animation {
+      max-width: 100%;
+    }
+  }
+  
+  /* Keyframe Animations */
   @keyframes slideInLeft {
     0% {
       transform: translateX(-100%);
