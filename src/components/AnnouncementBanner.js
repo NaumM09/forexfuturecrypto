@@ -28,7 +28,7 @@ const AnnouncementBanner = () => {
         <div className="announcement-banner">
           <div className="content">
             <div className="logo">
-              <span>Join FundedNext today and elevate your trading career! Use our referral link and enjoy exclusive benefits.</span>
+              <span>Having trouble finding the right Prop Firm? Join FundedNext today and elevate your trading career! Use our referral link and enjoy exclusive benefits.</span>
             </div>
             <a
               href="https://fundednext.com/?fpr=mahlatse-naum96"
