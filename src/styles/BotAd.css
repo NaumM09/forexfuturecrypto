@@ -1,0 +1,149 @@
+/* BotAdvertisement Styling */
+.bot-ad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 60px 80px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bot-content {
+    max-width: 50%;
+    text-align: left;
+    z-index: 2;
+  }
+  
+  .bot-title {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    animation: slideInLeft 1s ease-out;
+  }
+  
+  .bot-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    font-weight: 300;
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  .bot-description strong {
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .cta-button {
+    background-color: #ff9900;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: zoomIn 0.5s ease-out;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff4500;
+    transform: scale(1.05);
+  }
+  
+  .bot-animation {
+    position: relative;
+    max-width: 45%;
+    overflow: hidden;
+  }
+  
+  .bot-image {
+    width: 100%;
+    height: auto;
+    animation: floatIn 2s ease-out infinite;
+  }
+  
+  /* Styling for price offer */
+.original-price {
+    color: #ff4d4d; /* Red for strikethrough price */
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+  
+  .discounted-price {
+    color: #ff9900; /* Orange for discounted price */
+    font-size: 1.5em;
+    font-weight: bold;
+    animation: popIn 0.5s ease-out;
+  }
+  
+  /* Animation for the discounted price */
+  @keyframes popIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes floatIn {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-10px);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

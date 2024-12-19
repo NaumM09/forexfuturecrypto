@@ -16,6 +16,7 @@ import FAQ from "./components/FAQ";
 import Loader from "./components/Loader";   // Import Loader component
 import WhatsAppButton from "./components/Whatsapp";
 import FreeResource from "./components/Resource";
+import BotAdvertisement from "./components/BotAd";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -63,6 +64,7 @@ const App = () => {
           <Hero />
           <Services />
           <Strategy />
+          <BotAdvertisement />
           <Testimonial />
           <WhyChooseUs />
           <PricingPlan />
