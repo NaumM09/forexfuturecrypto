@@ -19,7 +19,7 @@ const BotAdvertisement = () => {
           <br />
           📊 <strong>Risk Management for Consistent Profits</strong>
           <br />
-          🔥 <strong>Limited Time Offer: <span class="original-price"><strike>R6,900</strike></span> <span class="discounted-price">R4,500</span></strong>
+          🔥 <strong>Limited Time Offer: <span class="original-price"><strike>R2,500</strike></span> <span class="discounted-price">R1,650</span></strong>
         </p>
         <button className="cta-button">
             <a   href="https://wa.me/+27810593062" 
