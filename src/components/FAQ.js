@@ -23,7 +23,7 @@ const FAQ = () => {
     {
       question: "How do I access the mentorship materials?",
       answer:
-        "Once you sign up, you'll gain access to our course materials, live streams, and the private community forum via your dashboard.",
+        "Once you sign up, you'll gain access to our course materials, live streams, and the private community forum.",
     },
     {
       question: "Are there any guarantees of profit?",

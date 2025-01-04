@@ -5,9 +5,9 @@ const BotAdvertisement = () => {
   return (
     <section className="bot-ad">
       <div className="bot-content">
-        <h1 className="bot-title">Unlock Your Trading Potential with Our Smart Bot!</h1>
+        <h1 className="bot-title">Quant Edge Machine Learning Bot</h1>
         <p className="bot-description">
-        💰 <strong>Designed for trading XAU/USD, US100, US30</strong>  
+        💰 <strong>Designed for trading XAU/USD, BTC/USD, US100, US30</strong>  
         <br/>
           🚀 <strong>Proven Success Track Record </strong>
           <br />
@@ -15,11 +15,13 @@ const BotAdvertisement = () => {
           <br />
           📈 <strong>Real-Time Market Analysis</strong>
           <br />
-          ⚡ <strong>Lightning-Fast, Secure Trades</strong>
+          ⚡ <strong>Live Market Executions</strong>
           <br />
           📊 <strong>Risk Management for Consistent Profits</strong>
           <br />
-          🔥 <strong>Limited Time Offer: <span class="original-price"><strike>R2,500</strike></span> <span class="discounted-price">R1,650</span></strong>
+           🤖<strong>Python Machine Learning</strong>
+          <br />
+          🔥 <strong>60% January Discount - Offer ends 31 December 2025: <span class="original-price"><strike>R7500</strike></span> <span class="discounted-price">R3000</span></strong>
         </p>
         <button className="cta-button">
             <a   href="https://wa.me/+27810593062" 

@@ -21,6 +21,7 @@ const PricingPlan = () => {
             <li>Advanced trading strategies</li>
             <li>3 Months 1-on-1 mentorship</li>
             <li>Join Telegram Community</li>
+            <li>Access to Copy Trading</li>
           </ul>
           <button className="btn-select">Select Plan</button>
         </div>
@@ -36,6 +37,7 @@ const PricingPlan = () => {
             <li>6 Months VIP mentorship sessions</li>
             <li>Join Telegram Community</li>
             <li>Live Stream</li>
+            <li>Access to Copy Trading</li>
           </ul>
           <button className="btn-select">Select Plan</button>
         </div>
