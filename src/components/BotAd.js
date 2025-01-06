@@ -21,7 +21,7 @@ const BotAdvertisement = () => {
           <br />
            🤖<strong>Python Machine Learning</strong>
           <br />
-          🔥 <strong>60% January Discount - Offer ends 31 December 2025: <span class="original-price"><strike>R7500</strike></span> <span class="discounted-price">R3000</span></strong>
+          🔥 <strong>60% January Discount - Offer ends 31 January 2025: <span class="original-price"><strike>R7500</strike></span> <span class="discounted-price">R3000</span></strong>
         </p>
         <button className="cta-button">
             <a   href="https://wa.me/+27810593062" 
