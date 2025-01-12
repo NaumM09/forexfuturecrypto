@@ -21,12 +21,12 @@ const WeeklyAnalysis = () => {
     {
       id: "AGKYguqcTVk?si",
       title: "What is a real Order Block",
-      description: "Analyzing the impact of global events on markets.",
+      description: "Strategies for maximising profits this week.",
     },
     {
       id: "hJ6LSDNnZlw?si",
       title: "Secret to trading US Oil like a Pro",
-      description: "Strategies for maximizing profits this week.",
+      description: "Analyzing the impact of global events on markets.",
     },
   ];
 
