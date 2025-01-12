@@ -44,11 +44,11 @@ const PricingPlan = () => {
 
         {/* Bootcamp Plan */}
         <div className="pricing-card bootcamp">
-          <div className="coming-soon-banner">Coming Soon</div>
+          <div className="coming-soon-banner">2025, January 29-31</div>
           <div className="pricing-card-header">
             <h3>Bootcamp</h3>
-            <span className="price">R250</span>
-            <p>1 Day</p>
+            <span className="price">R100</span>
+            <p>3 Day</p>
           </div>
           <ul>
             <li>Live price action analysis</li>

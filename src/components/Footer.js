@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-content">
-        <p>&copy; 2024 ForexFutureCrypto. All Rights Reserved.</p>
+        <p>&copy; 2025 ForexFutureCrypto. All Rights Reserved.</p>
         <div className="social-icons">
           <a
             href="https://www.tiktok.com/@fxfuturescrypto" 
