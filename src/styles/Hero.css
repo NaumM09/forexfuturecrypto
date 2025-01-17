@@ -1,147 +1,129 @@
-/* General Styles */
 .hero {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4; /* Light background */
-  padding: 0 2rem;
-  color: #333;
+  justify-content: center;
+  background: white;
+  padding: 4rem 2rem;
 }
 
 .hero-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
   max-width: 1200px;
-  gap: 2rem;
+  width: 100%;
 }
 
-/* Text Column */
 .text-column {
   flex: 1;
-  animation: fadeInLeft 1s ease-out;
+  text-align: left;
+  padding: 1rem;
 }
 
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.hero-title span {
-  color: #007bff;
-  font-weight: bold;
   background: linear-gradient(90deg, #007bff, #00c6ff);
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
 }
 
 .hero-tagline {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  line-height: 1.6;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-.hero-tagline span {
-  text-decoration: underline;
-  text-decoration-color: #007bff;
-  font-weight: bold;
-  transition: text-decoration-color 0.3s ease;
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+  justify-content: flex-start; /* Align buttons to the left */
 }
 
-.hero-tagline span:hover {
-  text-decoration-color: #ff4500;
-}
-
-/* Buttons */
-.button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
+.cta-btn,
+.download-btn {
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  font-weight: bold;
+  text-align: center; /* Centers text in the button */
+  border: none;
+  cursor: pointer;
   text-decoration: none;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block; /* Ensures buttons behave properly in flexbox */
+  min-width: 150px; /* Ensures consistent button width */
 }
 
-/* CTA Button */
 .cta-btn {
-  margin-right:50px;
   background: linear-gradient(90deg, #007bff, #00c6ff);
-  color: #fff;
+  color: white;
+  font-weight: bold;
 }
 
 .cta-btn:hover {
-  background: linear-gradient(90deg, #00c6ff, #007bff);
-  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-/* Download Button */
 .download-btn {
-  background: linear-gradient(90deg, #ff4500, #ff6347);
-  color: #fff;
+  background: #fdbb2d;
+  color: white;
+  font-weight: bold;
 }
 
 .download-btn:hover {
-  background: linear-gradient(90deg, #ff6347, #ff4500);
-  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-/* Image Column */
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons on smaller screens */
+  }
+
+  .cta-btn,
+  .download-btn {
+    width: 100%; /* Full-width buttons on mobile */
+    text-align: center; /* Center the text */
+  }
+}
+
+
 .image-column {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  animation: fadeInRight 1.5s ease-out;
+  text-align: center;
+  padding: 1rem;
 }
 
 .hero-image {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease-in-out;
 }
 
-/* Animations */
-@keyframes fadeInLeft {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
 /* Responsive Design */
+
+/* Small screens (mobile phones) */
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
+    text-align: center;
   }
 
-  .text-column,
-  .image-column {
-    width: 100%;
-    text-align: center;
+  .text-column {
+    padding: 1rem;
   }
 
   .hero-title {
@@ -149,11 +131,48 @@
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .button {
-    font-size: 0.9rem;
-    padding: 10px 20px;
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cta-btn,
+  .download-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+  }
+
+  .hero-buttons {
+    gap: 1rem;
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+  .hero {
+    padding: 5rem 3rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.5rem;
   }
 }

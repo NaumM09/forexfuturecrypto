@@ -1,0 +1,104 @@
+/* Payment page container */
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #27272a;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+  }
+  
+  /* Payment form styling */
+  .payment-info {
+    background-color: #1a2a6c;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+  }
+  
+  /* Header text */
+  .payment-container h2 {
+    font-size: 28px;
+    color: #e4e4e7;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .payment-container p {
+    font-size: 18px;
+    color: #f4a261;
+    margin-bottom: 20px;
+  }
+  
+  /* Payment information details */
+  .payment-info p {
+    font-size: 18px;
+    color: #f4a261;
+    margin-bottom: 10px;
+  }
+  
+  .payment-info span {
+    font-weight: bold;
+    color: #457b9d;
+  }
+  
+  /* Pay Now button */
+  .payment-btn {
+    background-color: #457b9d;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .payment-btn:hover {
+    background-color: #f4a261;
+    transform: scale(1.05);
+  }
+  
+  .payment-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  /* Error messages */
+  .payment-container .error-message {
+    color: #f44336;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .payment-info {
+      padding: 20px 15px;
+    }
+  
+    .payment-container h2 {
+      font-size: 24px;
+    }
+  
+    .payment-info p {
+      font-size: 16px;
+    }
+  
+    .payment-btn {
+      padding: 12px;
+      font-size: 14px;
+    }
+  }
+  

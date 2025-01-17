@@ -1,0 +1,145 @@
+/* Articles Section */
+.articles {
+    background: white;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .articles h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #003366;
+    text-transform: uppercase;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Article Container */
+.article-container {
+    padding: 3rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+    font-family: "Arial", sans-serif;
+  }
+  
+  /* Article Heading */
+  .article-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  /* Article Subheadings */
+  .article-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0056b3;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Paragraph Styling */
+  .article-container p {
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+  
+  /* Lists Styling */
+  .article-container ul {
+    margin-left: 1.5rem;
+    list-style: disc;
+  }
+  
+  .article-container li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  /* References Styling */
+  .article-container strong {
+    color: #333333;
+    font-weight: bold;
+  }
+  
+  
+  /* Articles List */
+  .articles-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .article-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .article-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Article Title */
+  .article-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0056b3;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  
+  /* Article Description */
+  .article-description {
+    font-size: 1rem;
+    color: #555;
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  /* Read More Link */
+  .article-link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    align-self: flex-start;
+  }
+  
+  .article-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .article-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .article-title {
+      margin-bottom: 0.5rem;
+    }
+  
+    .article-description {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  
+    .article-link {
+      align-self: flex-start;
+    }
+  }
+  

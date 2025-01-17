@@ -18,21 +18,11 @@ const WeeklyAnalysis = () => {
       title: "XAU Analysis",
       description: "A deep dive into market corrections.",
     },
-    {
-      id: "AGKYguqcTVk?si",
-      title: "What is a real Order Block",
-      description: "Strategies for maximising profits this week.",
-    },
-    {
-      id: "hJ6LSDNnZlw?si",
-      title: "Secret to trading US Oil like a Pro",
-      description: "Analyzing the impact of global events on markets.",
-    },
   ];
 
   return (
     <section className="weekly-analysis">
-      <h2 className="weekly-analysis-header">Weekly Analysis</h2>
+      <h2 className="weekly-analysis-header">Mentor Video Analysis</h2>
       <div className="video-grid">
         {videos.map((video, index) => (
           <div key={index} className="video-card">

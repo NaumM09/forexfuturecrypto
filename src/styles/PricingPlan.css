@@ -1,154 +1,139 @@
-/* Pricing Section Styling */
+/* General Styles for Pricing Plan */
 .pricing {
-  padding: 80px 20px; /* Add space around the content */
-  background-color: #f9f9f9; /* Light background */
-  text-align: center;
+  padding: 50px 20px;
+  background-color: #f5f7fa;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Header Styling */
 .pricing-header {
-  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .pricing-header h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: #1d3557;
+  margin-bottom: 10px;
 }
 
 .pricing-header p {
   font-size: 1.2rem;
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto;
+  color: #6c757d;
 }
 
-/* Pricing Cards Layout */
+/* Pricing Cards Container */
 .pricing-cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-  flex-wrap: wrap; /* Allow cards to wrap on small screens */
+  gap: 20px;
 }
 
-/* Individual Pricing Card Styling */
+/* Individual Pricing Card */
 .pricing-card {
-  background: #fff;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
   border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
   text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .pricing-card:hover {
-  transform: translateY(-15px); /* Hover animation for card lift */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Highlight Featured Plan */
 .pricing-card.featured {
-  transform: scale(1.05);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-  border: 2px solid #00b4d8; /* Add a border for distinction */
+  border: 2px solid #1d3557;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Pricing Card Header */
-.pricing-card-header {
-  margin-bottom: 20px;
+.pricing-card h3 {
+  font-size: 1.8rem;
+  color: #1d3557;
+  margin-bottom: 10px;
 }
 
-.pricing-card-header h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #333;
+.pricing-card p {
+  font-size: 1.2rem;
+  color: #457b9d;
+  margin-bottom: 15px;
 }
 
-.pricing-card-header .price {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #00b4d8;
-}
-
-.pricing-card-header p {
-  font-size: 1.1rem;
-  color: #777;
-  margin-top: 5px;
-}
-
-/* Pricing Card Features List */
 .pricing-card ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin-bottom: 30px;
-  font-size: 1rem;
-  color: #555;
+  margin: 20px 0;
 }
 
 .pricing-card ul li {
+  font-size: 1rem;
+  color: #6c757d;
   margin-bottom: 10px;
-  position: relative;
-  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pricing-card ul li::before {
-  content: '✔';
-  position: absolute;
-  left: 0;
-  color: #00b4d8; /* Green checkmark color */
-}
-
-/* Select Plan Button */
-.btn-select {
-  padding: 12px 35px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  background-color: #00b4d8;
-  border: none;
-  border-radius: 50px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-}
-
-/* Coming Soon Banner */
-.coming-soon-banner {
-  position: absolute;
-  top: 10px;
-  right: -30px;
-  background-color: #ffcc00; /* Bright yellow for attention */
-  color: #333;
-  font-size: 0.9rem;
+  content: "✔";
+  color: #1d3557;
+  margin-right: 10px;
   font-weight: bold;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  transform: rotate(45deg);
-  z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.pricing-card button {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #1d3557, #457b9d);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.pricing-card button:hover {
+  background: linear-gradient(90deg, #457b9d, #1d3557);
+  transform: scale(1.05);
 }
 
 /* Bootcamp Card */
 .pricing-card.bootcamp {
-  position: relative;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e63946;
 }
 
-
-.btn-select:hover {
-  background-color: #0077b6;
-  transform: scale(1.05); /* Slight scale effect on hover */
+.pricing-card.bootcamp .seasonal-banner {
+  font-size: 1rem;
+  color: #e63946;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Mobile Responsive */
+/* Responsive Styles */
 @media (max-width: 768px) {
+  .pricing-header h2 {
+    font-size: 2rem;
+  }
+
+  .pricing-header p {
+    font-size: 1rem;
+  }
+
   .pricing-cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  .pricing-card {
+    max-width: 90%;
   }
 }

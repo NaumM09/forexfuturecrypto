@@ -1,0 +1,143 @@
+/* LoginPage.css */
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #141e30, #243b55); /* Techy gradient */
+  color: #ffffff;
+  font-family: 'Helvetica', sans-serif;
+  padding: 20px;
+}
+
+.login-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00ffab; /* Modern accent color */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-page form input {
+  background: #1e293b;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: background 0.3s ease;
+}
+
+.login-page form input:focus {
+  background: #273649;
+}
+
+.password-container {
+  position: relative;
+  margin-bottom: 20px; /* Added margin for better spacing */
+}
+
+.password-container input {
+  width: calc(100% - 60px); /* Adjust width to accommodate the toggle button */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #00ffab;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.toggle-password:hover {
+  color: #0078ff;
+  cursor: pointer;
+}
+
+.login-page form button {
+  background: linear-gradient(135deg, #00ffab, #0078ff);
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-page form button:hover {
+  background: linear-gradient(135deg, #0078ff, #00d89e);
+  transform: scale(1.05);
+}
+
+.login-page p {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #f1f1f1;
+}
+
+.login-page p span {
+  color: #00ffab;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.login-page p span:hover {
+  color: #0078ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-page {
+    padding: 10px;
+  }
+
+  .login-page h2 {
+    font-size: 2rem;
+  }
+
+  .login-page form {
+    padding: 20px;
+  }
+
+  .login-page form input {
+    font-size: 0.9rem;
+  }
+
+  .login-page form button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .password-container input {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .toggle-password {
+    font-size: 0.9rem;
+  }
+}

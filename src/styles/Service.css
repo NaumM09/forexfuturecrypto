@@ -1,99 +1,130 @@
-/* Service Section Styling */
-.service {
-  padding: 60px 20px;
-  background-color: #007bff; /* Solid background for the entire section */
+.course-overview {
+  background: white;
+  padding: 4rem 2rem;
   text-align: center;
-  color: #fff; /* White text for contrast */
 }
 
-.service-header h2 {
+.course-header h2 {
   font-size: 2.5rem;
-  color: #fff; /* White color for header */
-  margin-bottom: 20px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
 }
 
-.service-header p {
-  font-size: 1.1rem;
-  color: #fff; /* White text for description */
-  margin-bottom: 40px;
+.course-header p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 3rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
 }
 
-/* Grid Layout for Services */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
-/* Service Item Styling */
-.service-item {
+.course-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #007bff; /* Same solid background as section */
-  padding: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  border-radius: 10px; /* Added rounded corners for a smooth look */
+  justify-content: space-between;
 }
 
-/* Hover Effect */
-.service-item:hover {
-  transform: translateY(-10px); /* Slight lift effect on hover */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Image Styling */
-.service-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  object-fit: cover;
+.course-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 1rem;
 }
 
-/* Text Content Styling */
-.service-content h3 {
-  font-size: 1.6rem;
-  color: #fff; /* White text for headings */
-  margin-bottom: 15px;
-}
-
-.service-content p {
+.course-card p {
   font-size: 1rem;
-  color: #fff; /* White text for description */
-  line-height: 1.5;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-/* Mobile Responsiveness */
+.learn-more-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.learn-more-btn:hover {
+  background: #0056cc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .service-header h2 {
-    font-size: 2.2rem;
+  .course-header h2 {
+    font-size: 2rem;
   }
 
-  .service-header p {
+  .course-header p {
     font-size: 1rem;
   }
 
-  .service-item {
-    padding: 20px;
+  .course-list {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .service-content h3 {
-    font-size: 1.4rem;
+  .course-card {
+    width: 90%;
   }
 
-  .service-content p {
-    font-size: 0.95rem;
+  .learn-more-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* Larger screens (desktops) */
+@media (min-width: 1200px) {
+  .course-overview {
+    padding: 6rem 4rem;
+  }
+
+  .course-header h2 {
+    font-size: 3rem;
+  }
+
+  .course-header p {
+    font-size: 1.5rem;
+  }
+
+  .course-card {
+    padding: 2rem;
+    width: 350px;
+  }
+
+  .learn-more-btn {
+    font-size: 1.1rem;
   }
 }

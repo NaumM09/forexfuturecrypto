@@ -1,50 +1,46 @@
 import React from 'react';
-import '../styles/Service.css';  // Import your styling file
-import forexImage from '../images/forex.jpg';
-import futuresImage from '../images/futures.jpg';
-import cryptoImage from '../images/crypto.jpg';
+import '../styles/Service.css';
 
-const Services = () => {
+const Service = () => {
+  const courses = [
+    {
+      title: 'Forex Trading',
+      description:
+        'Learn the fundamentals of Forex trading, market analysis, and risk management. Perfect for beginners and experienced traders.',
+    },
+    {
+      title: 'Futures Trading',
+      description:
+        'Master the art of Futures trading, including commodities, indices, and risk-hedging strategies.',
+    },
+    {
+      title: 'Crypto Trading',
+      description:
+        'Navigate the dynamic world of cryptocurrencies with expert strategies and insights.',
+    },
+  ];
+
   return (
-    <section className="service">
-      <div className="service-header">
-        <h2>Our Services</h2>
-        <p>We offer a range of services designed to help you succeed in Forex, Futures, and Crypto trading. Our strategies are tailored to meet your unique needs and goals.</p>
+    <section className="course-overview">
+      <div className="course-header">
+        <h2>Comprehensive Trading Courses</h2>
+        <p>
+          Dive into our expertly designed courses to master Forex, Futures, and Cryptocurrency trading. Whether you're a beginner or an experienced trader, our step-by-step modules will guide you to success.
+        </p>
       </div>
-
-      <div className="service-grid">
-        <div className="service-item">
-          <div className="service-image">
-            <img src={forexImage} alt="Forex Trading" />
+      <div className="course-list">
+        {courses.map((course, index) => (
+          <div key={index} className="course-card">
+            <h3>{course.title}</h3>
+            <p>{course.description}</p>
+            <a href="/signup" className="learn-more-btn">
+              Learn More
+            </a>
           </div>
-          <div className="service-content">
-            <h3>Forex Trading</h3>
-            <p>Our Forex trading service offers personalised strategies and expert analysis to help you navigate the global currency markets. Whether you’re new to trading or an experienced investor, we’ll help you make informed decisions with up-to-date insights and risk management strategies.</p>
-          </div>
-        </div>
-        
-        <div className="service-item">
-          <div className="service-image">
-            <img src={futuresImage} alt="Futures Trading" />
-          </div>
-          <div className="service-content">
-            <h3>Futures Trading</h3>
-            <p>Futures trading can be complex, but we make it easy. Our services provide you with advanced strategies and techniques to trade commodities, indices, and other assets. Learn how to predict market trends and hedge against risk with expert guidance and analysis.</p>
-          </div>
-        </div>
-        
-        <div className="service-item">
-          <div className="service-image">
-            <img src={cryptoImage} alt="Crypto Trading" />
-          </div>
-          <div className="service-content">
-            <h3>Crypto Trading</h3>
-            <p>The world of cryptocurrencies is ever-evolving. Our Crypto trading service equips you with the knowledge to navigate the volatile crypto markets. From Bitcoin to Altcoins, we offer the tools and insights you need to make confident, informed decisions in your crypto investments.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default Services;
+export default Service;

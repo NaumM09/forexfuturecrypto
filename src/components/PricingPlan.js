@@ -1,63 +1,69 @@
-import React from 'react';
-import '../styles/PricingPlan.css'; // Import your CSS for styling
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/PricingPlan.css";
 
 const PricingPlan = () => {
+  const navigate = useNavigate();
+
+  // Function to convert USD to ZAR (South African Rand)
+  const convertToRands = (amountUSD) => {
+    const exchangeRate = 18.5; // Example USD to ZAR exchange rate
+    return Math.round(amountUSD * exchangeRate);
+  };
+
+  const handlePlanSelection = (plan) => {
+    // Save the selected plan in sessionStorage
+    sessionStorage.setItem("selectedPlan", plan);
+
+    // Redirect to sign up page
+    navigate("/signup"); // Direct to signup page after selecting plan
+  };
+
   return (
     <section className="pricing">
       <div className="pricing-header">
-        <h2>Choose Your Pricing Plan</h2>
-        <p>Find the perfect plan for your trading journey. Whether you're just starting or are a seasoned pro, we have the right option for you!</p>
+        <h2>Choose Your Plan</h2>
+        <p>Select the best plan for your trading journey.</p>
       </div>
 
       <div className="pricing-cards">
-
         <div className="pricing-card">
-          <div className="pricing-card-header">
-            <h3>Beginner Plan</h3>
-            <span className="price">R800</span>
-            <p>once off</p>
-          </div>
+          <h3>Beginners Plan</h3>
+          <p>R{convertToRands(10)} / month</p>
           <ul>
-            <li>Advanced trading strategies</li>
-            <li>3 Months 1-on-1 mentorship</li>
-            <li>Join Telegram Community</li>
-            <li>Access to Copy Trading</li>
+            <li>Introduction to trading</li>
+            <li>Access to beginner strategies</li>
+            <li>Join our trading community</li>
           </ul>
-          <button className="btn-select">Select Plan</button>
+          <button onClick={() => handlePlanSelection("beginner")}>
+            Subscribe Now
+          </button>
         </div>
 
         <div className="pricing-card featured">
-          <div className="pricing-card-header">
-            <h3>Pro Plan</h3>
-            <span className="price">R2500</span>
-            <p>once off</p>
-          </div>
+          <h3>Pro Plan</h3>
+          <p>R{convertToRands(25)} / month</p>
           <ul>
-            <li>Exclusive advanced strategies</li>
-            <li>6 Months VIP mentorship sessions</li>
-            <li>Join Telegram Community</li>
-            <li>Live Stream</li>
-            <li>Access to Copy Trading</li>
+            <li>Advanced trading strategies</li>
+            <li>Exclusive signals</li>
+            <li>One-on-one mentorship</li>
+            <li>Live trading sessions</li>
           </ul>
-          <button className="btn-select">Select Plan</button>
+          <button onClick={() => handlePlanSelection("pro")}>
+            Subscribe Now
+          </button>
         </div>
 
-        {/* Bootcamp Plan */}
         <div className="pricing-card bootcamp">
-          <div className="coming-soon-banner">2025, January 29-31</div>
-          <div className="pricing-card-header">
-            <h3>Bootcamp</h3>
-            <span className="price">R100</span>
-            <p>3 Day</p>
-          </div>
+          <h3>Bootcamp</h3>
+          <p>R{convertToRands(2.7)} (One-time)</p>
           <ul>
             <li>Live price action analysis</li>
-            <li>Trade Forecasts</li>
-            <li>Access to recordings</li>
-            <li>Join Telegram Community</li>
+            <li>Trade forecasts</li>
+            <li>Exclusive recordings</li>
           </ul>
-          <button className="btn-select" disabled>
-            Limited Availability
+          <button onClick={() => handlePlanSelection("bootcamp")}>
+            Register Now
           </button>
         </div>
       </div>
@@ -66,5 +72,3 @@ const PricingPlan = () => {
 };
 
 export default PricingPlan;
-
-
