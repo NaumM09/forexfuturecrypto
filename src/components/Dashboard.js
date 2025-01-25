@@ -2,9 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
 import "../styles/Dashboard.css";
+import logo from "../images/logo-loader.png";
 
 const Dashboard = () => {
-  const [userName, setUserName] = useState("User");
+  const [userName, setUserName] = useState(""); // Empty default
   const [playlists, setPlaylists] = useState({});
   const [expandedPlaylists, setExpandedPlaylists] = useState({});
   const [subscriptionStatus, setSubscriptionStatus] = useState("Fetching subscription status...");
@@ -122,7 +123,7 @@ const Dashboard = () => {
           ],
         },
       });
-    };    
+    };  
 
     fetchUserData();
   }, [navigate]);
@@ -134,7 +135,9 @@ const Dashboard = () => {
     }));
   };
 
-  const toggleProfileMenu = () => setIsProfileMenuOpen((prev) => !prev);
+  const toggleProfileMenu = () => {
+    setIsProfileMenuOpen((prev) => !prev);
+  };
 
   const closeProfileMenu = (e) => {
     if (
@@ -151,38 +154,29 @@ const Dashboard = () => {
     return () => document.removeEventListener("click", closeProfileMenu);
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      await auth.signOut();
-      navigate("/auth");
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
-
-  const handleCancelSubscription = () => {
-    alert("Subscription cancellation is not implemented yet.");
-  };
-
   return (
     <div className="dashboard">
       <header className="dashboard-header">
         <div className="header-left">
-          <h1>ForexFuturesCrypto</h1>
+          <img src={logo} alt="Forex Futures Crypto" className="logo" />
         </div>
         <div className="header-right">
-          <span>
-            Welcome back, <strong>{userName}</strong>!
-          </span>
+          <span>{userName ? `Welcome back, ${userName}!` : "Welcome back!"}</span>
           <button className="profile-btn" onClick={toggleProfileMenu}>
             Profile
           </button>
           {isProfileMenuOpen && (
             <div ref={profileMenuRef} className="profile-menu">
               <p>Language: English (za)</p>
-              <p onClick={() => alert("Notifications feature coming soon!")}>Notifications</p>
-              <p onClick={handleCancelSubscription}>Cancel Subscription</p>
-              <p onClick={handleLogout} className="logout-btn">
+              <p>Notifications</p>
+              <p>Cancel Subscription</p>
+              <p
+                className="logout-btn"
+                onClick={() => {
+                  auth.signOut();
+                  navigate("/auth");
+                }}
+              >
                 Logout
               </p>
             </div>
@@ -200,8 +194,7 @@ const Dashboard = () => {
                   className="playlist-title"
                   onClick={() => togglePlaylist(playlistName)}
                 >
-                  {playlistName}{" "}
-                  <span>{expandedPlaylists[playlistName] ? "-" : "+"}</span>
+                  {playlistName} <span>{expandedPlaylists[playlistName] ? "-" : "+"}</span>
                 </h4>
                 {expandedPlaylists[playlistName] && (
                   <div className="playlist-content">
@@ -248,5 +241,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
 

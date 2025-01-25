@@ -218,6 +218,12 @@ body {
   text-align: center;
 }
 
+.logo {
+  height: 40px; /* Adjust as needed */
+  object-fit: contain;
+}
+
+
 /* Footer */
 .dashboard-footer {
   padding: 10px 20px;
