@@ -28,12 +28,17 @@ const AuthHandler = () => {
       setStatus("Email successfully verified! Redirecting to login...");
       setTimeout(() => navigate("/auth"), 3000);
     } catch (err) {
-      console.error("Error verifying email:", err);
-      setStatus("The email verification link is invalid or expired.");
+      console.error("Error verifying email:", err.message);
+      setStatus(
+        "The email verification link is invalid or expired. Please request a new one."
+      );
     }
   }, [navigate, oobCode]);
 
   useEffect(() => {
+    console.log("Mode:", mode);
+    console.log("OOB Code:", oobCode);
+
     if (!mode || !oobCode) {
       setStatus("Invalid or missing action parameters.");
       return;
