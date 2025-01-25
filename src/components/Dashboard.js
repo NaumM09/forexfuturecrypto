@@ -122,7 +122,7 @@ const Dashboard = () => {
           ],
         },
       });
-    };
+    };    
 
     fetchUserData();
   }, [navigate]);
@@ -137,7 +137,11 @@ const Dashboard = () => {
   const toggleProfileMenu = () => setIsProfileMenuOpen((prev) => !prev);
 
   const closeProfileMenu = (e) => {
-    if (profileMenuRef.current && !profileMenuRef.current.contains(e.target)) {
+    if (
+      profileMenuRef.current &&
+      !profileMenuRef.current.contains(e.target) &&
+      e.target.className !== "profile-btn"
+    ) {
       setIsProfileMenuOpen(false);
     }
   };
@@ -146,6 +150,19 @@ const Dashboard = () => {
     document.addEventListener("click", closeProfileMenu);
     return () => document.removeEventListener("click", closeProfileMenu);
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate("/auth");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
+  const handleCancelSubscription = () => {
+    alert("Subscription cancellation is not implemented yet.");
+  };
 
   return (
     <div className="dashboard">
@@ -163,9 +180,11 @@ const Dashboard = () => {
           {isProfileMenuOpen && (
             <div ref={profileMenuRef} className="profile-menu">
               <p>Language: English (za)</p>
-              <p>Notifications</p>
-              <p>Cancel Subscription</p>
-              <p onClick={() => auth.signOut() && navigate("/auth")}>Logout</p>
+              <p onClick={() => alert("Notifications feature coming soon!")}>Notifications</p>
+              <p onClick={handleCancelSubscription}>Cancel Subscription</p>
+              <p onClick={handleLogout} className="logout-btn">
+                Logout
+              </p>
             </div>
           )}
         </div>
@@ -229,3 +248,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
