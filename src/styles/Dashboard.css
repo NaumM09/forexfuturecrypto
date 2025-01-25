@@ -22,8 +22,9 @@ body {
   padding: 10px 20px;
   background-color: #343a40;
   color: #ffffff;
-  position: relative;
-  z-index: 100;
+  position: sticky; /* Keep header visible on scroll */
+  top: 0;
+  z-index: 1000;
 }
 
 .header-left h1 {
@@ -54,7 +55,7 @@ body {
 /* Profile Menu */
 .profile-menu {
   position: absolute;
-  top: 45px;
+  top: 50px;
   right: 0;
   background: #ffffff;
   border: 1px solid #ddd;
@@ -106,7 +107,7 @@ body {
 }
 
 .sidebar {
-  width: 450px; /* Extended width */
+  width: 450px;
   background-color: #ffffff;
   border-right: 1px solid #ddd;
   padding: 15px 20px;
@@ -225,63 +226,17 @@ body {
   text-align: center;
 }
 
-.renew-button {
-  margin-top: 10px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.renew-button:hover {
-  background-color: #0056b3;
-}
-
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 350px; /* Adjusted width for tablets */
-  }
-
-  .dashboard-main {
-    flex-direction: column;
-  }
-
-  .video-section {
-    padding: 10px;
-  }
-}
-
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    order: 2;
-    padding: 10px;
-    border-right: none;
-    border-top: 1px solid #ddd;
-  }
-
-  .video-section {
-    order: 1;
-    padding: 10px;
-  }
-
-  .video-player {
-    width: 100%;
-    height: auto;
-  }
-
-  .video-details h3 {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 480px) {
   .dashboard-header {
     flex-wrap: wrap;
     padding: 10px;
+  }
+
+  .header-left h1 {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
   }
 
   .header-right {
@@ -290,34 +245,37 @@ body {
     justify-content: center;
   }
 
-  .header-left h1 {
-    font-size: 16px;
-    text-align: center;
-    width: 100%;
-    white-space: nowrap;
+  .profile-menu {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    width: auto;
+    max-width: 90%;
   }
 
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+    order: 2;
+    border-right: none;
+    border-top: 1px solid #ddd;
+  }
+
+  .video-section {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
   .sidebar {
     padding: 10px;
   }
 
-  .playlist-title {
-    font-size: 14px;
-  }
-
-  .video-item {
-    font-size: 14px;
-  }
-
   .profile-menu {
-    width: 100%; /* Full width for smaller screens */
-    top: auto;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-  }
-
-  .profile-menu p {
-    padding: 10px;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    max-width: 90%;
   }
 }
