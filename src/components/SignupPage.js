@@ -1,68 +1,79 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext"; // Import the AuthContext
-import { db } from "../firebase"; // Import Firestore instance
+import { auth, db } from "../firebase"; // Import Firebase instances
+import { createUserWithEmailAndPassword, sendEmailVerification, deleteUser } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; // Firestore functions
 import "../styles/Auth.css"; // Import CSS for styling
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [name, setName] = useState(""); // State for user's name
+  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); // State for error messages
-  const [showPassword, setShowPassword] = useState(false); // Toggle for password visibility
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // State for success message
+  const [showPassword, setShowPassword] = useState(false);
 
-  const { signUp } = useAuth(); // Get signUp from AuthContext
   const navigate = useNavigate();
-
-  // Get the selected plan from sessionStorage
-  const selectedPlan = sessionStorage.getItem("selectedPlan");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error message
+    setError("");
+    setSuccessMessage("");
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match!");
+      setError("The passwords entered do not match. Please try again.");
       return;
     }
 
     setLoading(true);
+
     try {
       // Create user account
-      const userCredential = await signUp(email, password);
-      const userId = userCredential.user.uid;
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Send email verification
+      await sendEmailVerification(user);
+      setSuccessMessage(
+        "A verification email has been sent to your email address. Please check your inbox and verify your email before logging in."
+      );
 
       // Save user data to Firestore
-      await db.collection("users").doc(userId).set({
+      await setDoc(doc(db, "users", user.uid), {
         email,
-        name, // Store user's name
-        subscriptionRef: selectedPlan, // Store the selected plan
+        name: name.trim(),
+        verified: false, // Track verification status
+        createdAt: new Date(),
       });
 
-      console.log("User and subscription linked successfully!");
-      
-      // Redirect to Paystack payment page based on selected plan
-      if (selectedPlan === "beginner") {
-        window.location.href = "https://paystack.com/pay/gvqh7jn0fw"; // Beginner plan payment link
-      } else if (selectedPlan === "pro") {
-        window.location.href = "https://paystack.com/pay/o1n28a55tk"; // Pro plan payment link
-      } else if (selectedPlan === "bootcamp") {
-        // Handle bootcamp redirection if necessary
-        alert("Redirecting to bootcamp payment...");
-        // Redirect to bootcamp payment link here if needed
-      }
+      setLoading(false);
     } catch (err) {
-      console.error("Error during signup:", err.message);
-      setError("An error occurred. Please contact support.");
-    } finally {
+      console.error("Error during signup:", err);
+
+      // Rollback: Delete the created user if signup fails
+      if (auth.currentUser) {
+        await deleteUser(auth.currentUser).catch((deleteError) =>
+          console.error("Failed to delete user after signup error:", deleteError)
+        );
+      }
+
+      // Handle errors with specific messages
+      const errorMessages = {
+        "auth/email-already-in-use": "The email address is already in use. Please log in.",
+        "auth/weak-password": "The password provided is too weak. Please choose a stronger password.",
+        "auth/invalid-email": "The email address provided is not valid. Please try again.",
+        "auth/network-request-failed": "Network error. Please check your connection and try again.",
+      };
+
+      setError(errorMessages[err.code] || "An unexpected error occurred. Please contact support.");
       setLoading(false);
     }
   };
 
   const handlePasswordToggle = () => {
-    setShowPassword(!showPassword); // Toggle the password visibility
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -70,6 +81,8 @@ const SignupPage = () => {
       <div className="auth-form">
         <h2>Sign Up</h2>
 
+        {/* Display success or error message */}
+        {successMessage && <p className="success-message">{successMessage}</p>}
         {error && <p className="error-message">{error}</p>}
 
         <form onSubmit={handleSubmit}>
@@ -102,8 +115,12 @@ const SignupPage = () => {
             required
           />
 
-          {/* Password visibility toggle */}
-          <span className="password-toggle" onClick={handlePasswordToggle}>
+          <span
+            className="password-toggle"
+            onClick={handlePasswordToggle}
+            role="button"
+            aria-label={showPassword ? "Hide Password" : "Show Password"}
+          >
             {showPassword ? "Hide" : "Show"} Password
           </span>
 

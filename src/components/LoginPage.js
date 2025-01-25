@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext"; // Import the AuthContext
+import { sendPasswordResetEmail } from "firebase/auth"; // Import password reset method
+import { auth } from "../firebase"; // Firebase instance
 import "../styles/Auth.css"; // Import CSS for styling
 
 const LoginPage = () => {
@@ -8,11 +10,13 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [resetStatus, setResetStatus] = useState(""); // State for reset password status
+  const [showReset, setShowReset] = useState(false); // Toggle between login and reset
 
   const { login, error } = useAuth(); // Get login and error from AuthContext
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -25,24 +29,44 @@ const LoginPage = () => {
     }
   };
 
-  const getFriendlyErrorMessage = (firebaseError) => {
-    if (firebaseError.includes("auth/user-not-found")) {
-      return "No account found with this email. Please sign up.";
-    } else if (firebaseError.includes("auth/wrong-password")) {
-      return "Incorrect password. Please try again.";
-    } else if (firebaseError.includes("auth/too-many-requests")) {
-      return "Too many login attempts. Please try again later.";
-    } else {
-      return "An error occurred during login. Please try again.";
+  const handlePasswordReset = async (e) => {
+    e.preventDefault();
+    if (!email) {
+      setResetStatus("Please provide your email to reset your password.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setResetStatus(
+        "A password reset link has been sent to your email. Please check your inbox."
+      );
+      setEmail(""); // Clear email field after successful operation
+    } catch (err) {
+      console.error("Error sending password reset email:", err);
+      setResetStatus(
+        "Unable to send the reset email. Please check your email or try again later."
+      );
+    } finally {
+      setLoading(false);
+      // Clear the reset status message after 5 seconds
+      setTimeout(() => setResetStatus(""), 5000);
     }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-form">
-        <h2>Login</h2>
-        {error && <p className="error-message">{getFriendlyErrorMessage(error)}</p>}
-        <form onSubmit={handleSubmit}>
+        <h2>{showReset ? "Reset Password" : "Login"}</h2>
+        {resetStatus && <p className="reset-status">{resetStatus}</p>}
+        {error && !showReset && (
+          <p className="error-message">
+            Incorrect email or password. Please try again.
+          </p>
+        )}
+
+        <form onSubmit={showReset ? handlePasswordReset : handleLogin}>
           <input
             type="email"
             placeholder="Email"
@@ -50,28 +74,47 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <div className="password-container">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <span
-              className="toggle-password"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? "Hide Password" : "Show Password"}
-            </span>
-          </div>
+          {!showReset && (
+            <div className="password-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span
+                className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide Password" : "Show Password"}
+              </span>
+            </div>
+          )}
           <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
+            {loading
+              ? "Processing..."
+              : showReset
+              ? "Send Reset Link"
+              : "Login"}
           </button>
         </form>
-        <p>
-          Don't have an account? <span onClick={() => navigate("/signup")}>Sign Up</span>
-        </p>
+        {!showReset && (
+          <p className="forgot-password" onClick={() => setShowReset(true)}>
+            Forgot Password?
+          </p>
+        )}
+        {showReset && (
+          <p className="forgot-password" onClick={() => setShowReset(false)}>
+            Back to Login
+          </p>
+        )}
+        {!showReset && (
+          <p>
+            Don't have an account?{" "}
+            <span onClick={() => navigate("/signup")}>Sign Up</span>
+          </p>
+        )}
       </div>
     </div>
   );

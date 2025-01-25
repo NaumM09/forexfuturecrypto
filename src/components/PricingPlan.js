@@ -34,6 +34,7 @@ const PricingPlan = () => {
             <li>Introduction to trading</li>
             <li>Access to beginner strategies</li>
             <li>Join our trading community</li>
+            <li>Copy Trading</li>
           </ul>
           <button onClick={() => handlePlanSelection("beginner")}>
             Subscribe Now
@@ -45,9 +46,9 @@ const PricingPlan = () => {
           <p>R{convertToRands(25)} / month</p>
           <ul>
             <li>Advanced trading strategies</li>
-            <li>Exclusive signals</li>
             <li>One-on-one mentorship</li>
             <li>Live trading sessions</li>
+            <li>Copy Trading</li>
           </ul>
           <button onClick={() => handlePlanSelection("pro")}>
             Subscribe Now
@@ -56,7 +57,7 @@ const PricingPlan = () => {
 
         <div className="pricing-card bootcamp">
           <h3>Bootcamp</h3>
-          <p>R{convertToRands(2.7)} (One-time)</p>
+          <p>R{convertToRands(5.4)} (One-time)</p>
           <ul>
             <li>Live price action analysis</li>
             <li>Trade forecasts</li>

@@ -17,7 +17,10 @@ import LoginPage from "./components/LoginPage";
 import Dashboard from "./components/Dashboard";
 import PaymentPage from "./components/PaymentPage";
 import AdminUpload from "./components/AdminUpload";
+import ResetPasswordPage from "./components/PasswordResetPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import VerificationPage from "./components/VerificationPage";
+import AuthHandler from "./components/AuthHandler";
 import WhatsAppButton from "./components/Whatsapp";
 import JustMarketsPopup from './components/Popup';
 import { auth, db } from "./firebase"; // Firebase configuration
@@ -111,6 +114,9 @@ const App = () => {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/admin-upload" element={<AdminUpload />} />
+          <Route path="/auth-handler" element={<AuthHandler />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/verify-email" element={<VerificationPage />} />
           <Route
             path="/dashboard"
             element={
