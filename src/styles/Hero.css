@@ -1,178 +1,467 @@
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  padding: 4rem 2rem;
+/* Hero Section Styles */
+:root {
+  --primary-color: #0066cc;
+  --accent-color: #00cc99;
+  --bg-color: #111827;
+  --text-color: #ffffff;
+  --text-secondary: #a0aec0;
+  --up-color: #00cc99;
+  --down-color: #ff4757;
+  --card-bg: rgba(17, 24, 39, 0.7);
+  --border-color: rgba(255, 255, 255, 0.08);
 }
 
+.hero {
+  position: relative;
+  min-height: 90vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+  padding: 0 0 80px 0;
+}
+
+/* Background pattern */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Main content layout */
 .hero-content {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  width: 100%;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  position: relative;
+  z-index: 1;
 }
 
+@media (min-width: 1024px) {
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+/* Text Column */
 .text-column {
   flex: 1;
-  text-align: left;
-  padding: 1rem;
+  z-index: 2;
+}
+
+.hero-greeting {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #007bff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
 }
 
-.hero-tagline {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
-  justify-content: flex-start; /* Align buttons to the left */
-}
-
-.cta-btn,
-.download-btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  text-align: center; /* Centers text in the button */
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  display: inline-block; /* Ensures buttons behave properly in flexbox */
-  min-width: 150px; /* Ensures consistent button width */
-}
-
-.cta-btn {
-  background: linear-gradient(90deg, #007bff, #00c6ff);
-  color: white;
-  font-weight: bold;
-}
-
-.cta-btn:hover {
-  opacity: 0.9;
-}
-
-.download-btn {
-  background: #fdbb2d;
-  color: white;
-  font-weight: bold;
-}
-
-.download-btn:hover {
-  opacity: 0.9;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center; /* Center buttons on smaller screens */
-  }
-
-  .cta-btn,
-  .download-btn {
-    width: 100%; /* Full-width buttons on mobile */
-    text-align: center; /* Center the text */
-  }
-}
-
-
-.image-column {
-  flex: 1;
-  text-align: center;
-  padding: 1rem;
-}
-
-.hero-image {
-  max-width: 100%;
-  height: auto;
-  animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-
-/* Small screens (mobile phones) */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .text-column {
-    padding: 1rem;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-tagline {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .cta-btn,
-  .download-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Medium screens (tablets) */
-@media (max-width: 1024px) {
-  .hero-title {
-    font-size: 2.75rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.15rem;
-  }
-
-  .hero-buttons {
-    gap: 1rem;
-  }
-}
-
-/* Large screens (desktops) */
-@media (min-width: 1200px) {
-  .hero {
-    padding: 5rem 3rem;
-  }
-
+@media (min-width: 768px) {
   .hero-title {
     font-size: 3.5rem;
   }
+}
 
-  .hero-tagline {
-    font-size: 1.5rem;
+.highlight {
+  color: var(--accent-color);
+  position: relative;
+  white-space: nowrap;
+  background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+  background-size: 100% 10%;
+  background-repeat: no-repeat;
+  background-position: 0 90%;
+  padding: 0 4px;
+}
+
+.hero-tagline {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.cta-btn {
+  background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 204, 153, 0.4);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 204, 153, 0.5);
+}
+
+.download-btn {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Trading Focus Areas */
+.trading-focus {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.focus-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.focus-icon {
+  font-size: 1.25rem;
+}
+
+.focus-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Image Column */
+.image-column {
+  flex: 1;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .image-column {
+    margin-top: 0;
+  }
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 102, 204, 0.4),
+    rgba(0, 204, 153, 0.2)
+  );
+}
+
+/* Visual Element (Chart) */
+.visual-element {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.trading-chart {
+  position: relative;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  height: 300px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.chart-svg {
+  width: 100%;
+  height: 200px;
+}
+
+.chart-annotations {
+  position: relative;
+  width: 100%;
+  height: 0;
+  top: -200px;
+}
+
+.chart-annotation {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.chart-annotation.entry {
+  background-color: var(--accent-color);
+  color: black;
+}
+
+.chart-annotation.resistance {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.chart-annotation.target {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Community Stats */
+.community-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Market Ticker */
+.market-ticker {
+  position: relative;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border-color);
+  padding: 10px 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.ticker-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  z-index: 1;
+}
+
+.ticker-label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.ticker-wrapper {
+  display: flex;
+  gap: 30px;
+  padding-left: 120px;
+  animation: tickerScroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+}
+
+.ticker-pair {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.ticker-value {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.ticker-change {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.up {
+  color: var(--up-color);
+}
+
+.down {
+  color: var(--down-color);
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .community-stats {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .stat-item {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Entrance animations */
+.hero:not(.visible) {
+  opacity: 0.7;
+}
+
+.hero.visible {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 10px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }

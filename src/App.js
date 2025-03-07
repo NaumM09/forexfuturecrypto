@@ -4,14 +4,11 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Service";
-import PricingPlan from "./components/PricingPlan";
 import Disclaimer from "./components/Disclaimer";
-import Testimonial from "./components/Testimonial";
-import Strategy from "./components/Strategy";
+import Events from "./components/Events";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import FreeResource from "./components/Resource";
-import WeeklyAnalysis from "./components/Analysis";
+import Challenge from "./components/Challenge";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import Dashboard from "./components/Dashboard";
@@ -28,7 +25,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import WhyChooseUs from "./components/WhyChooseUs";
+// import Resource from "./components/Resource";
 import Articles from "./components/Articles"; // Articles section component
 
 // Individual article pages
@@ -96,13 +93,10 @@ const App = () => {
                 <JustMarketsPopup />
                 <Hero />
                 <Services />
-                <Strategy />
-                <WhyChooseUs />
-                <WeeklyAnalysis />
+                <Events />
+                {/* <Resource/> */}
+                <Challenge />
                 <Articles /> {/* Include Articles section */}
-                <Testimonial />
-                <PricingPlan />
-                <FreeResource />
                 <Contact />
                 <Disclaimer />
                 <WhatsAppButton />

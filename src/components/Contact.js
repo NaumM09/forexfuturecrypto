@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
-import { FaTelegram } from 'react-icons/fa'; // Import Telegram icon
+import React, { useState, useEffect } from 'react';
+import { FaEnvelope, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 import { db } from '../firebase'; // Import Firestore instance
 import { collection, addDoc, query, where, getDocs } from 'firebase/firestore'; // Firestore methods
-import '../styles/Contact.css'; // Update styling file
+import '../styles/Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ email: '' });
   const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Clear status message after 5 seconds
+  useEffect(() => {
+    let timer;
+    if (status) {
+      timer = setTimeout(() => setStatus(''), 5000);
+    }
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,13 +31,12 @@ const Contact = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
       setStatus('Invalid email address. Please try again.');
-      setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
       return;
     }
 
     // Show loading status
+    setIsSubmitting(true);
     setStatus('Subscribing...');
-    setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
 
     try {
       // Check if the email already exists in the subscribers collection
@@ -35,7 +45,7 @@ const Contact = () => {
 
       if (!querySnapshot.empty) {
         setStatus('You have already subscribed.');
-        setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
+        setIsSubmitting(false);
         return;
       }
 
@@ -45,53 +55,92 @@ const Contact = () => {
         subscribedAt: new Date(),
       });
 
-      console.log('Document written with ID: ', docRef.id); // Log the document ID for successful subscription
+      console.log('Document written with ID: ', docRef.id);
       setStatus('Subscription successful! 🎉');
       setFormData({ email: '' });
-
-      setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
+      setIsSubmitting(false);
 
     } catch (error) {
       console.error('Error adding document: ', error);
       setStatus(`Oops! Something went wrong: ${error.message}`);
-      setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="subscribe-section">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest trading insights, tips, and bootcamp updates!</p>
-
-      <form onSubmit={handleSubmit} className="subscribe-form">
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+    <section className="contact-section">
+      <div className="contact-container">
+        <div className="contact-header">
+          <h2 className="contact-title">
+            Subscribe to Our <span className="highlight">Newsletter</span>
+          </h2>
+          <p className="contact-description">
+            Stay updated with the latest trading insights, tips, and community updates!
+          </p>
         </div>
-        <button type="submit" className="submit-btn">Subscribe</button>
-      </form>
 
-      {status && (
-        <div className={`status-message ${status.includes('Error') ? 'error' : 'success'}`}>
-          {status}
+        <div className="subscription-card">
+          <form onSubmit={handleSubmit} className="subscribe-form">
+            <div className="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                required
+              />
+            </div>
+            
+            <button 
+              type="submit" 
+              className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="spinner"></span>
+                  <span>Subscribing...</span>
+                </>
+              ) : (
+                'Subscribe'
+              )}
+            </button>
+          </form>
+          
+          <AnimatePresence>
+            {status && (
+              <motion.div 
+                className={`status-message ${status.includes('Error') || status.includes('Invalid') || status.includes('Oops') ? 'error' : status.includes('already') ? 'warning' : 'success'}`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+              >
+                {status.includes('Error') || status.includes('Invalid') || status.includes('Oops') ? (
+                  <FaExclamationTriangle className="status-icon" />
+                ) : status.includes('already') ? (
+                  <FaExclamationTriangle className="status-icon" />
+                ) : (
+                  <FaCheckCircle className="status-icon" />
+                )}
+                <span>{status}</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          
+          <div className="newsletter-benefits">
+            <div className="benefit-item">
+              <span className="benefit-text">Weekly Live Streams</span>
+            </div>
+            <div className="benefit-item">
+              <span className="benefit-text">Community event notifications</span>
+            </div>
+          </div>
         </div>
-      )}
-
-      <div className="telegram-section">
-        <a href="https://t.me/forexfuturescryptofree" target="_blank" rel="noopener noreferrer" className="telegram-link">
-          <FaTelegram className="telegram-icon" />
-          Join our free Telegram Group 
-        </a>
       </div>
-    </div>
+    </section>
   );
 };
 

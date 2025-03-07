@@ -5,6 +5,8 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  sendEmailVerification
 } from "firebase/auth";
 import { app } from "../firebase"; // Ensure correct path to your firebase.js
 
@@ -63,17 +65,49 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const resetPassword = async (email) => {
+    try {
+      setError(null);
+      await sendPasswordResetEmail(auth, email);
+    } catch (err) {
+      console.error("Password reset error:", err);
+      setError(err.message);
+      throw err;
+    }
+  };
+
+  const verifyEmail = async () => {
+    try {
+      setError(null);
+      if (currentUser) {
+        await sendEmailVerification(currentUser);
+      } else {
+        throw new Error("No user is signed in");
+      }
+    } catch (err) {
+      console.error("Email verification error:", err);
+      setError(err.message);
+      throw err;
+    }
+  };
+
   const value = {
     currentUser,
+    loading,
     login,
     signUp,
     logout,
+    resetPassword,
+    verifyEmail,
     error, // Expose error for components to display
+    clearError: () => setError(null)
   };
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };
+
+export default AuthProvider;
