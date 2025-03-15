@@ -32,6 +32,7 @@ import Article2025BullRun from "./pages/articles/Article2025BullRun";
 import Article2025ForexOutlook from "./pages/articles/Article2025ForexOutlook";
 import ArticleAIInTrading from "./pages/articles/ArticleAIInTrading";
 import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
+import Community from "./pages/navbar/community"; // Import the Community page
 
 const App = () => {
 
@@ -120,6 +121,8 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          {/* Community Route */}
+          <Route path="/community" element={<Community />} />
           {/* Articles Routes */}
           <Route path="/articles/2025-bull-run" element={<Article2025BullRun />} />
           <Route path="/articles/2025-forex-outlook" element={<Article2025ForexOutlook />} />

@@ -7,7 +7,8 @@ const EXCHANGE_DATA = [
   {
     name: "New York (NYSE)",
     timezone: "America/New_York",
-    flag: "🇺🇸",
+    flag: "US",
+    flagIcon: "🇺🇸",
     region: "Americas",
     hours: { open: 14.5, close: 21 }, // 9:30 AM - 4:00 PM ET in UTC hours
     offset: -4, // EDT offset from UTC (changes with daylight savings)
@@ -18,7 +19,8 @@ const EXCHANGE_DATA = [
   {
     name: "NASDAQ",
     timezone: "America/New_York",
-    flag: "🇺🇸",
+    flag: "US",
+    flagIcon: "🇺🇸",
     region: "Americas",
     hours: { open: 14.5, close: 21 }, // 9:30 AM - 4:00 PM ET in UTC hours
     offset: -4,
@@ -29,7 +31,8 @@ const EXCHANGE_DATA = [
   {
     name: "Toronto (TSX)",
     timezone: "America/Toronto",
-    flag: "🇨🇦",
+    flag: "CA",
+    flagIcon: "🇨🇦",
     region: "Americas",
     hours: { open: 14.5, close: 21 }, // 9:30 AM - 4:00 PM ET in UTC hours
     offset: -4,
@@ -40,7 +43,8 @@ const EXCHANGE_DATA = [
   {
     name: "São Paulo (B3)",
     timezone: "America/Sao_Paulo",
-    flag: "🇧🇷",
+    flag: "BR",
+    flagIcon: "🇧🇷",
     region: "Americas",
     hours: { open: 14, close: 21 }, // 10:00 AM - 5:00 PM BRT in UTC hours
     offset: -3,
@@ -51,7 +55,8 @@ const EXCHANGE_DATA = [
   {
     name: "London (LSE)",
     timezone: "Europe/London",
-    flag: "🇬🇧",
+    flag: "GB",
+    flagIcon: "🇬🇧",
     region: "Europe",
     hours: { open: 8, close: 16.5 }, // 8:00 AM - 4:30 PM BST in UTC hours
     offset: 1, // BST offset from UTC
@@ -62,7 +67,8 @@ const EXCHANGE_DATA = [
   {
     name: "Euronext",
     timezone: "Europe/Paris",
-    flag: "🇪🇺",
+    flag: "EU",
+    flagIcon: "🇪🇺",
     region: "Europe",
     hours: { open: 7, close: 15.5 }, // 9:00 AM - 5:30 PM CEST in UTC hours
     offset: 2, // CEST offset from UTC
@@ -73,7 +79,8 @@ const EXCHANGE_DATA = [
   {
     name: "Frankfurt (XETRA)",
     timezone: "Europe/Berlin",
-    flag: "🇩🇪",
+    flag: "DE",
+    flagIcon: "🇩🇪",
     region: "Europe",
     hours: { open: 7, close: 15.5 }, // 9:00 AM - 5:30 PM CEST in UTC hours
     offset: 2,
@@ -84,7 +91,8 @@ const EXCHANGE_DATA = [
   {
     name: "Johannesburg (JSE)",
     timezone: "Africa/Johannesburg",
-    flag: "🇿🇦",
+    flag: "ZA",
+    flagIcon: "🇿🇦",
     region: "Africa",
     hours: { open: 7, close: 15 }, // 9:00 AM - 5:00 PM SAST in UTC hours
     offset: 2, // SAST offset from UTC
@@ -95,7 +103,8 @@ const EXCHANGE_DATA = [
   {
     name: "Hong Kong (HKEX)",
     timezone: "Asia/Hong_Kong",
-    flag: "🇭🇰",
+    flag: "HK",
+    flagIcon: "🇭🇰",
     region: "Asia",
     hours: { open: 1.5, close: 8 }, // 9:30 AM - 4:00 PM HKT in UTC hours
     offset: 8, // HKT offset from UTC
@@ -106,7 +115,8 @@ const EXCHANGE_DATA = [
   {
     name: "Shanghai (SSE)",
     timezone: "Asia/Shanghai",
-    flag: "🇨🇳",
+    flag: "CN",
+    flagIcon: "🇨🇳",
     region: "Asia",
     hours: { open: 1.5, close: 7 }, // 9:30 AM - 3:00 PM CST in UTC hours
     offset: 8, // CST offset from UTC
@@ -117,7 +127,8 @@ const EXCHANGE_DATA = [
   {
     name: "Tokyo (TSE)",
     timezone: "Asia/Tokyo",
-    flag: "🇯🇵",
+    flag: "JP",
+    flagIcon: "🇯🇵",
     region: "Asia",
     hours: { open: 0, close: 6 }, // 9:00 AM - 3:00 PM JST in UTC hours
     offset: 9, // JST offset from UTC
@@ -128,7 +139,8 @@ const EXCHANGE_DATA = [
   {
     name: "Sydney (ASX)",
     timezone: "Australia/Sydney",
-    flag: "🇦🇺",
+    flag: "AU",
+    flagIcon: "🇦🇺",
     region: "Oceania",
     hours: { open: 0, close: 6 }, // 10:00 AM - 4:00 PM AEST in UTC hours
     offset: 10, // AEST offset from UTC
@@ -147,6 +159,17 @@ const HOLIDAY_CALENDAR = [
   { date: "2025-05-25", exchanges: ["New York (NYSE)", "NASDAQ"], name: "Memorial Day" },
   { date: "2025-07-04", exchanges: ["New York (NYSE)", "NASDAQ"], name: "Independence Day" },
 ];
+
+// Flag component for cross-platform display
+const FlagDisplay = ({ country }) => {
+  const flagUrl = `https://flagcdn.com/w20/${country.toLowerCase()}.png`;
+  
+  return (
+    <div className="flag-container">
+      <img src={flagUrl} alt={country} className="country-flag" />
+    </div>
+  );
+};
 
 const GlobalExchangeBanner = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -417,7 +440,9 @@ const GlobalExchangeBanner = () => {
     <div className="global-exchange-banner">
       <div className="exchange-banner-header">
         <div className="exchange-title">
-          <span className="world-icon">🌎</span>
+          <span className="world-icon">
+            <i className="fas fa-globe-americas"></i>
+          </span>
           Global Market Hours
         </div>
         <div className="view-toggle">
@@ -493,7 +518,9 @@ const GlobalExchangeBanner = () => {
               {openExchanges.length > 0 ? (
                 openExchanges.map(exchange => (
                   <div key={exchange.name} className="exchange-card open">
-                    <div className="exchange-flag">{exchange.flag}</div>
+                    <div className="exchange-flag">
+                      <FlagDisplay country={exchange.flag} />
+                    </div>
                     <div className="exchange-info">
                       <div className="exchange-name">{exchange.name}</div>
                       <div className="exchange-details">
@@ -525,7 +552,9 @@ const GlobalExchangeBanner = () => {
               {closedExchanges.length > 0 ? (
                 closedExchanges.map(exchange => (
                   <div key={exchange.name} className="exchange-card closed">
-                    <div className="exchange-flag">{exchange.flag}</div>
+                    <div className="exchange-flag">
+                      <FlagDisplay country={exchange.flag} />
+                    </div>
                     <div className="exchange-info">
                       <div className="exchange-name">{exchange.name}</div>
                       <div className="exchange-details">
@@ -558,7 +587,9 @@ const GlobalExchangeBanner = () => {
                     key={exchange.name} 
                     className={`exchange-card ${isExchangeOpen(exchange) ? 'open' : 'closed'}`}
                   >
-                    <div className="exchange-flag">{exchange.flag}</div>
+                    <div className="exchange-flag">
+                      <FlagDisplay country={exchange.flag} />
+                    </div>
                     <div className="exchange-info">
                       <div className="exchange-name">{exchange.name}</div>
                       <div className="exchange-details">
