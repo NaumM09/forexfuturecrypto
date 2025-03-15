@@ -1,0 +1,457 @@
+/* Global Exchange Banner Styles - Improved to match the design in the screenshot */
+.global-exchange-banner {
+    background-color: #0d1424;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #f5f5f5;
+  }
+  
+  /* Header Styles */
+  .global-exchange-banner .exchange-banner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #0d1424;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .global-exchange-banner .exchange-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    display: flex;
+    align-items: center;
+  }
+  
+  .global-exchange-banner .world-icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: #00cc99;
+  }
+  
+  .global-exchange-banner .exchange-time {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    text-align: right;
+  }
+  
+  /* View Toggle Buttons */
+  .global-exchange-banner .view-toggle {
+    display: flex;
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .global-exchange-banner .view-button {
+    background-color: transparent;
+    border: none;
+    color: #cbd5e0;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .global-exchange-banner .view-button:hover {
+    background-color: rgba(0, 102, 204, 0.2);
+  }
+  
+  .global-exchange-banner .view-button.active {
+    background-color: #0078d4;
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* Region Filters */
+  .global-exchange-banner .exchange-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #0d1424;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .global-exchange-banner .region-filter {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #cbd5e0;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .global-exchange-banner .region-filter:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .global-exchange-banner .region-filter.active {
+    background-color: #00b7c3;
+    border-color: #00b7c3;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .global-exchange-banner .holiday-toggle {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #cbd5e0;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: auto;
+  }
+  
+  .global-exchange-banner .holiday-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .global-exchange-banner .holiday-toggle.active {
+    background-color: #cc6600;
+    border-color: #cc6600;
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* Holiday Panel */
+  .global-exchange-banner .holiday-panel {
+    background-color: rgba(204, 102, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+  }
+  
+  .global-exchange-banner .holiday-panel h3 {
+    color: #ffcc00;
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+  }
+  
+  .global-exchange-banner .holiday-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .global-exchange-banner .holiday-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem;
+    border-left: 3px solid #ffcc00;
+  }
+  
+  .global-exchange-banner .holiday-date {
+    font-weight: 700;
+    color: #ffcc00;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .global-exchange-banner .holiday-name {
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .global-exchange-banner .holiday-markets {
+    color: #a0aec0;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Exchanges Container */
+  .global-exchange-banner .exchanges-container {
+    padding: 1.5rem;
+  }
+  
+  .global-exchange-banner .exchanges-section {
+    margin-bottom: 2rem;
+  }
+  
+  .global-exchange-banner .exchanges-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .global-exchange-banner .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .global-exchange-banner .status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .global-exchange-banner .status-indicator.open {
+    background-color: #00cc99;
+    box-shadow: 0 0 10px rgba(0, 204, 153, 0.5);
+  }
+  
+  .global-exchange-banner .status-indicator.closed {
+    background-color: #a0aec0;
+  }
+  
+  .global-exchange-banner .exchanges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Region View */
+  .global-exchange-banner .exchanges-container.region-view {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .global-exchange-banner .region-section {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  }
+  
+  .global-exchange-banner .region-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .global-exchange-banner .region-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+    border-left: 4px solid #0066cc;
+  }
+  
+  /* Exchange Cards */
+  .global-exchange-banner .exchange-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background-color: #1a2232;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .global-exchange-banner .exchange-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card Header */
+  .global-exchange-banner .exchange-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .global-exchange-banner .exchange-name-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .global-exchange-banner .exchange-flag {
+    font-size: 1.2rem;
+  }
+  
+  .global-exchange-banner .exchange-name {
+    font-weight: 600;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+  }
+  
+  .global-exchange-banner .local-time {
+    color: #a0aec0;
+    font-size: 0.85rem;
+  }
+  
+  /* Card Content */
+  .global-exchange-banner .exchange-content {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  
+  .global-exchange-banner .exchange-detail {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+  }
+  
+  .global-exchange-banner .detail-label {
+    color: #a0aec0;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .global-exchange-banner .detail-value {
+    color: #f5f5f5;
+    font-weight: 500;
+  }
+  
+  .global-exchange-banner .status-label {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+  
+  .global-exchange-banner .status-label.weekend {
+    background-color: rgba(160, 174, 192, 0.2);
+    color: #a0aec0;
+  }
+  
+  .global-exchange-banner .index-name {
+    font-weight: 600;
+  }
+  
+  .global-exchange-banner .market-hours {
+    color: #a0aec0;
+  }
+  
+  .global-exchange-banner .opens-in {
+    color: #00cc99;
+    font-weight: 600;
+  }
+  
+  .global-exchange-banner .no-exchanges {
+    grid-column: 1 / -1;
+    padding: 1.5rem;
+    text-align: center;
+    color: #a0aec0;
+    font-size: 0.9rem;
+    background-color: #1a2232;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Banner Footer */
+  .global-exchange-banner .banner-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #0d1424;
+  }
+  
+  .global-exchange-banner .time-zones {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .global-exchange-banner .time-zone {
+    text-align: center;
+  }
+  
+  .global-exchange-banner .zone-name {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #a0aec0;
+    margin-bottom: 4px;
+  }
+  
+  .global-exchange-banner .zone-time {
+    font-size: 0.9rem;
+    color: #f5f5f5;
+  }
+  
+  .global-exchange-banner .data-info {
+    font-size: 0.75rem;
+    color: #718096;
+    text-align: center;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    .global-exchange-banner .exchange-banner-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .global-exchange-banner .view-toggle {
+      margin: 0.5rem 0;
+      width: 100%;
+    }
+    
+    .global-exchange-banner .view-button {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .global-exchange-banner .exchange-time {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+    }
+    
+    .global-exchange-banner .exchanges-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .global-exchange-banner .exchange-filters {
+      overflow-x: auto;
+      padding: 1rem;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    
+    .global-exchange-banner .region-filter,
+    .global-exchange-banner .holiday-toggle {
+      white-space: nowrap;
+    }
+    
+    .global-exchange-banner .holiday-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .global-exchange-banner .time-zones {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .global-exchange-banner .time-zone {
+      flex: 1 0 calc(50% - 0.5rem);
+    }
+    
+    .global-exchange-banner .exchange-content {
+      grid-template-columns: 1fr;
+    }
+  }

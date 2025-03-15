@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Service";
+// import Services from "./components/Service";
 import Disclaimer from "./components/Disclaimer";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
@@ -24,7 +24,6 @@ import { auth, db } from "./firebase"; // Firebase configuration
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 // import Resource from "./components/Resource";
 import Articles from "./components/Articles"; // Articles section component
 
@@ -32,6 +31,7 @@ import Articles from "./components/Articles"; // Articles section component
 import Article2025BullRun from "./pages/articles/Article2025BullRun";
 import Article2025ForexOutlook from "./pages/articles/Article2025ForexOutlook";
 import ArticleAIInTrading from "./pages/articles/ArticleAIInTrading";
+import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
 
 const App = () => {
 
@@ -92,7 +92,8 @@ const App = () => {
               <>
                 <JustMarketsPopup />
                 <Hero />
-                <Services />
+                <GlobalExchangeBanner/>
+                {/* <Services /> */}
                 <Events />
                 {/* <Resource/> */}
                 <Challenge />

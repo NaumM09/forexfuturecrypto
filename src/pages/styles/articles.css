@@ -1,0 +1,160 @@
+/* Article Styles */
+  
+  .article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Article heading styles */
+  .article-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+  }
+  
+  .article-container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 40px 0 20px;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+  
+  /* Paragraph styles */
+  .article-container p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  /* List styles */
+  .article-container ul {
+    margin: 20px 0;
+    padding-left: 20px;
+  }
+  
+  .article-container li {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .article-container li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  /* Emphasis */
+  .article-container strong {
+    color: var(--accent-color);
+    font-weight: 600;
+  }
+  
+  /* References section */
+  .article-container p:last-child {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .article-container p:last-child ul {
+    margin-top: 10px;
+  }
+  
+  .article-container p:last-child li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .article-container h1 {
+      font-size: 2rem;
+    }
+    
+    .article-container h2 {
+      font-size: 1.5rem;
+    }
+    
+    .article-container p,
+    .article-container li {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Article card style for listing page */
+  .article-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .article-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+  }
+  
+  .article-card p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+  }
+  
+  .article-card .read-more {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .article-card .read-more:hover {
+    text-decoration: underline;
+  }
+  
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .article-meta .date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .article-meta .tags {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .article-meta .tag {
+    background-color: rgba(0, 102, 204, 0.1);
+    border: 1px solid rgba(0, 102, 204, 0.3);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+  }

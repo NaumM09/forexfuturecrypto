@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Hero.css';
 // Always import the heroImage to avoid the undefined error
 import heroImage from '../images/hero.png';
+import { FaDiscord, FaWhatsapp, FaDownload, FaUserFriends } from 'react-icons/fa';
 
 // SVG background pattern component for more visual interest
 const BackgroundPattern = () => (
@@ -10,7 +11,7 @@ const BackgroundPattern = () => (
     <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
       <defs>
         <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,0,0,0.05)" strokeWidth="0.5" />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#grid)" />
@@ -18,76 +19,7 @@ const BackgroundPattern = () => (
   </div>
 );
 
-// Market ticker component with real-time animation
-const MarketTicker = () => {
-  const [tickerItems, setTickerItems] = useState([
-    { pair: 'EURUSD', value: 1.0925, change: 0.15, direction: 'up' },
-    { pair: 'GBPUSD', value: 1.2640, change: -0.08, direction: 'down' },
-    { pair: 'USDJPY', value: 149.85, change: 0.22, direction: 'up' },
-    { pair: 'Gold', value: 2332.40, change: 0.45, direction: 'up' },
-    { pair: 'BTC', value: 61250, change: 1.20, direction: 'up' },
-    { pair: 'ETH', value: 3120, change: -0.65, direction: 'down' }
-  ]);
-
-  // Simulated price updates - in a real app this would connect to an API
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTickerItems(prevItems => 
-        prevItems.map(item => {
-          // Random micro fluctuation to simulate live market
-          const fluctuation = (Math.random() - 0.5) * 0.2;
-          const newChange = parseFloat((item.change + fluctuation).toFixed(2));
-          const direction = newChange >= 0 ? 'up' : 'down';
-          
-          // Calculate new value based on change percentage
-          const baseValue = item.value / (1 + (item.change / 100));
-          const newValue = baseValue * (1 + (newChange / 100));
-          
-          return {
-            ...item,
-            value: parseFloat(newValue.toFixed(item.pair === 'BTC' || item.pair === 'ETH' ? 0 : 2)),
-            change: newChange,
-            direction,
-            // Add flash effect for visual indication of change
-            flash: true
-          };
-        })
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="market-ticker">
-      <div className="ticker-header">
-        <span className="ticker-label">LIVE MARKET</span>
-      </div>
-      <div className="ticker-wrapper">
-        {tickerItems.map((item, index) => (
-          <motion.div 
-            key={`${item.pair}-${index}`}
-            className={`ticker-item ${item.direction}`}
-            initial={{ opacity: 0.8 }}
-            animate={{ 
-              opacity: [0.8, 1, 0.8],
-              y: item.flash ? [0, -2, 0] : 0 
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="ticker-pair">{item.pair}</span>
-            <span className={`ticker-value ${item.direction}`}>{item.value.toLocaleString()}</span>
-            <span className={`ticker-change ${item.direction}`}>
-              {item.direction === 'up' ? '▲' : '▼'} {Math.abs(item.change)}%
-            </span>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// Community stats with animated counters
+// Enhanced Community stats with animated counters
 const CommunityStats = () => {
   const [isVisible, setIsVisible] = useState(false);
   const statsRef = useRef(null);
@@ -109,8 +41,6 @@ const CommunityStats = () => {
     }
     
     return () => {
-      // Use observer.disconnect() instead of trying to unobserve specific elements
-      // This ensures all observed elements are properly cleaned up
       observer.disconnect();
     };
   }, []);
@@ -118,17 +48,18 @@ const CommunityStats = () => {
   return (
     <div className="community-stats" ref={statsRef}>
       {[
-        { number: 1200, label: 'Active Members', plus: true },
-        { number: 18, label: 'African Countries', plus: false },
-        { number: 24, label: 'Hour Support', suffix: '/7' }
+        { number: 1200, label: 'Active Members', plus: true, icon: <FaUserFriends /> },
+        { number: 18, label: 'African Countries', plus: false, icon: '🌍' },
+        { number: 24, label: 'Hour Support', suffix: '/7', icon: '⏱️' }
       ].map((stat, index) => (
         <motion.div 
           className="stat-item" 
           key={index}
           initial={{ y: 20, opacity: 0 }}
           animate={isVisible ? { y: 0, opacity: 1 } : {}}
-          transition={{ delay: index * 0.2, duration: 0.5 }}
+          transition={{ delay: index * 0.15, duration: 0.5 }}
         >
+          <div className="stat-icon">{stat.icon}</div>
           <span className="stat-number">
             {isVisible ? (
               <motion.span
@@ -151,7 +82,43 @@ const CommunityStats = () => {
   );
 };
 
-// Main HeroSection component
+// New component: Featured community benefit
+const FeaturedBenefit = () => {
+  const [currentBenefit, setCurrentBenefit] = useState(0);
+  const benefits = [
+    { title: "Live Trading Sessions", icon: "📊" },
+    { title: "Expert Mentorship", icon: "👨‍🏫" },
+    { title: "Daily Market Analysis", icon: "📈" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBenefit(prev => (prev + 1) % benefits.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [benefits.length]);
+
+  return (
+    <div className="featured-benefit">
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={currentBenefit}
+          className="benefit-content"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="benefit-icon">{benefits[currentBenefit].icon}</span>
+          <span className="benefit-title">{benefits[currentBenefit].title}</span>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// Main HeroSection component - light theme version
 const HeroSection = ({ useHeroImage = false }) => {
   const heroRef = useRef(null);
   
@@ -168,7 +135,6 @@ const HeroSection = ({ useHeroImage = false }) => {
       { threshold: 0.1 }
     );
 
-    // Store the current ref value to use in the cleanup function
     const currentRef = heroRef.current;
     
     if (currentRef) {
@@ -176,8 +142,6 @@ const HeroSection = ({ useHeroImage = false }) => {
     }
 
     return () => {
-      // Properly clean up by disconnecting the observer
-      // This prevents trying to access the ref value that might have changed
       observer.disconnect();
     };
   }, []);
@@ -220,6 +184,9 @@ const HeroSection = ({ useHeroImage = false }) => {
             Connect with expert traders across the continent to share insights, 
             strategies, and build your path to success in global markets.
           </p>
+
+          {/* New Featured Benefit component */}
+          <FeaturedBenefit />
           
           <motion.div 
             className="hero-buttons"
@@ -228,22 +195,32 @@ const HeroSection = ({ useHeroImage = false }) => {
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             <a 
+              href="https://discord.gg/8jvAP3CH" 
+              className="discord-btn button primary-cta" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Join our Discord community"
+            >
+              <FaDiscord className="button-icon" />
+              Join Discord
+            </a>
+            <a 
               href="https://wa.me/+27810593062" 
-              className="cta-btn button" 
+              className="whatsapp-btn button" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Join our community via WhatsApp"
             >
-              <span className="button-icon">💬</span>
-              Join Our Community
+              <FaWhatsapp className="button-icon" />
+              WhatsApp
             </a>
             <a 
-              href="/Free-Trading-Resources.pdf" 
+              href="/Free-Beginners-Content.pdf" 
               className="download-btn button" 
               download
               aria-label="Download free trading resources"
             >
-              <span className="button-icon">📊</span>
+              <FaDownload className="button-icon" />
               Free Resources
             </a>
           </motion.div>
@@ -284,15 +261,26 @@ const HeroSection = ({ useHeroImage = false }) => {
           {useHeroImage ? (
             <div className="image-wrapper">
               <img 
-                src={heroImage || 'https://placehold.co/600x400/111827/CCCCCC?text=Trading+Community'} 
+                src={heroImage || 'https://placehold.co/600x400/f5f5f5/333333?text=Trading+Community'} 
                 alt="Traders collaborating on market analysis" 
                 className="hero-image" 
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/600x400/111827/CCCCCC?text=Trading+Community';
+                  e.target.src = 'https://placehold.co/600x400/f5f5f5/333333?text=Trading+Community';
                 }}
               />
               <div className="image-overlay"></div>
+              
+              {/* Added Discord badge on the image */}
+              <motion.div 
+                className="discord-badge"
+                initial={{ scale: 0, rotate: -10 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
+              >
+                <FaDiscord className="discord-badge-icon" />
+                <span>Join Our Discord</span>
+              </motion.div>
             </div>
           ) : (
             <div className="visual-element">
@@ -319,7 +307,7 @@ const HeroSection = ({ useHeroImage = false }) => {
                       y1={i * 50} 
                       x2="400" 
                       y2={i * 50} 
-                      stroke="rgba(255,255,255,0.1)" 
+                      stroke="rgba(0,0,0,0.1)" 
                       strokeDasharray="4 4"
                     />
                   ))}
@@ -385,15 +373,28 @@ const HeroSection = ({ useHeroImage = false }) => {
                 </motion.div>
               </div>
               
-              {/* Community stats display */}
+              {/* Enhanced Community stats display */}
               <CommunityStats />
+              
+              {/* Discord community highlight */}
+              <motion.div 
+                className="discord-community-highlight"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2.5, duration: 0.5 }}
+              >
+                <FaDiscord className="discord-icon" />
+                <div className="discord-text">
+                  <p>Join <strong>the fastest growing community of</strong> traders on Discord</p>
+                  <a href="https://discord.gg/8jvAP3CH" target="_blank" rel="noopener noreferrer">
+                    Connect Now
+                  </a>
+                </div>
+              </motion.div>
             </div>
           )}
         </motion.div>
       </div>
-      
-      {/* Live market ticker */}
-      <MarketTicker />
     </section>
   );
 };

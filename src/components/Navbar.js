@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { Link } from "react-scroll";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState("community");
   const navRef = useRef(null);
+  // We don't need to explicitly use location since NavLink handles active state
 
-  // Handle scroll events for navbar background with debouncing
+  // Handle scroll events for navbar background
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -17,24 +16,6 @@ const Navbar = () => {
         if (!scrolled) setScrolled(true);
       } else {
         if (scrolled) setScrolled(false);
-      }
-
-      // Detect active section for highlighting
-      const sections = ["community", "events", "resources", "markets"];
-      let currentSection = activeItem;
-
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            currentSection = section;
-          }
-        }
-      });
-
-      if (currentSection !== activeItem) {
-        setActiveItem(currentSection);
       }
     };
 
@@ -54,7 +35,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", throttledScroll);
       if (scrollTimer) clearTimeout(scrollTimer);
     };
-  }, [scrolled, activeItem]);
+  }, [scrolled]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -90,18 +71,19 @@ const Navbar = () => {
     setMenuOpen(false);
   }, []);
 
+  // Updated nav items for actual pages
   const navItems = [
-    { id: "community", label: "Community" },
-    { id: "events", label: "Events" },
-    { id: "resources", label: "Resources" },
-    { id: "markets", label: "Markets" },
+    { path: "/community", label: "Community" },
+    { path: "/events", label: "Events" },
+    { path: "/resources", label: "Resources" },
+    { path: "/brokers", label: "Brokers" },
   ];
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`} ref={navRef}>
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className="brand-name" aria-label="TradersUnite Africa Homepage">
+          <NavLink to="/" className="brand-name" aria-label="FX Futures Crypto Africa Homepage">
             <span className="brand-text">Fx Futures Crypto</span>
             <span className="brand-africa">Africa</span>
           </NavLink>
@@ -120,18 +102,14 @@ const Navbar = () => {
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           {navItems.map((item) => (
-            <li key={item.id} className={activeItem === item.id ? "active" : ""}>
-              <Link 
-                to={item.id} 
-                spy={true}
-                smooth={true} 
-                duration={500} 
-                offset={-70}
+            <li key={item.path}>
+              <NavLink 
+                to={item.path}
                 onClick={closeMenu}
-                className={activeItem === item.id ? "active" : ""}
+                className={({ isActive }) => isActive ? "active" : ""}
               >
                 {item.label}
-              </Link>
+              </NavLink>
             </li>
           ))}
           <li>
@@ -150,7 +128,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="login-menu-item">
-            <NavLink to="/auth" className="login-button" onClick={closeMenu}>
+            <NavLink to="/join" className="login-button" onClick={closeMenu}>
               <span className="login-text">Join Our Network</span>
               <span className="login-arrow">→</span>
             </NavLink>

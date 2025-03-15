@@ -1,142 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { FaEnvelope, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
-import { db } from '../firebase'; // Import Firestore instance
-import { collection, addDoc, query, where, getDocs } from 'firebase/firestore'; // Firestore methods
+import React from 'react';
+import { FaDiscord, FaUsers, FaChartLine, FaLightbulb, FaFemale } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ email: '' });
-  const [status, setStatus] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Clear status message after 5 seconds
-  useEffect(() => {
-    let timer;
-    if (status) {
-      timer = setTimeout(() => setStatus(''), 5000);
-    }
-    return () => clearTimeout(timer);
-  }, [status]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Validate email
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(formData.email)) {
-      setStatus('Invalid email address. Please try again.');
-      return;
-    }
-
-    // Show loading status
-    setIsSubmitting(true);
-    setStatus('Subscribing...');
-
-    try {
-      // Check if the email already exists in the subscribers collection
-      const q = query(collection(db, 'subscribers'), where('email', '==', formData.email));
-      const querySnapshot = await getDocs(q);
-
-      if (!querySnapshot.empty) {
-        setStatus('You have already subscribed.');
-        setIsSubmitting(false);
-        return;
-      }
-
-      // Save email to Firestore if it's not already subscribed
-      const docRef = await addDoc(collection(db, 'subscribers'), {
-        email: formData.email,
-        subscribedAt: new Date(),
-      });
-
-      console.log('Document written with ID: ', docRef.id);
-      setStatus('Subscription successful! 🎉');
-      setFormData({ email: '' });
-      setIsSubmitting(false);
-
-    } catch (error) {
-      console.error('Error adding document: ', error);
-      setStatus(`Oops! Something went wrong: ${error.message}`);
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <section className="contact-section">
-      <div className="contact-container">
-        <div className="contact-header">
-          <h2 className="contact-title">
-            Subscribe to Our <span className="highlight">Newsletter</span>
+    <section className="community-section">
+      <div className="community-container">
+        <div className="community-header">
+          <h2 className="community-title">
+            Join Our <span className="highlight">Trading Community</span>
           </h2>
-          <p className="contact-description">
-            Stay updated with the latest trading insights, tips, and community updates!
+          <p className="community-description">
+            Connect with like-minded traders, share insights, and grow together in our supportive community.
           </p>
         </div>
 
-        <div className="subscription-card">
-          <form onSubmit={handleSubmit} className="subscribe-form">
-            <div className="form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                disabled={isSubmitting}
-                required
-              />
+        <div className="community-cards">
+          {/* Main Discord Community Card */}
+          <div className="community-card discord-card">
+            <div className="card-icon">
+              <FaDiscord />
             </div>
-            
-            <button 
-              type="submit" 
-              className={`submit-btn ${isSubmitting ? 'submitting' : ''}`}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <span className="spinner"></span>
-                  <span>Subscribing...</span>
-                </>
-              ) : (
-                'Subscribe'
-              )}
-            </button>
-          </form>
-          
-          <AnimatePresence>
-            {status && (
-              <motion.div 
-                className={`status-message ${status.includes('Error') || status.includes('Invalid') || status.includes('Oops') ? 'error' : status.includes('already') ? 'warning' : 'success'}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-              >
-                {status.includes('Error') || status.includes('Invalid') || status.includes('Oops') ? (
-                  <FaExclamationTriangle className="status-icon" />
-                ) : status.includes('already') ? (
-                  <FaExclamationTriangle className="status-icon" />
-                ) : (
-                  <FaCheckCircle className="status-icon" />
-                )}
-                <span>{status}</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          
-          <div className="newsletter-benefits">
-            <div className="benefit-item">
-              <span className="benefit-text">Weekly Live Streams</span>
+            <h3>Trading Discord Community</h3>
+            <p>Join thousands of traders worldwide sharing strategies, market analysis, and trading opportunities in real-time.</p>
+            <ul className="community-benefits">
+              <li><FaUsers className="benefit-icon" /> <span>24/7 active trading chat</span></li>
+              <li><FaChartLine className="benefit-icon" /> <span>Daily market analysis</span></li>
+              <li><FaLightbulb className="benefit-icon" /> <span>Strategy sharing sessions</span></li>
+            </ul>
+            <a href="https://discord.gg/8jvAP3CH" target="_blank" rel="noopener noreferrer" className="discord-btn">
+              Join Our Discord
+            </a>
+          </div>
+
+          {/* Female Traders Community Card */}
+          <div className="community-card female-traders-card">
+            <div className="card-header">
+              <span className="special-badge">Women in Trading</span>
             </div>
-            <div className="benefit-item">
-              <span className="benefit-text">Community event notifications</span>
+            <h3>Female Forex Traders Network</h3>
+            <p>A dedicated space for women in the forex trading industry to connect, collaborate, and empower each other.</p>
+            <div className="female-traders-features">
+              <div className="feature">
+                <FaFemale className="feature-icon" />
+                <span>Women-led trading sessions</span>
+              </div>
+              <div className="feature">
+                <FaFemale className="feature-icon" />
+                <span>Mentorship opportunities</span>
+              </div>
+              <div className="feature">
+                <FaFemale className="feature-icon" />
+                <span>Support network</span>
+              </div>
             </div>
+            <a href="https://wa.me/+27810593062" target="_blank" rel="noopener noreferrer" className="female-traders-btn">
+              Join Female Traders Network
+            </a>
           </div>
         </div>
       </div>

@@ -1,112 +1,69 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import '../styles/Challenge.css';
 
-// Sample challenge data
+// Realistic trading challenge data
 const challengesData = [
   {
     id: 1,
-    title: "Weekly Price Action Challenge",
-    description: "Trade solely based on price action patterns without indicators. Post your best setup and analysis.",
+    title: "EURUSD Price Action Analysis",
+    description: "Analyze EURUSD 4H chart using pure price action. Identify key support/resistance levels, market structure, and potential entry points with detailed reasoning.",
     difficulty: "intermediate",
     participants: 48,
     daysLeft: 3,
-    prize: "1-Month Premium Membership",
-    image: "https://placehold.co/600x400/111827/00cc99?text=Price+Action"
+    prize: "1-Month VIP Signal Access",
+    image: "https://placehold.co/600x400/f5f5f5/333333?text=EURUSD+Analysis"
   },
   {
     id: 2,
-    title: "Risk Management Showdown",
-    description: "Achieve the highest profit with maximum 2% risk per trade. Document your risk:reward on each position.",
+    title: "2% Risk Management Challenge",
+    description: "Trade 10 days with maximum 2% risk per position. Document each trade with entry/exit points, position sizing calculation, and risk:reward ratio. Highest return wins.",
     difficulty: "advanced",
     participants: 32,
     daysLeft: 5,
-    prize: "Trading Journal Pro License",
-    image: "https://placehold.co/600x400/111827/0066cc?text=Risk+Management"
+    prize: "TradingView Pro Account (1-year)",
+    image: "https://placehold.co/600x400/f5f5f5/333333?text=Risk+Management"
   },
   {
     id: 3,
-    title: "Beginner's Chart Reading Contest",
-    description: "Identify support/resistance levels and key patterns on provided charts. Perfect for new traders!",
+    title: "Supply & Demand Zone Identification",
+    description: "Mark key supply and demand zones on 5 provided charts (GBPUSD, USDJPY, Gold, BTC, Oil). Explain the rationale for each zone and how you'd trade them.",
     difficulty: "beginner",
     participants: 75,
     daysLeft: 7,
-    prize: "Technical Analysis E-Book",
-    image: "https://placehold.co/600x400/111827/a855f7?text=Chart+Reading"
-  },
-  {
-    id: 4,
-    title: "Forex Forecasting Competition",
-    description: "Predict weekly high/low ranges for major currency pairs with detailed analysis of your methodology.",
-    difficulty: "advanced",
-    participants: 29,
-    daysLeft: 2,
-    prize: "1-Hour Mentoring Session",
-    image: "https://placehold.co/600x400/111827/cc6600?text=Forex+Forecast"
+    prize: "Smart Money Concepts Course ($297 value)",
+    image: "https://placehold.co/600x400/f5f5f5/333333?text=Supply+Demand"
   }
 ];
 
-// Leaderboard data
+// Top traders leaderboard data
 const leaderboardData = [
   { 
     rank: 1, 
     name: "TradeMaster254", 
     country: "Kenya", 
     points: 1250,
-    avatar: "https://placehold.co/100x100/111827/00cc99?text=TM" 
+    winRate: "68%",
+    speciality: "Forex",
+    avatar: "https://placehold.co/100x100/f5f5f5/333333?text=TM" 
   },
   { 
     rank: 2, 
     name: "ForexQueen", 
     country: "South Africa", 
     points: 1180,
-    avatar: "https://placehold.co/100x100/111827/0066cc?text=FQ" 
+    winRate: "65%",
+    speciality: "Indices",
+    avatar: "https://placehold.co/100x100/f5f5f5/333333?text=FQ" 
   },
   { 
     rank: 3, 
     name: "ChartWizard", 
     country: "Nigeria", 
     points: 965,
-    avatar: "https://placehold.co/100x100/111827/a855f7?text=CW" 
-  },
-  { 
-    rank: 4, 
-    name: "PipHunter", 
-    country: "Ghana", 
-    points: 830,
-    avatar: "https://placehold.co/100x100/111827/cc6600?text=PH" 
-  },
-  { 
-    rank: 5, 
-    name: "MarketMaster", 
-    country: "Egypt", 
-    points: 795,
-    avatar: "https://placehold.co/100x100/111827/ff4757?text=MM" 
-  }
-];
-
-// Past winners data
-const pastWinnersData = [
-  {
-    challenge: "Price Action Mastery",
-    winner: "TradeMaster254",
-    prize: "Trading Course Access",
-    date: "February 2025",
-    testimonial: "The competition pushed me to refine my naked chart analysis. Learned so much from other participants!"
-  },
-  {
-    challenge: "Risk-to-Reward Challenge",
-    winner: "ForexQueen",
-    prize: "$100 Prop Firm Voucher",
-    date: "January 2025",
-    testimonial: "This challenge completely changed how I approach position sizing and risk management."
-  },
-  {
-    challenge: "Crypto Trading Tournament",
-    winner: "ChartWizard",
-    prize: "Exclusive Indicators Pack",
-    date: "December 2024",
-    testimonial: "The competition format made learning crypto trading patterns both fun and insightful."
+    winRate: "72%",
+    speciality: "Crypto",
+    avatar: "https://placehold.co/100x100/f5f5f5/333333?text=CW" 
   }
 ];
 
@@ -159,52 +116,40 @@ const ChallengeCard = ({ challenge, index }) => {
         
         <div className="challenge-meta">
           <div className="meta-item participants">
-            <span className="meta-icon">👥</span>
             <span className="meta-value">{challenge.participants}</span>
             <span className="meta-label">Participants</span>
           </div>
           
           <div className="meta-item time-left">
-            <span className="meta-icon">⏱️</span>
             <span className="meta-value">{challenge.daysLeft}</span>
             <span className="meta-label">Days Left</span>
           </div>
         </div>
         
         <div className="challenge-prize">
-          <div className="prize-label">Prize:</div>
-          <div className="prize-value">{challenge.prize}</div>
         </div>
         
-        <button className="join-challenge-btn">Join Challenge</button>
+        <button className="join-challenge-btn">Enter Challenge</button>
       </div>
     </motion.div>
   );
 };
 
-// Leaderboard component
-const Leaderboard = () => {
+// Combined leaderboard component
+const LeaderboardBanner = () => {
   return (
-    <div className="leaderboard">
+    <div className="leaderboard-banner">
       <div className="leaderboard-header">
-        <h3>Community Leaderboard</h3>
-        <span className="month-label">March 2025</span>
+        <h3>Top Traders This Month</h3>
       </div>
       
       <div className="leaderboard-content">
         {leaderboardData.map((trader, index) => (
-          <div 
-            key={index} 
-            className={`leaderboard-item ${index < 3 ? 'top-rank' : ''}`}
-          >
+          <div key={index} className="leaderboard-item">
             <div className="rank">
-              {index < 3 ? (
-                <span className={`trophy rank-${index + 1}`}>
-                  {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}
-                </span>
-              ) : (
-                <span className="rank-number">{trader.rank}</span>
-              )}
+              <span className={`trophy rank-${index + 1}`}>
+                {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}
+              </span>
             </div>
             
             <div className="trader-avatar">
@@ -214,6 +159,10 @@ const Leaderboard = () => {
             <div className="trader-info">
               <div className="trader-name">{trader.name}</div>
               <div className="trader-country">{trader.country}</div>
+              <div className="trader-stats">
+                <span className="win-rate">{trader.winRate} win rate</span>
+                <span className="trader-speciality">{trader.speciality}</span>
+              </div>
             </div>
             
             <div className="trader-points">
@@ -223,32 +172,30 @@ const Leaderboard = () => {
           </div>
         ))}
       </div>
-      
-      <div className="leaderboard-footer">
-        <button className="view-full-leaderboard">View Full Leaderboard</button>
-      </div>
     </div>
   );
 };
 
-// Past winners component
-const PastWinners = () => {
+// Upcoming challenges preview
+const UpcomingChallenges = () => {
   return (
-    <div className="past-winners">
-      <div className="winners-header">
-        <h3>Past Challenge Winners</h3>
-      </div>
-      
-      <div className="winners-content">
-        {pastWinnersData.map((winner, index) => (
-          <div key={index} className="winner-item">
-            <div className="winner-challenge">{winner.challenge}</div>
-            <div className="winner-name">{winner.winner}</div>
-            <div className="winner-prize">{winner.prize}</div>
-            <div className="winner-date">{winner.date}</div>
-            <div className="winner-testimonial">"{winner.testimonial}"</div>
+    <div className="upcoming-challenges">
+      <h3>Coming Soon</h3>
+      <div className="upcoming-list">
+        <div className="upcoming-item">
+          <div className="upcoming-date">Apr 15</div>
+          <div className="upcoming-info">
+            <h4>Multi-Timeframe Analysis Challenge</h4>
+            <p>Align H4, H1 and M15 charts to find high-probability setups</p>
           </div>
-        ))}
+        </div>
+        <div className="upcoming-item">
+          <div className="upcoming-date">Apr 22</div>
+          <div className="upcoming-info">
+            <h4>Gold Trading Masterclass</h4>
+            <p>Special event with professional gold traders and live analysis</p>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -258,18 +205,13 @@ const PastWinners = () => {
 const Challenges = () => {
   return (
     <section id="challenges" className="trading-challenges-section">
-      <div className="challenges-background">
-        <div className="bg-graphic left"></div>
-        <div className="bg-graphic right"></div>
-      </div>
-      
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">
-            Trading <span className="highlight">Challenges</span> & Competitions
+            Trading <span className="highlight">Challenges</span>
           </h2>
           <p className="section-description">
-            Test your skills, compete with fellow traders, and win prizes in our community trading challenges.
+            Test your analysis skills, compete with fellow traders, and win valuable trading resources.
           </p>
         </div>
         
@@ -283,46 +225,19 @@ const Challenges = () => {
           ))}
         </div>
         
-        <div className="challenges-secondary-content">
-          <Leaderboard />
-          <PastWinners />
+        <div className="challenges-sidebar">
+          <LeaderboardBanner />
+          <UpcomingChallenges />
         </div>
         
-        <div className="suggest-challenge">
-          <div className="suggest-content">
-            <h3>Have an idea for a fun trading challenge?</h3>
-            <p>We're always looking for creative ideas to help our community learn and improve together.</p>
-          </div>
-          <button className="suggest-btn">Suggest a Challenge</button>
-        </div>
-        
-        <div className="challenge-rules">
-          <div className="rules-header">
-            <h3>Challenge Rules & Guidelines</h3>
-            <button className="toggle-rules-btn">View Rules</button>
-          </div>
-          
-          <div className="rules-content">
-            <div className="rule-item">
-              <h4>Fair Play</h4>
-              <p>All participants must follow ethical trading practices. No fake screenshots or manipulated results.</p>
-            </div>
-            
-            <div className="rule-item">
-              <h4>Submission Deadlines</h4>
-              <p>All challenge entries must be submitted before the deadline. Late submissions will not be considered.</p>
-            </div>
-            
-            <div className="rule-item">
-              <h4>Judging Criteria</h4>
-              <p>Entries are judged based on analysis quality, risk management, and adherence to challenge rules.</p>
-            </div>
-            
-            <div className="rule-item">
-              <h4>Community Voting</h4>
-              <p>Some challenges include a community voting component. One vote per community member.</p>
-            </div>
-          </div>
+        <div className="challenge-rules-summary">
+          <h3>How Challenges Work</h3>
+          <ul>
+            <li>Enter any active challenge before the deadline</li>
+            <li>Submit your analysis or trading results via the member dashboard</li>
+            <li>Our team reviews all submissions based on defined criteria</li>
+            <li>Winners are announced within 3 days after the challenge closes</li>
+          </ul>
         </div>
       </div>
     </section>

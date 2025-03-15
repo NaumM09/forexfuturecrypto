@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/Articles.css"; // Enhanced CSS file for styling
+import "../styles/articles.css"; // Enhanced CSS file for styling
 
 const Article2025BullRun = () => {
   return (
