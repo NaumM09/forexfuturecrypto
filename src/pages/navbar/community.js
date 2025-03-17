@@ -11,16 +11,16 @@ import { v4 as uuidv4 } from 'uuid';
 const MOCK_COMMUNITIES = [
   {
     id: 'c001',
-    name: 'Forex Mastery Group',
-    username: 'forextrader254',
+    name: 'Real Braveyn',
+    username: 'real_braveyn',
     verified: true,
-    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Forex+Mastery',
-    description: 'A community focused on forex trading strategies, daily signals, and mentorship for traders in Africa. We host weekly webinars and provide educational resources.',
-    country: 'Kenya',
-    members: 1245,
-    platform: 'telegram',
-    platformUrl: 'https://t.me/forexmastery',
-    tags: ['forex', 'signals', 'education'],
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Braveyn+Dimakatso',
+    description: 'A community focused on forex trading strategies, chart analysis and live trading sessions',
+    country: 'South Africa',
+    members: 376,
+    platform: 'instagram',
+    platformUrl: 'https://www.instagram.com/channel/Aba3t8wdLiumYpFD/?igsh=MWlwdGViZWd3YmRuMA==',
+    tags: ['chart analysis', 'live-streams', 'community'],
     created: '2023-10-15'
   },
   {

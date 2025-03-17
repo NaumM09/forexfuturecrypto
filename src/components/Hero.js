@@ -167,7 +167,7 @@ const HeroSection = ({ useHeroImage = false }) => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="hero-greeting">
-            <span>{getGreeting()}, trader</span>
+            <span>{getGreeting()}, Trader</span>
           </div>
           
           <h1 className="hero-title">
