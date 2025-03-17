@@ -19,7 +19,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import VerificationPage from "./components/VerificationPage";
 import AuthHandler from "./components/AuthHandler";
 import WhatsAppButton from "./components/Whatsapp";
-import JustMarketsPopup from './components/Popup';
 import { auth, db } from "./firebase"; // Firebase configuration
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
@@ -91,7 +90,6 @@ const App = () => {
             path="/"
             element={
               <>
-                <JustMarketsPopup />
                 <Hero />
                 <GlobalExchangeBanner/>
                 {/* <Services /> */}
