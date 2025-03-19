@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext"; // Import the AuthContext
 import { sendPasswordResetEmail } from "firebase/auth"; // Import password reset method
 import { auth } from "../firebase"; // Firebase instance
@@ -13,17 +13,43 @@ const LoginPage = () => {
   const [resetStatus, setResetStatus] = useState(""); // State for reset password status
   const [showReset, setShowReset] = useState(false); // Toggle between login and reset
 
-  const { login, error } = useAuth(); // Get login and error from AuthContext
+  const { login, googleSignIn, error, isAuthenticated, clearError } = useAuth(); // Get auth methods and state
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the redirect path from location state or default to homepage (not dashboard)
+  const from = location.state?.from || "/";
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(from);
+    }
+    // Clear any previous errors when component mounts
+    return () => clearError();
+  }, [isAuthenticated, navigate, from, clearError]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       await login(email, password);
-      navigate("/dashboard"); // Redirect to dashboard after successful login
-    } catch {
+      // Redirect will happen via the useEffect when auth state changes
+    } catch (err) {
       // Error handled via the AuthContext error state
+      console.error("Login error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true);
+    try {
+      await googleSignIn();
+      // Redirect will happen via the useEffect when auth state changes
+    } catch (err) {
+      console.error("Google sign-in error:", err);
     } finally {
       setLoading(false);
     }
@@ -59,12 +85,28 @@ const LoginPage = () => {
     <div className="auth-container">
       <div className="auth-form">
         <h2>{showReset ? "Reset Password" : "Login"}</h2>
+        
         {resetStatus && <p className="reset-status">{resetStatus}</p>}
         {error && !showReset && (
           <p className="error-message">
-            Incorrect email or password. Please try again.
+            {error.includes("auth/") 
+              ? "Incorrect email or password. Please try again." 
+              : error}
           </p>
         )}
+
+        {!showReset && (
+          <button 
+            type="button" 
+            className="google-auth-button" 
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+          >
+            <i className="fab fa-google"></i> Continue with Google
+          </button>
+        )}
+
+        {!showReset && <div className="auth-divider"><span>OR</span></div>}
 
         <form onSubmit={showReset ? handlePasswordReset : handleLogin}>
           <input
@@ -99,6 +141,7 @@ const LoginPage = () => {
               : "Login"}
           </button>
         </form>
+        
         {!showReset && (
           <p className="forgot-password" onClick={() => setShowReset(true)}>
             Forgot Password?
@@ -110,9 +153,15 @@ const LoginPage = () => {
           </p>
         )}
         {!showReset && (
-          <p>
+          <p className="signup-link">
             Don't have an account?{" "}
             <span onClick={() => navigate("/signup")}>Sign Up</span>
+          </p>
+        )}
+        
+        {location.state?.from && !showReset && (
+          <p className="return-notice">
+            <i className="fas fa-info-circle"></i> You'll be redirected to {location.state.from.replace('/', '')} after login
           </p>
         )}
       </div>

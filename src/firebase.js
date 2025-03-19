@@ -23,5 +23,17 @@ const auth = getAuth(app); // Authentication
 const storage = getStorage(app); // Storage
 const db = getFirestore(app); // Firestore
 
-// Export Firebase instances
-export { app, auth, storage, db };
+// Admin emails configuration
+// You can add multiple admin emails to this array
+const adminEmails = [
+  "globalexpedyte@gmail.com",  // Original admin email
+  // Add your current email here
+];
+
+// Helper function to check if a user is an admin
+const isUserAdmin = (email) => {
+  return adminEmails.includes(email);
+};
+
+// Export Firebase instances and admin helper
+export { app, auth, storage, db, isUserAdmin };

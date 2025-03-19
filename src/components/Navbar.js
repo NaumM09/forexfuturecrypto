@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [profileDropdown, setProfileDropdown] = useState(false);
   const navRef = useRef(null);
-  // We don't need to explicitly use location since NavLink handles active state
+  const dropdownRef = useRef(null);
+  const { isAuthenticated, currentUser, userProfile, logout } = useAuth();
 
   // Handle scroll events for navbar background
   useEffect(() => {
@@ -43,13 +46,17 @@ const Navbar = () => {
       if (navRef.current && !navRef.current.contains(event.target) && menuOpen) {
         setMenuOpen(false);
       }
+      
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && profileDropdown) {
+        setProfileDropdown(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuOpen]);
+  }, [menuOpen, profileDropdown]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -70,13 +77,26 @@ const Navbar = () => {
   const closeMenu = useCallback(() => {
     setMenuOpen(false);
   }, []);
+  
+  const toggleProfileDropdown = () => {
+    setProfileDropdown(prev => !prev);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setProfileDropdown(false);
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   // Updated nav items for actual pages
   const navItems = [
     { path: "/community", label: "Community" },
     { path: "/events", label: "Events" },
     { path: "/resources", label: "Resources" },
-    { path: "/brokers", label: "Brokers" },
+    { path: "/prop-firms", label: " Prop Firms" },
   ];
 
   return (
@@ -127,12 +147,57 @@ const Navbar = () => {
               <span>Connect</span>
             </a>
           </li>
-          <li className="login-menu-item">
-            <NavLink to="/join" className="login-button" onClick={closeMenu}>
-              <span className="login-text">Join Our Network</span>
-              <span className="login-arrow">→</span>
-            </NavLink>
-          </li>
+          
+          {/* Conditional rendering based on authentication status */}
+          {isAuthenticated ? (
+            <li className="profile-menu-item" ref={dropdownRef}>
+              <button className="profile-button" onClick={toggleProfileDropdown}>
+                {userProfile?.photoURL ? (
+                  <img 
+                    src={userProfile.photoURL} 
+                    alt="Profile" 
+                    className="profile-avatar"
+                  />
+                ) : (
+                  <div className="profile-avatar-placeholder">
+                    {userProfile?.displayName?.charAt(0) || 
+                     currentUser?.displayName?.charAt(0) || 
+                     currentUser?.email?.charAt(0) || 'U'}
+                  </div>
+                )}
+                <span className="profile-name">
+                  {userProfile?.displayName || 
+                   currentUser?.displayName || 
+                   currentUser?.email?.split('@')[0]}
+                </span>
+                <i className={`fas fa-chevron-down ${profileDropdown ? 'rotate' : ''}`}></i>
+              </button>
+              
+              {profileDropdown && (
+                <div className="profile-dropdown">
+                  <NavLink to="/profile" onClick={() => setProfileDropdown(false)}>
+                    <i className="fas fa-user"></i> My Profile
+                  </NavLink>
+                  <NavLink to="/dashboard" onClick={() => setProfileDropdown(false)}>
+                    <i className="fas fa-tachometer-alt"></i> Dashboard
+                  </NavLink>
+                  <NavLink to="/community" onClick={() => setProfileDropdown(false)}>
+                    <i className="fas fa-users"></i> My Communities
+                  </NavLink>
+                  <button onClick={handleLogout} className="logout-option">
+                    <i className="fas fa-sign-out-alt"></i> Log Out
+                  </button>
+                </div>
+              )}
+            </li>
+          ) : (
+            <li className="login-menu-item">
+              <NavLink to="/auth" className="login-button" onClick={closeMenu}>
+                <span className="login-text">Join Our Network</span>
+                <span className="login-arrow">→</span>
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

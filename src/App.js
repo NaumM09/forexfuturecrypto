@@ -19,9 +19,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import VerificationPage from "./components/VerificationPage";
 import AuthHandler from "./components/AuthHandler";
 import WhatsAppButton from "./components/Whatsapp";
-import { auth, db } from "./firebase"; // Firebase configuration
+import ProfilePage from "./components/Profile"; // Import ProfilePage component
+import { auth } from "./firebase"; // Firebase configuration
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Resource from "./components/Resource";
 import Articles from "./components/Articles"; // Articles section component
@@ -34,50 +34,22 @@ import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
 import Community from "./pages/navbar/community"; // Import the Community page
 
 const App = () => {
-
+  // Simple auth listener to log authentication status
   useEffect(() => {
-    // Authentication listener to check user status
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("User authenticated:", user.uid);
-
-        // Perform Firestore operations
-        writeToFirestore(user.uid, { name: "Admin", email: "globalexpedyte@gmail.com" });
-        readFromFirestore(user.uid);
       } else {
         console.log("No authenticated user.");
       }
     });
+    
+    // Clean up subscription on unmount
+    return () => unsubscribe();
   }, []);
 
-  // Function to write to Firestore
-  const writeToFirestore = async (userId, data) => {
-    try {
-      await setDoc(doc(db, "users", userId), data);
-      console.log("Document successfully written!");
-    } catch (error) {
-      console.error("Error writing document:", error);
-    }
-  };
-
-  // Function to read from Firestore
-  const readFromFirestore = async (userId) => {
-    try {
-      const docRef = doc(db, "users", userId);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-      } else {
-        console.log("No such document!");
-      }
-    } catch (error) {
-      console.error("Error reading document:", error);
-    }
-  };
-
   const MainApp = () => {
-    const location = useLocation(); // Moved useLocation inside the Router context
+    const location = useLocation(); 
     const hideNavbarRoutes = ["/dashboard"]; // Define routes where Navbar should be hidden
     const showNavbar = !hideNavbarRoutes.includes(location.pathname);
 
@@ -103,24 +75,41 @@ const App = () => {
               </>
             }
           />
-          {/* Login Page */}
+          
+          {/* Authentication Routes */}
           <Route path="/auth" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/admin-upload" element={<AdminUpload />} />
-          <Route path="/auth-handler" element={<AuthHandler />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/verify-email" element={<VerificationPage />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          {/* Community Route */}
+          <Route path="/auth-handler" element={<AuthHandler />} />
+          
+          {/* Profile Page - accessible to authenticated users */}
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          } />
+          
+          {/* Protected Routes */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/payment" element={
+            <ProtectedRoute>
+              <PaymentPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/admin-upload" element={
+            <ProtectedRoute requireAdmin={true}>
+              <AdminUpload />
+            </ProtectedRoute>
+          } />
+          
+          {/* Feature Routes - accessible to all, but with enhanced functionality for authenticated users */}
           <Route path="/community" element={<Community />} />
+          
           {/* Articles Routes */}
           <Route path="/articles/2025-bull-run" element={<Article2025BullRun />} />
           <Route path="/articles/2025-forex-outlook" element={<Article2025ForexOutlook />} />
