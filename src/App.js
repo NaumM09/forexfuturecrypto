@@ -32,6 +32,9 @@ import Article2025ForexOutlook from "./pages/articles/Article2025ForexOutlook";
 import ArticleAIInTrading from "./pages/articles/ArticleAIInTrading";
 import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
 import Community from "./pages/navbar/community"; // Import the Community page
+import Eventspage from "./pages/navbar/events"; // Import the Community page
+import Resourcespage from "./pages/navbar/resources";
+import PropFirmComingSoon from "./pages/navbar/propfirms";
 
 const App = () => {
   // Simple auth listener to log authentication status
@@ -109,6 +112,9 @@ const App = () => {
           
           {/* Feature Routes - accessible to all, but with enhanced functionality for authenticated users */}
           <Route path="/community" element={<Community />} />
+          <Route path="/events" element={<Eventspage />} />
+          <Route path="/resources" element={<Resourcespage />} />
+          <Route path="/prop-firms" element={< PropFirmComingSoon/>} />
           
           {/* Articles Routes */}
           <Route path="/articles/2025-bull-run" element={<Article2025BullRun />} />
