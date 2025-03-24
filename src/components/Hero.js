@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Hero.css';
 // Always import the heroImage to avoid the undefined error
 import heroImage from '../images/hero.png';
-import { FaDiscord, FaWhatsapp, FaDownload, FaUserFriends } from 'react-icons/fa';
+import { FaDiscord, FaWhatsapp,  FaUserFriends } from 'react-icons/fa';
 
 // SVG background pattern component for more visual interest
 const BackgroundPattern = () => (
@@ -213,15 +213,6 @@ const HeroSection = ({ useHeroImage = false }) => {
             >
               <FaWhatsapp className="button-icon" />
               WhatsApp
-            </a>
-            <a 
-              href="/Free-Beginners-Content.pdf" 
-              className="download-btn button" 
-              download
-              aria-label="Download free trading resources"
-            >
-              <FaDownload className="button-icon" />
-              Free Resources
             </a>
           </motion.div>
           

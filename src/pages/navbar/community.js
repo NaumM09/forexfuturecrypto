@@ -14,70 +14,111 @@ const MOCK_COMMUNITIES = [
     name: 'Real Braveyn',
     username: 'real_braveyn',
     verified: true,
-    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Forex+Trading',
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Real+Braveyn',
     description: 'A community focused on gold and indice trading strategies, chart analysis and live trading sessions',
     country: 'South Africa',
     members: "19.8k",
     platform: 'instagram',
     platformUrl: 'https://www.instagram.com/channel/Aba3t8wdLiumYpFD/?igsh=MWlwdGViZWd3YmRuMA==',
     tags: ['chart analysis', 'live-streams', 'community'],
-    created: '2023-10-15'
+    created: '2023-10-15',
+    isFree: true
   },
   {
     id: 'c002',
-    name: 'African Stock Investors',
-    username: 'nairobistockguy',
+    name: 'Fx Futures Crypto',
+    username: 'fxfuturescrypto',
     verified: true,
-    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Stock+Investors',
-    description: 'Join our community of stock market investors across Africa. We analyze JSE, NSE, and other African markets with a long-term investment approach.',
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Fx+Futures+crypto',
+    description: 'The largest crypto trading community in Africa with a focus on Bitcoin, Ethereum and altcoin analysis. Daily market updates and crypto education.',
     country: 'South Africa',
-    members: 876,
-    platform: 'discord',
-    platformUrl: 'https://discord.gg/stockafrica',
-    tags: ['stocks', 'investing', 'dividends'],
-    created: '2024-01-05'
+    members: 3865,
+    platform: 'youtube',
+    platformUrl: 'https://discord.gg/PwPwkruw',
+    tags: ['analysis', 'trading psychology', 'live stream'],
+    created: '2022-05-18',
+    isFree: true,
   },
   {
     id: 'c003',
-    name: 'Crypto Trading Africa',
-    username: 'cryptonaija',
+    name: 'SpenceTrades Premium',
+    username: 'gregalto',
     verified: true,
-    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Crypto+Africa',
-    description: 'The largest crypto trading community in Africa with a focus on Bitcoin, Ethereum and altcoin analysis. Daily market updates and crypto education.',
-    country: 'Nigeria',
-    members: 3240,
-    platform: 'youtube',
-    platformUrl: 'https://youtube.com/c/cryptoafrica',
-    tags: ['crypto', 'bitcoin', 'altcoins'],
-    created: '2022-05-18'
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Spencer+Trades_Premium',
+    description: 'Join our community of stock market investors across Africa. We analyze JSE, NSE, and other African markets with a long-term investment approach.',
+    country: 'Belgium',
+    members: 236,
+    platform: 'Telegram',
+    platformUrl: 'https://t.me/+Hi309J3Jq_Q3NzFk',
+    tags: ['metals', 'indices', 'oil'],
+    created: '2024-01-05',
+    isFree: true
   },
   {
     id: 'c004',
-    name: 'Options Strategies Group',
-    username: 'optionstraderzar',
-    verified: false,
-    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Options+Trading',
-    description: 'Learn advanced options trading strategies adapted for African markets. We focus on risk management and consistent returns through strategic options plays.',
+    name: 'Money Matrix Fx',
+    username: 'grotman_lehumo',
+    verified: true,
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Grotman+Lehumo',
+    description: 'Learn advanced trading strategies adapted for African markets. We focus on risk management and consistent returns through strategic options plays.',
     country: 'South Africa',
     members: 542,
     platform: 'x',
     platformUrl: 'https://x.com/optionstraderzar',
     tags: ['options', 'derivatives', 'strategies'],
-    created: '2024-02-10'
+    created: '2024-02-10',
+    isFree: false,
+    price: 'R500',
+    benefits: ['Lifetime access', 'Proven Trading Strategies', 'Live Sessions']
   },
   {
     id: 'c005',
-    name: 'Cairo Trading Club',
-    username: 'cairotraderpro',
+    name: 'GHOST FORMULA STRATEGY',
+    username: 'Boinelo_3',
     verified: true,
-    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Cairo+Trading',
-    description: 'Arabic and English trading community focused on EGX and MENA region markets. Technical analysis and fundamental research on Egyptian stocks.',
-    country: 'Egypt',
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Ghost+formula+strategy',
+    description: 'Unlcok the secrets and consistent trading success! Join out expert mentorship program and take your Forex trading to new heights!',
+    country: 'South Africa',
     members: 925,
     platform: 'whatsapp',
     platformUrl: 'https://whatsapp.com/group/cairotradingclub',
-    tags: ['stocks', 'egypt', 'technical-analysis'],
-    created: '2023-07-22'
+    tags: ['forex', 'mentorship', 'technical-analysis'],
+    created: '2023-07-22',
+    isFree: false,
+    price: 'R280',
+    benefits: ['Expert Guidance', 'Personalised coaching & Support', 'Exclusive trading strategies and techniques', 'Regular market analysis and updates']
+  },
+  {
+    id: 'c006',
+    name: 'Pro Forex Signals',
+    username: 'proforexsignals',
+    verified: true,
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Pro+Forex',
+    description: 'Premium forex signals group with 85% win rate. Our team of professional traders provides high-quality signals for major currency pairs.',
+    country: 'Kenya',
+    members: 1250,
+    platform: 'telegram',
+    platformUrl: 'https://t.me/proforexsignals',
+    tags: ['forex', 'signals', 'professional'],
+    created: '2023-03-15',
+    isFree: false,
+    price: 'R450/month',
+    benefits: ['5-10 signals daily', 'Trade explanations', 'Market analysis']
+  },
+  {
+    id: 'c007',
+    name: 'Beginner Friendly Trading',
+    username: 'easytrading',
+    verified: false,
+    image: 'https://placehold.co/600x400/001e36/00b7c3?text=Beginner+Trading',
+    description: 'A supportive community for new traders. We focus on the basics with simple strategies that work for beginners.',
+    country: 'Ghana',
+    members: 750,
+    platform: 'discord',
+    platformUrl: 'https://discord.gg/easytrading',
+    tags: ['beginners', 'education', 'basics'],
+    created: '2024-01-10',
+    isFree: true
   }
 ];
 
@@ -94,6 +135,8 @@ const PlatformIcon = ({ platform }) => {
       return <i className="fab fa-twitter platform-icon twitter"></i>;
     case 'whatsapp':
       return <i className="fab fa-whatsapp platform-icon whatsapp"></i>;
+    case 'instagram':
+      return <i className="fab fa-instagram platform-icon instagram"></i>;
     default:
       return <i className="fas fa-users platform-icon"></i>;
   }
@@ -105,6 +148,7 @@ const Community = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
   const [activePlatform, setActivePlatform] = useState('all');
+  const [activeGroupType, setActiveGroupType] = useState('all');
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
@@ -114,7 +158,10 @@ const Community = () => {
     platform: '',
     platformUrl: '',
     tags: '',
-    image: null
+    image: null,
+    isFree: true,
+    price: '',
+    benefits: ''
   });
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -159,8 +206,15 @@ const Community = () => {
       results = results.filter(community => community.platform === activePlatform);
     }
     
+    // Apply group type filter
+    if (activeGroupType === 'free') {
+      results = results.filter(community => community.isFree);
+    } else if (activeGroupType === 'paid') {
+      results = results.filter(community => !community.isFree);
+    }
+    
     setFilteredCommunities(results);
-  }, [searchTerm, activeFilter, activePlatform, communities]);
+  }, [searchTerm, activeFilter, activePlatform, activeGroupType, communities]);
 
   // Handle search input
   const handleSearch = (e) => {
@@ -169,12 +223,17 @@ const Community = () => {
 
   // Handle form input changes
   const handleInputChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value, type, checked, files } = e.target;
     
     if (name === 'image' && files[0]) {
       setFormData({
         ...formData,
         image: files[0]
+      });
+    } else if (type === 'checkbox') {
+      setFormData({
+        ...formData,
+        [name]: checked
       });
     } else {
       setFormData({
@@ -193,6 +252,7 @@ const Community = () => {
     if (!formData.platform) errors.platform = 'Platform is required';
     if (!formData.platformUrl) errors.platformUrl = 'Community URL is required';
     if (!formData.image) errors.image = 'Community image is required';
+    if (!formData.isFree && !formData.price) errors.price = 'Price is required for paid groups';
     
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
@@ -226,6 +286,11 @@ const Community = () => {
       // Prepare tags array
       const tags = formData.tags ? formData.tags.split(',').map(tag => tag.trim().toLowerCase()) : [];
       
+      // Prepare benefits array if it's a paid group
+      const benefits = !formData.isFree && formData.benefits 
+        ? formData.benefits.split(',').map(benefit => benefit.trim()) 
+        : [];
+      
       // Add to Firestore
       const communityData = {
         name: formData.name,
@@ -239,7 +304,10 @@ const Community = () => {
         verified: false, // Admin will verify later
         members: 0,
         created: Timestamp.now(),
-        userId: user.uid
+        userId: user.uid,
+        isFree: formData.isFree,
+        price: !formData.isFree ? formData.price : null,
+        benefits: !formData.isFree ? benefits : null
       };
       
       // In a real app, add the document to Firestore
@@ -258,7 +326,10 @@ const Community = () => {
           platform: '',
           platformUrl: '',
           tags: '',
-          image: null
+          image: null,
+          isFree: true,
+          price: '',
+          benefits: ''
         });
         setIsSubmitModalOpen(false);
       }, 3000);
@@ -307,6 +378,28 @@ const Community = () => {
             value={searchTerm}
             onChange={handleSearch}
           />
+        </div>
+        
+        {/* Group Type Tabs */}
+        <div className="group-type-tabs">
+          <button 
+            className={`group-type-tab ${activeGroupType === 'all' ? 'active' : ''}`}
+            onClick={() => setActiveGroupType('all')}
+          >
+            All Groups
+          </button>
+          <button 
+            className={`group-type-tab ${activeGroupType === 'free' ? 'active' : ''}`}
+            onClick={() => setActiveGroupType('free')}
+          >
+            <i className="fas fa-unlock"></i> Free Groups
+          </button>
+          <button 
+            className={`group-type-tab ${activeGroupType === 'paid' ? 'active' : ''}`}
+            onClick={() => setActiveGroupType('paid')}
+          >
+            <i className="fas fa-crown"></i> Premium Groups
+          </button>
         </div>
         
         <div className="filter-tabs">
@@ -361,6 +454,12 @@ const Community = () => {
           >
             <i className="fab fa-whatsapp"></i>
           </button>
+          <button 
+            className={`platform-filter ${activePlatform === 'instagram' ? 'active' : ''}`}
+            onClick={() => setActivePlatform('instagram')}
+          >
+            <i className="fab fa-instagram"></i>
+          </button>
         </div>
       </div>
       
@@ -368,7 +467,7 @@ const Community = () => {
         {filteredCommunities.length > 0 ? (
           filteredCommunities.map((community, index) => (
             <motion.div 
-              className="community-item"
+              className={`community-item ${community.isFree ? 'free-community' : 'paid-community'}`}
               key={community.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -388,19 +487,36 @@ const Community = () => {
                     <i className="fas fa-check-circle"></i>
                   </div>
                 )}
+                {!community.isFree && (
+                  <div className="premium-badge" title="Premium Group">
+                    <i className="fas fa-crown"></i>
+                  </div>
+                )}
               </div>
               
               <div className="community-content">
                 <div className="community-info">
-                  <h3 className="community-name">
-                    {community.name}
-                  </h3>
+                  <div className="community-header-row">
+                    <h3 className="community-name">
+                      {community.name}
+                    </h3>
+                    {!community.isFree && (
+                      <span className="community-price">{community.price}</span>
+                    )}
+                  </div>
                   <div className="community-meta">
                     <span className="community-country">
                       <i className="fas fa-globe-africa"></i> {community.country}
                     </span>
                     <span className="community-members">
                       <i className="fas fa-users"></i> {community.members.toLocaleString()}
+                    </span>
+                    <span className="community-type">
+                      {community.isFree ? (
+                        <><i className="fas fa-unlock"></i> Free</>
+                      ) : (
+                        <><i className="fas fa-crown"></i> Premium</>
+                      )}
                     </span>
                   </div>
                   <div className="community-creator">
@@ -409,6 +525,16 @@ const Community = () => {
                   <p className="community-description">
                     {community.description}
                   </p>
+                  {!community.isFree && community.benefits && (
+                    <div className="community-benefits">
+                      <h4>What you get:</h4>
+                      <ul>
+                        {community.benefits.map((benefit, idx) => (
+                          <li key={idx}><i className="fas fa-check"></i> {benefit}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   <div className="community-tags">
                     {community.tags.map(tag => (
                       <span className="tag" key={tag}>#{tag}</span>
@@ -421,9 +547,9 @@ const Community = () => {
                     href={community.platformUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="join-button"
+                    className={`join-button ${!community.isFree ? 'premium-join' : ''}`}
                   >
-                    Join Community
+                    {community.isFree ? 'Join Community' : 'Join Premium'}
                   </a>
                   <button className="details-button">
                     <i className="fas fa-info-circle"></i> Details
@@ -533,6 +659,7 @@ const Community = () => {
                           <option value="youtube">YouTube</option>
                           <option value="x">X (Twitter)</option>
                           <option value="whatsapp">WhatsApp</option>
+                          <option value="instagram">Instagram</option>
                           <option value="other">Other</option>
                         </select>
                         {formErrors.platform && <span className="error">{formErrors.platform}</span>}
@@ -568,6 +695,46 @@ const Community = () => {
                       <small>Recommended size: 600×400px, JPG or PNG</small>
                       {formErrors.image && <span className="error">{formErrors.image}</span>}
                     </div>
+                    
+                    <div className="form-group checkbox-group">
+                      <label className="checkbox-label">
+                        <input 
+                          type="checkbox" 
+                          name="isFree"
+                          checked={formData.isFree}
+                          onChange={handleInputChange}
+                        />
+                        <span>This is a free community</span>
+                      </label>
+                    </div>
+                    
+                    {!formData.isFree && (
+                      <>
+                        <div className="form-group">
+                          <label>Membership Price *</label>
+                          <input 
+                            type="text" 
+                            name="price"
+                            placeholder="e.g. R599/month" 
+                            value={formData.price}
+                            onChange={handleInputChange}
+                          />
+                          {formErrors.price && <span className="error">{formErrors.price}</span>}
+                        </div>
+                        <div className="form-group">
+                          <label>Benefits (comma separated)</label>
+                          <textarea 
+                            name="benefits"
+                            placeholder="Daily signals, Weekly webinars, Private chat access" 
+                            rows={3}
+                            value={formData.benefits}
+                            onChange={handleInputChange}
+                          ></textarea>
+                          <small>List what members get when they join your premium group</small>
+                        </div>
+                      </>
+                    )}
+                    
                     <div className="form-group">
                       <label>Tags (comma separated)</label>
                       <input 
