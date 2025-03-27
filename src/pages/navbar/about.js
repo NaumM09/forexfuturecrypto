@@ -49,8 +49,7 @@ const AboutPage = () => {
               </p>
               <p>
                 Today, we provide a comprehensive ecosystem that brings together trading education, 
-                community connections, market insights, and technological tools designed specifically 
-                for the African context.
+                community connections, market insights, and technological tools.
               </p>
             </div>
             <div className="image-column">
@@ -67,7 +66,7 @@ const AboutPage = () => {
             <div className="content-column">
               <h2>Our Mission</h2>
               <p>
-                We believe that access to global financial markets should be democratized, and that 
+                We believe that access to global financial markets should be democratised, and that 
                 African traders deserve a platform built for their unique needs and challenges.
               </p>
               <p>
