@@ -96,7 +96,7 @@ const Navbar = () => {
     { path: "/community", label: "Community" },
     { path: "/events", label: "Events" },
     { path: "/resources", label: "Resources" },
-    { path: "/prop-firms", label: " Prop Firms" },
+    { path: "/about", label: " About" },
   ];
 
   return (

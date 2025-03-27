@@ -34,7 +34,7 @@ import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
 import Community from "./pages/navbar/community"; // Import the Community page
 import Eventspage from "./pages/navbar/events"; // Import the Community page
 import Resourcespage from "./pages/navbar/resources";
-import PropFirmComingSoon from "./pages/navbar/propfirms";
+import AboutPage from "./pages/navbar/about";
 
 const App = () => {
   // Simple auth listener to log authentication status
@@ -114,7 +114,7 @@ const App = () => {
           <Route path="/community" element={<Community />} />
           <Route path="/events" element={<Eventspage />} />
           <Route path="/resources" element={<Resourcespage />} />
-          <Route path="/prop-firms" element={< PropFirmComingSoon/>} />
+          <Route path="/about" element={< AboutPage/>} />
           
           {/* Articles Routes */}
           <Route path="/articles/2025-bull-run" element={<Article2025BullRun />} />
