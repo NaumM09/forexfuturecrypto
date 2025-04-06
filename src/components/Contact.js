@@ -28,7 +28,7 @@ const Contact = () => {
               <li><FaChartLine className="benefit-icon" /> <span>Daily market analysis</span></li>
               <li><FaLightbulb className="benefit-icon" /> <span>Strategy sharing sessions</span></li>
             </ul>
-            <a href="https://discord.gg/9fA44NxX" target="_blank" rel="noopener noreferrer" className="discord-btn">
+            <a href="https://discord.gg/RASFaf9K" target="_blank" rel="noopener noreferrer" className="discord-btn">
               Join Our Discord
             </a>
           </div>
