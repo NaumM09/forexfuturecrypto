@@ -3,147 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet'; // For SEO optimization
 import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock, FaFilter, FaSearch, FaRegBookmark, FaBookmark } from 'react-icons/fa';
 import '../styles/events.css';
+import WikiFinance from '../../images/wiki.jpg';
 
-// Sample event data - expanded with additional fields
+// Updated event data with registration URL for WikiFinance
 const eventData = [
-  {
-    id: 1,
-    title: "Weekly Forex Forecast & Strategy Session",
-    date: "2025-03-15T16:00:00",
-    type: "webinar",
-    category: "forex",
-    host: "Thomas Mkize",
-    hostTitle: "Senior Forex Analyst",
-    description: "Join our weekly strategy session as we analyze key forex pairs and set up our trading plan for the week ahead. We'll cover technical patterns, fundamental drivers, and potential trade setups.",
-    detailedDescription: "In this intensive 90-minute webinar, we'll break down the current market conditions for major forex pairs including EUR/USD, GBP/USD, USD/JPY, and key commodity currencies. Thomas will share his proprietary market analysis framework that combines technical indicators, market structure, and fundamental catalysts to identify high-probability trading opportunities for the coming week. This workshop includes real-time chart analysis, specific entry/exit criteria, and risk management guidelines tailored to the current market environment.",
-    participants: 76,
-    maxParticipants: 100,
-    location: "Zoom (link provided after registration)",
-    duration: "90 minutes",
-    prerequisites: "Basic understanding of forex markets and technical analysis",
-    difficulty: "Intermediate",
-    image: "https://placehold.co/800x450/111827/00cc99?text=Forex+Forecast",
-    featured: true,
-    isFree: false,
-    price: "R150",
-    isSaved: false,
-    tags: ["forex", "technical analysis", "weekly forecast", "strategy"]
-  },
-  {
-    id: 2,
-    title: "Crypto Trading Masterclass: Bitcoin & Altcoins",
-    date: "2025-03-18T18:30:00",
-    type: "workshop",
-    category: "crypto",
-    host: "Sarah Ndlovu",
-    hostTitle: "Crypto Specialist",
-    description: "A deep dive into crypto market cycles, key support/resistance levels, and emerging patterns. Learn how to identify high-probability setups across major cryptocurrencies.",
-    detailedDescription: "This comprehensive crypto trading workshop is perfect for traders looking to capitalize on the upcoming 2025 bull cycle. Sarah will walk through her methodical approach to crypto market analysis, focusing on Bitcoin's cyclical patterns and how they influence the broader altcoin market. You'll learn specific criteria for identifying accumulation phases, breakout signals, and when to secure profits. The workshop includes a hands-on portion where Sarah will analyze current setups in real-time and provide practical entry/exit strategies that you can implement immediately in your trading.",
-    participants: 42,
-    maxParticipants: 50,
-    location: "Online - Interactive Workshop Platform",
-    duration: "2 hours",
-    prerequisites: "Familiarity with basic crypto concepts and trading fundamentals",
-    difficulty: "Intermediate to Advanced",
-    image: "https://placehold.co/800x450/111827/0066cc?text=Crypto+Masterclass",
-    featured: false,
-    isFree: false,
-    price: "R250",
-    isSaved: false,
-    tags: ["crypto", "bitcoin", "altcoins", "trading strategy", "technical analysis"]
-  },
-  {
-    id: 3,
-    title: "Johannesburg Traders Meetup",
-    date: "2025-03-25T18:00:00",
-    type: "in-person",
-    category: "networking",
-    host: "Trading Community Team",
-    hostTitle: "Community Organizers",
-    description: "Connect with fellow traders in Johannesburg! Join us for networking, trading discussions, and insights sharing. All experience levels welcome. Location: The Capital on the Park, Sandton.",
-    detailedDescription: "Our monthly Johannesburg Traders Meetup is the perfect opportunity to expand your trading network and learn from experienced market participants. This casual, in-person gathering brings together retail and professional traders from all backgrounds to share insights, discuss market conditions, and form valuable connections. The evening includes a structured networking session, followed by a panel discussion with successful local traders, and concludes with open networking and refreshments. Whether you're just starting your trading journey or are a seasoned professional, you'll find value in connecting with our diverse community of African traders.",
-    participants: 35,
-    maxParticipants: 50,
-    location: "The Capital on the Park, 101 Katherine St, Sandown, Sandton, 2031",
-    duration: "3 hours",
-    prerequisites: "None - all experience levels welcome",
-    difficulty: "All Levels",
-    image: "https://placehold.co/800x450/111827/cc6600?text=JHB+Meetup",
-    featured: true,
-    isFree: true,
-    price: "Free",
-    isSaved: false,
-    tags: ["networking", "in-person", "johannesburg", "community"]
-  },
-  {
-    id: 4,
-    title: "Advanced Price Action Trading Strategies",
-    date: "2025-04-02T17:00:00",
-    type: "workshop",
-    category: "technical-analysis",
-    host: "David Osei",
-    hostTitle: "Professional Trader",
-    description: "Master the art of price action trading. We'll cover candlestick patterns, order flow analysis, market structure, and how to execute high-probability trades based on pure price movement.",
-    detailedDescription: "In this advanced workshop, David will share his refined price action methodology that has helped him consistently extract profits from the markets for over a decade. You'll learn his systematic approach to identifying market structure shifts, recognizing institutional order flow, and using candlestick patterns as part of a complete trading strategy. This is not a theoretical session - David will demonstrate his approach using real-time charts and recent trade examples, breaking down his exact entry criteria, stop placement tactics, and profit-taking strategies. By the end of this workshop, you'll have a clear framework for implementing advanced price action concepts into your existing trading approach.",
-    participants: 58,
-    maxParticipants: 75,
-    location: "Online Streaming Platform",
-    duration: "2.5 hours",
-    prerequisites: "Understanding of basic technical analysis and trading fundamentals",
-    difficulty: "Advanced",
-    image: "https://placehold.co/800x450/111827/a855f7?text=Price+Action",
-    featured: false,
-    isFree: false,
-    price: "R350",
-    isSaved: false,
-    tags: ["price action", "technical analysis", "advanced", "trading strategy"]
-  },
-  {
-    id: 5,
-    title: "Beginner's Guide to Trading: First Steps",
-    date: "2025-03-28T15:00:00",
-    type: "webinar",
-    category: "education",
-    host: "Grace Moyo",
-    hostTitle: "Trading Educator",
-    description: "A perfect starting point for new traders. Learn the foundations of market analysis, basic terminology, and how to set up your first trading account.",
-    detailedDescription: "Starting your trading journey can be overwhelming with the sheer amount of information available. This beginner-friendly webinar cuts through the noise to give you a clear roadmap for your first steps in the markets. Grace will walk you through the essentials every new trader needs to know, from understanding different market types (forex, stocks, crypto) to setting up your first trading platform. You'll learn the basic terminology you need to understand trading discussions, how to analyze simple price charts, and most importantly - how to protect your capital while you're learning. This session also includes a detailed Q&A portion where Grace will address common beginner questions and concerns.",
-    participants: 92,
-    maxParticipants: 200,
-    location: "Online - Live Stream",
-    duration: "2 hours",
-    prerequisites: "None - designed for complete beginners",
-    difficulty: "Beginner",
-    image: "https://placehold.co/800x450/111827/ff6b6b?text=Beginners+Guide",
-    featured: true,
-    isFree: true,
-    price: "Free",
-    isSaved: false,
-    tags: ["beginner", "education", "fundamentals", "introduction"]
-  },
-  {
-    id: 6,
-    title: "Risk Management Masterclass",
-    date: "2025-04-10T17:30:00",
-    type: "workshop",
-    category: "risk-management",
-    host: "Michael Dlamini",
-    hostTitle: "Risk Management Specialist",
-    description: "The most critical aspect of trading success: managing risk. Learn position sizing, setting proper stop losses, and portfolio management techniques.",
-    detailedDescription: "Risk management is the cornerstone of trading longevity, yet it's often overlooked in favor of entry strategies and technical indicators. In this essential workshop, Michael will demonstrate why most traders fail due to poor risk management and how you can avoid the same fate. You'll learn practical, mathematical approaches to position sizing based on your account size, how to properly set stop losses based on market volatility, and techniques to manage your overall trading portfolio to minimize drawdowns. This workshop includes downloadable risk management calculators and templates that you can immediately implement in your trading business. If you want to survive and thrive as a trader long-term, this session is non-negotiable.",
-    participants: 45,
-    maxParticipants: 60,
-    location: "Zoom Workshop",
-    duration: "2 hours",
-    prerequisites: "Basic trading experience",
-    difficulty: "All Levels",
-    image: "https://placehold.co/800x450/111827/4c75e6?text=Risk+Management",
-    featured: false,
-    isFree: false,
-    price: "R180",
-    isSaved: false,
-    tags: ["risk management", "position sizing", "stop loss", "portfolio management"]
-  },
   {
     id: 7,
     title: "Cape Town Traders Social",
@@ -165,30 +28,33 @@ const eventData = [
     isFree: true,
     price: "Free",
     isSaved: false,
-    tags: ["networking", "cape town", "in-person", "social"]
+    tags: ["networking", "cape town", "in-person", "social"],
+    registrationUrl: "#" // Placeholder URL
   },
   {
-    id: 8,
-    title: "Futures Trading for South African Markets",
-    date: "2025-04-05T10:00:00",
-    type: "webinar",
-    category: "futures",
-    host: "Jabu Nkosi",
-    hostTitle: "Futures Specialist",
-    description: "A specialized session on trading futures contracts on the JSE and international markets, focusing on strategies relevant to South African traders.",
-    detailedDescription: "This specialized webinar focuses on the unique aspects of trading futures contracts as a South African trader. Jabu will break down the structure of local JSE futures contracts as well as how to access and trade international futures markets. You'll learn the contract specifications, margin requirements, and tax implications specific to SA traders. The session includes practical demonstrations of futures trading platforms, analysis of seasonality patterns in key contracts, and strategies for using futures for both speculation and hedging. Whether you're interested in index futures, commodities, or currency futures, this session will provide the knowledge you need to confidently incorporate these instruments into your trading arsenal.",
-    participants: 32,
-    maxParticipants: 50,
-    location: "Online Webinar",
-    duration: "2.5 hours",
-    prerequisites: "Understanding of basic market principles",
-    difficulty: "Intermediate",
-    image: "https://placehold.co/800x450/111827/26de81?text=SA+Futures",
-    featured: false,
-    isFree: false,
-    price: "R220",
+    id: 9,
+    title: "WIKI FINANCE EXPO JOHANNESBURG 2025",
+    date: "2025-08-16T09:00:00",
+    type: "in-person",
+    category: "fintech",
+    host: "Wiki Global",
+    hostTitle: "Event Organizers",
+    description: "Join the Pinnacle of Global Fintech Innovation! Bringing together over 10,000 attendees and 3,000 top-tier companies, showcasing the latest trends in Fintech, Forex, Crypto, Stocks, Payments, and AI.",
+    detailedDescription: "WIKI FINANCE EXPO JOHANNESBURG 2025 lands in Johannesburg on August 16, 2025, delivering an unparalleled financial technology experience. As the world's largest fintech event, this expo will bring together over 10,000 attendees and 3,000 top-tier companies, showcasing the latest trends and breakthroughs in Fintech, Forex, Crypto, Stocks, Payments, and AI.\n\nWho Should Attend?\n- Forex and Crypto traders, KOLs, Brokers, Affiliates & IBs, Fund managers, Bankers, Project Owners\n- Web3.0, Blockchain, Online trading platform developers and users\n- AI, Fintech, Liquidity, Financial Services providers and professionals\n- Entrepreneurs, VCs who are eager to master global financial trends\n\nAll free for attendees! To purchase a sponsorship or booth, email: loki@wikiglobal.com",
+    participants: "10,000+", // Changed to string to show it's an estimate
+    maxParticipants: "Expected: 10,000+", // Updated to match the string format
+    location: "Johannesburg, South Africa",
+    duration: "All day",
+    prerequisites: "None",
+    difficulty: "All Levels",
+    image: WikiFinance,
+    featured: true,
+    isFree: true,
+    price: "Free",
     isSaved: false,
-    tags: ["futures", "JSE", "south african markets", "derivatives"]
+    tags: ["fintech", "forex", "crypto", "blockchain", "AI", "expo", "networking"],
+    registrationUrl: "https://bit.ly/wikiexpo_Africa2025", // Added the registration URL
+    isExternalEvent: true // Flag to indicate external event
   }
 ];
 
@@ -325,8 +191,12 @@ const EventCard = ({ event, onToggleSave, openEventDetails }) => {
         <div className="event-footer">
           <div className="participants">
             <FaUsers className="participants-icon" />
-            <span className="participant-count">{event.participants}</span>
-            <span className="participant-label">/ {event.maxParticipants} registered</span>
+            <span className="participant-count">
+              {typeof event.participants === 'string' ? event.participants : event.participants}
+            </span>
+            <span className="participant-label">
+              {event.isExternalEvent ? ' expected' : `/ ${event.maxParticipants} registered`}
+            </span>
           </div>
           
           {!timeRemaining.isPast ? (
@@ -350,15 +220,17 @@ const EventCard = ({ event, onToggleSave, openEventDetails }) => {
         </div>
       </div>
       
-      <button 
+      <a 
+        href={event.registrationUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
         className="register-btn"
         onClick={(e) => {
           e.stopPropagation();
-          alert(`Registration for "${event.title}" would happen here!`);
         }}
       >
         {timeRemaining.isPast ? 'View Recording' : 'Register Now'}
-      </button>
+      </a>
       
       <div className="difficulty-level" data-level={event.difficulty.toLowerCase()}>
         {event.difficulty}
@@ -393,6 +265,7 @@ const EventFilters = ({
     { id: 'all', label: 'All Categories' },
     { id: 'forex', label: 'Forex' },
     { id: 'crypto', label: 'Crypto' },
+    { id: 'fintech', label: 'Fintech' },
     { id: 'technical-analysis', label: 'Technical Analysis' },
     { id: 'risk-management', label: 'Risk Management' },
     { id: 'education', label: 'Education' },
@@ -500,6 +373,7 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
   if (!event) return null;
   
   const timeRemaining = getTimeRemaining(event.date);
+  const isWikiFinanceEvent = event && event.id === 9;
   
   return (
     <AnimatePresence>
@@ -558,7 +432,11 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
                 
                 <div className="meta-item">
                   <FaUsers className="meta-icon" />
-                  <span>{event.participants} / {event.maxParticipants} Registered</span>
+                  <span>
+                    {event.isExternalEvent 
+                      ? `${event.participants} expected` 
+                      : `${event.participants} / ${event.maxParticipants} Registered`}
+                  </span>
                 </div>
               </div>
               
@@ -577,7 +455,7 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
               
               <div className="modal-description">
                 <h3>About This Event</h3>
-                <p>{event.detailedDescription}</p>
+                <p style={{ whiteSpace: 'pre-line' }}>{event.detailedDescription}</p>
               </div>
               
               <div className="modal-details">
@@ -631,12 +509,14 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
               )}
               
               <div className="modal-actions">
-                <button 
+                <a 
+                  href={event.registrationUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
                   className="register-btn large"
-                  onClick={() => onRegister(event)}
                 >
                   {timeRemaining.isPast ? 'View Recording' : `Register Now ${!event.isFree ? `• ${event.price}` : ''}`}
-                </button>
+                </a>
                 
                 {!timeRemaining.isPast && (
                   <button className="add-calendar-btn">
@@ -756,8 +636,13 @@ const Eventspage = () => {
   
   // Handle event registration
   const handleRegister = (event) => {
-    // In a real app, this would open a registration form or redirect to payment
-    alert(`Registration process for "${event.title}" would start here.`);
+    // If there's a registration URL, navigate to it
+    if (event.registrationUrl && event.registrationUrl !== "#") {
+      window.open(event.registrationUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      // In a real app, this would open a registration form or redirect to payment
+      alert(`Registration process for "${event.title}" would start here.`);
+    }
   };
   
   // Apply all filters to events
@@ -1002,6 +887,19 @@ const Eventspage = () => {
                             >
                               {event.isSaved ? <FaBookmark /> : <FaRegBookmark />}
                             </button>
+                            
+                            {/* Add separate register button for list view */}
+                            <a 
+                              href={event.registrationUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="list-register-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                              }}
+                            >
+                              Register
+                            </a>
                           </div>
                         </div>
                       ))}

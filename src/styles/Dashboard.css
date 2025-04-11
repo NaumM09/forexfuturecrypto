@@ -1,5 +1,18 @@
-/* Main Variables */
-:root {
+/* Main Variables - moved from :root to regular CSS variables */
+/* The :root declaration has been removed to prevent clashes */
+
+/* Variable definitions can be moved to another selector if needed */
+/* For example, you can add them to .dashboard or create a specific class */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  
+  /* Variables moved from :root */
   --color-primary: #2b7de9;
   --color-primary-light: rgba(43, 125, 233, 0.1);
   --color-primary-dark: #1e63c4;
@@ -17,15 +30,6 @@
   --border-radius: 8px;
   --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
-}
-
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: 'Poppins', sans-serif;
 }
 
 /* Loading State */

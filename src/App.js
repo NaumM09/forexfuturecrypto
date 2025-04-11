@@ -4,7 +4,6 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 // import Services from "./components/Service";
-import Disclaimer from "./components/Disclaimer";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -25,6 +24,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Resource from "./components/Resource";
 import Articles from "./components/Articles"; // Articles section component
+import "./App.css";
 
 // Individual article pages
 import Article2025BullRun from "./pages/articles/Article2025BullRun";
@@ -73,7 +73,6 @@ const App = () => {
                 <Challenge />
                 <Articles /> {/* Include Articles section */}
                 <Contact />
-                <Disclaimer />
                 <WhatsAppButton />
               </>
             }

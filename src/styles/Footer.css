@@ -1,5 +1,12 @@
 /* Enhanced Footer Styles - Dark Theme */
-:root {
+.footer-section {
+  background-color: #0d1320;
+  color: #ffffff;
+  padding: 60px 0 20px;
+  position: relative;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+  
+  /* Variables moved from :root */
   --primary-color: #0066cc;
   --accent-color: #00cc99;
   --bg-color: #111827;
@@ -13,14 +20,6 @@
   --twitter-color: #1da1f2;
   --telegram-color: #0088cc;
   --transition-speed: 0.3s;
-}
-
-.footer-section {
-  background-color: var(--bg-darker);
-  color: var(--text-color);
-  padding: 60px 0 20px;
-  position: relative;
-  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .footer-section::before {

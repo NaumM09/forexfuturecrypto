@@ -1,5 +1,12 @@
 /* Trading Insights Section Styles */
-:root {
+.trading-insights-section {
+  position: relative;
+  padding: 80px 0;
+  background-color: #111827;
+  color: #ffffff;
+  overflow: hidden;
+  
+  /* Variables moved from :root */
   --primary-color: #0066cc;
   --accent-color: #00cc99;
   --bg-color: #111827;
@@ -10,14 +17,6 @@
   --up-color: #00cc99;
   --down-color: #ff4757;
   --gold-color: #f7931a;
-}
-
-.trading-insights-section {
-  position: relative;
-  padding: 80px 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  overflow: hidden;
 }
 
 /* Background Elements */

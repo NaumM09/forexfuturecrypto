@@ -1,6 +1,11 @@
-/* Events Section Styles - Enhanced Theme with Dark Mode Support */
-:root {
-  /* Light Theme Variables */
+/* Events Section Styles - Light Theme */
+.community-events-section {
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+  background-color: #ffffff !important; /* Force white background */
+  color: #2d3748 !important; /* Force dark text */
+  transition: all 0.3s ease;
+  
+  /* Light Theme Variables - Directly using light values */
   --primary-color: #0066cc;
   --accent-color: #00cc99;
   --gradient-primary: linear-gradient(135deg, #0066cc, #00cc99);
@@ -18,34 +23,13 @@
   --button-hover-shadow: 0 6px 12px rgba(0, 102, 204, 0.15);
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #4299e1;
-    --accent-color: #38b2ac;
-    --gradient-primary: linear-gradient(135deg, #4299e1, #38b2ac);
-    --bg-color: #1a202c;
-    --card-bg: #2d3748;
-    --text-color: #f7fafc;
-    --text-secondary: #e2e8f0;
-    --border-color: rgba(255, 255, 255, 0.08);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --countdown-bg: rgba(66, 153, 225, 0.1);
-    --button-hover-shadow: 0 6px 12px rgba(66, 153, 225, 0.25);
-  }
-}
-
-.community-events-section {
-  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.3s ease;
-}
+/* Dark Mode Support REMOVED to force light theme */
 
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 
 /* Section Header */
 .section-header {
@@ -59,6 +43,7 @@
   margin-bottom: 1.25rem;
   letter-spacing: -0.025em;
   line-height: 1.2;
+  color: #2d3748; /* Ensure dark text */
 }
 
 .section-title .highlight {
@@ -67,6 +52,9 @@
   display: inline-block;
 }
 
+.highlight1{
+  color: var(--primary-color);
+}
 .section-title .highlight::after {
   content: '';
   position: absolute;

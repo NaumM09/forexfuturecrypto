@@ -1,6 +1,6 @@
 /* Section Styling */
 .why-choose-us {
-  background: white;
+  background: white !important;
   padding: 4rem 8%; /* Increased padding for larger margins */
   text-align: center;
   border-top: 1px solid #ddd;

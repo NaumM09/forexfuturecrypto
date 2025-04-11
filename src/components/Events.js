@@ -1,52 +1,42 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/Events.css';
+import WikiFinance from '../images/wiki.jpg';
 
-// Sample event data
+// Updated event data with expanded WikiFinance description
 const eventData = [
   {
-    id: 1,
-    title: "Weekly Forex Forecast & Strategy Session",
-    date: "2025-03-15T16:00:00",
-    type: "webinar",
-    host: "Thomas Mkize",
-    hostTitle: "Senior Forex Analyst",
-    description: "Join our weekly strategy session as we analyze key forex pairs and set up our trading plan for the week ahead. We'll cover technical patterns, fundamental drivers, and potential trade setups.",
-    participants: 76,
-    image: "https://placehold.co/800x450/111827/00cc99?text=Forex+Forecast"
-  },
-  {
-    id: 2,
-    title: "Crypto Trading Masterclass: Bitcoin & Altcoins",
-    date: "2025-03-18T18:30:00",
-    type: "workshop",
-    host: "Sarah Ndlovu",
-    hostTitle: "Crypto Specialist",
-    description: "A deep dive into crypto market cycles, key support/resistance levels, and emerging patterns. Learn how to identify high-probability setups across major cryptocurrencies.",
-    participants: 42,
-    image: "https://placehold.co/800x450/111827/0066cc?text=Crypto+Masterclass"
-  },
-  {
-    id: 3,
-    title: "Johannesburg Traders Meetup",
-    date: "2025-03-25T18:00:00",
+    id: 7,
+    title: "Cape Town Traders Social",
+    date: "2025-04-15T18:30:00",
     type: "in-person",
-    host: "Trading Community Team",
-    hostTitle: "Community Organizers",
-    description: "Connect with fellow traders in Johannesburg! Join us for networking, trading discussions, and insights sharing. All experience levels welcome. Location: The Capital on the Park, Sandton.",
-    participants: 35,
-    image: "https://placehold.co/800x450/111827/cc6600?text=JHB+Meetup"
+    host: "WC Trading Community",
+    hostTitle: "Community Leaders",
+    description: "An evening of networking and market discussions with Cape Town's trading community. Includes guest speaker and refreshments.",
+    participants: 28,
+    image: "https://placehold.co/800x450/111827/45aaf2?text=Cape+Town+Social",
+    registrationUrl: "#" // Placeholder URL for Cape Town event
   },
   {
-    id: 4,
-    title: "Advanced Price Action Trading Strategies",
-    date: "2025-04-02T17:00:00",
-    type: "workshop",
-    host: "David Osei",
-    hostTitle: "Professional Trader",
-    description: "Master the art of price action trading. We'll cover candlestick patterns, order flow analysis, market structure, and how to execute high-probability trades based on pure price movement.",
-    participants: 58,
-    image: "https://placehold.co/800x450/111827/a855f7?text=Price+Action"
+    id: 9,
+    title: "WIKI FINANCE EXPO JOHANNESBURG 2025",
+    date: "2025-08-16T09:00:00",
+    type: "in-person",
+    host: "Wiki Global",
+    hostTitle: "Event Organizers",
+    description: "Join the Pinnacle of Global Fintech Innovation! WIKI FINANCE EXPO JOHANNESBURG 2025 lands in Johannesburg on August 16, 2025, delivering an unparalleled financial technology experience. As the world's largest fintech event, this expo will bring together over 10,000 attendees and 3,000 top-tier companies, showcasing the latest trends and breakthroughs in Fintech, Forex, Crypto, Stocks, Payments, and AI.",
+    detailedDescription: {
+      whoShouldAttend: [
+        "Forex and Crypto traders, KOLs, Brokers, Affiliates & IBs, Fund managers, Bankers, Project Owners",
+        "Web3.0, Blockchain, Online trading platform developers and users",
+        "AI, Fintech, Liquidity, Financial Services providers and professionals",
+        "Entrepreneurs, VCs who are eager to master global financial trends"
+      ]
+    },
+    participants: "10,000+", // Changed to string to show it's an estimate
+    image: WikiFinance,
+    registrationUrl: "https://bit.ly/wikiexpo_Africa2025",
+    isExternalEvent: true // Flag to indicate this is an external event
   }
 ];
 
@@ -114,20 +104,44 @@ const EventTypeBadge = ({ type }) => {
   );
 };
 
+// Featured Badge component for special events
+const FeaturedBadge = () => (
+  <div className="featured-badge" style={{ 
+    position: 'absolute', 
+    top: '16px', 
+    left: '16px',
+    backgroundColor: 'rgba(255, 215, 0, 0.9)',
+    color: '#000',
+    padding: '6px 12px',
+    borderRadius: '30px',
+    fontWeight: 'bold',
+    fontSize: '0.75rem',
+    zIndex: 5,
+    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+  }}>
+    Featured Event
+  </div>
+);
+
 // Event card component
 const EventCard = ({ event }) => {
   const timeRemaining = getTimeRemaining(event.date);
+  const [expanded, setExpanded] = useState(false);
+  
+  const isWikiFinanceEvent = event.id === 9; // Check if this is the WikiFinance event
   
   return (
     <motion.div 
-      className="event-card"
+      className={`event-card ${isWikiFinanceEvent ? 'featured-event' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
+      style={isWikiFinanceEvent ? { borderColor: 'rgba(255, 215, 0, 0.3)', borderWidth: '2px' } : {}}
     >
       <div className="event-image">
         <img src={event.image} alt={event.title} />
         <EventTypeBadge type={event.type} />
+        {isWikiFinanceEvent && <FeaturedBadge />}
       </div>
       
       <div className="event-content">
@@ -145,12 +159,47 @@ const EventCard = ({ event }) => {
           </div>
         </div>
         
-        <p className="event-description">{event.description}</p>
+        <div className="event-description">
+          <p>{event.description}</p>
+          
+          {/* Show detailed info for WikiFinance event */}
+          {isWikiFinanceEvent && expanded && (
+            <div className="expanded-content" style={{ marginTop: '15px' }}>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '10px' }}>Who Should Attend?</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                {event.detailedDescription.whoShouldAttend.map((item, index) => (
+                  <li key={index} style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {/* Show/Hide details button for WikiFinance */}
+          {isWikiFinanceEvent && (
+            <button 
+              onClick={() => setExpanded(!expanded)} 
+              style={{ 
+                background: 'none',
+                border: 'none',
+                color: 'var(--primary-color)',
+                cursor: 'pointer',
+                padding: '5px 0',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                marginTop: '10px'
+              }}
+            >
+              {expanded ? 'Show Less' : 'Show More Details'}
+            </button>
+          )}
+        </div>
         
         <div className="event-footer">
           <div className="participants">
             <span className="participant-count">{event.participants}</span>
-            <span className="participant-label">registered</span>
+            <span className="participant-label">
+              {event.isExternalEvent ? 'expected' : 'registered'}
+            </span>
           </div>
           
           {!timeRemaining.isPast ? (
@@ -172,9 +221,15 @@ const EventCard = ({ event }) => {
             <div className="event-past">Event has ended</div>
           )}
           
-          <button className="register-btn">
+          <a 
+            href={event.registrationUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="register-btn"
+            style={isWikiFinanceEvent ? { background: 'linear-gradient(to right, #0066cc, #ffd700)' } : {}}
+          >
             {timeRemaining.isPast ? 'View Recording' : 'Register Now'}
-          </button>
+          </a>
         </div>
       </div>
     </motion.div>
@@ -219,7 +274,7 @@ const Events = () => {
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">
-            Upcoming <span className="highlight">Community Events</span>
+           <span className="highlight1">Upcoming</span> <span className="highlight">Community Events</span>
           </h2>
           <p className="section-description">
             Join live trading sessions, webinars, and meetups to enhance your skills and connect with fellow African traders.

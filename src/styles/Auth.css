@@ -1,6 +1,15 @@
 /* Auth.css - Matching your website's current style */
 
-:root {
+/* Variables moved from :root to .auth-container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #121d38;
+  
+  /* Variables moved from :root */
   --dark-blue: #121d38;
   --medium-blue: #1a2745;
   --light-blue: #2c3e67;
@@ -13,16 +22,6 @@
   --success-color: #12c49d;
   --error-color: #f35757;
   --warning-color: #f3ba57;
-}
-
-/* Auth container - full page layout */
-.auth-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  background-color: var(--dark-blue);
 }
 
 /* Auth form styling */
