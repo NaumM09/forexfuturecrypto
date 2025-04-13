@@ -195,7 +195,7 @@ const HeroSection = ({ useHeroImage = false }) => {
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             <a 
-              href="https://discord.gg/RASFaf9K" 
+              href="https://discord.gg/6AyK87M4m7" 
               className="discord-btn button primary-cta" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -377,7 +377,7 @@ const HeroSection = ({ useHeroImage = false }) => {
                 <FaDiscord className="discord-icon" />
                 <div className="discord-text">
                   <p>Join <strong>the fastest growing community of</strong> traders on Discord</p>
-                  <a href="https://discord.gg/RASFaf9K" target="_blank" rel="noopener noreferrer">
+                  <a href="https://discord.gg/6AyK87M4m7" target="_blank" rel="noopener noreferrer">
                     Connect Now
                   </a>
                 </div>
