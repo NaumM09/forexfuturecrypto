@@ -35,7 +35,7 @@ const eventData = [
     },
     participants: "10,000+", // Changed to string to show it's an estimate
     image: WikiFinance,
-    registrationUrl: "https://bit.ly/wikiexpo_Africa2025",
+    registrationUrl: "https://www.wikiexpo.com/Africa/2025/en/index.html?c=RDfUy8WM",
     isExternalEvent: true // Flag to indicate this is an external event
   }
 ];

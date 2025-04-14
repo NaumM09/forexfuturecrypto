@@ -53,7 +53,7 @@ const eventData = [
     price: "Free",
     isSaved: false,
     tags: ["fintech", "forex", "crypto", "blockchain", "AI", "expo", "networking"],
-    registrationUrl: "https://bit.ly/wikiexpo_Africa2025", // Added the registration URL
+    registrationUrl: " https://www.wikiexpo.com/Africa/2025/en/index.html?c=RDfUy8WM", // Added the registration URL
     isExternalEvent: true // Flag to indicate external event
   }
 ];
