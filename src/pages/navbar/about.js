@@ -1,513 +1,302 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import '../styles/about.css';
-import ourStory from "./../../images/ourStory.png";
-import Mission from "./../../images/Psychology.jpg";
-import TraderStream from "./../../images/TraderStream.png";
-import RSA from "./../../images/RSA.png";
-
+import { ChevronRight, MessageCircle, TrendingUp, Users, Globe, Zap, Award, Shield, Coffee, Target } from 'lucide-react';
+import "../styles/about.css";
+import heroImg from "../../images/website-img.png";
+import Collaboration from "../../images/collaboration.jpg";
 const AboutPage = () => {
-  // Animation variants for better organization
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-  
   return (
     <div className="about-page">
-      {/* Modern Hero Section with Overlay */}
-      <section className="hero-section">
-        <div className="hero-overlay"></div>
-        <div className="container">
-          <motion.h1 
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ duration: 0.6 }}
-          >
-            About <span className="highlight">Us</span>
-          </motion.h1>
-          <motion.p 
-            className="hero-tagline"
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Empowering African traders to thrive in global markets
-          </motion.p>
+      {/* Hero Section */}
+      <section className="about-hero-section" style={{backgroundImage: 'url("/api/placeholder/1200/600")'}}>
+        <div className="about-hero-overlay"></div>
+        <div className="about-container">
+          <h1>About <span className="about-highlight">FX Futures Crypto</span></h1>
+          <p className="about-hero-tagline">Keeping it real in the trading world - no fluff, no fake gurus, just real people winning together.</p>
         </div>
       </section>
-      
+
       {/* Introduction Section */}
-      <section className="intro-section">
-        <div className="container">
-          <div className="two-column">
-            <motion.div 
-              className="intro-content"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="section-heading">
-                <span className="subtitle">Our Story</span>
-                <h2>Africa's Premier Trading Community</h2>
+      <section className="about-intro-section">
+        <div className="about-container">
+          <div className="about-two-column">
+            <div className="about-intro-content">
+              <div className="about-section-heading">
+                <span className="about-subtitle">Who We Are</span>
+                <h2>Trading Made Simple</h2>
               </div>
-              <p>
-                Founded in 2024, our platform was born from a simple observation: talented African 
-                traders were disconnected from each other and from the global trading community. 
-                Despite Africa's rapidly growing financial markets, there was no centralised 
-                ecosystem where traders could connect, learn, and grow together.
-              </p>
-              <p>
-                What started as a small WhatsApp group for forex traders in South Africa has evolved 
-                into the continent's most vibrant trading community platform, serving thousands of 
-                traders across all 54 African nations.
-              </p>
-              <div className="stat-highlights">
-                <div className="stat">
-                  <span className="stat-number">54</span>
-                  <span className="stat-label">African Nations</span>
+              <p>At <strong>FX Futures Crypto</strong>, we keep things simple: we're a group of traders, content creators, and fintech lovers building a space where people can actually grow in the trading game—without all the noise.</p>
+              <p>We know what it's like to feel overwhelmed by charts, lingo, and constant "get rich quick" advice. That's not us. We're here to keep it real, share what works, and build a community where everyday traders can win together. No fluff. No fake gurus. Just people trying to get better, one trade at a time.</p>
+              
+              <div className="about-stat-highlights">
+                <div className="about-stat">
+                  <span className="about-stat-number">1000+</span>
+                  <span className="about-stat-label">Community Members</span>
                 </div>
-                <div className="stat">
-                  <span className="stat-number">25K+</span>
-                  <span className="stat-label">Community Members</span>
+                <div className="about-stat">
+                  <span className="about-stat-number">24/7</span>
+                  <span className="about-stat-label">Trading Support</span>
+                </div>
+                <div className="about-stat">
+                  <span className="about-stat-number">100%</span>
+                  <span className="about-stat-label">Transparent Approach</span>
                 </div>
               </div>
-            </motion.div>
-            <motion.div 
-              className="intro-image"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <img src={ourStory} alt="Trading community members" />
-            </motion.div>
+            </div>
+            <div className="about-intro-image">
+              <img src={heroImg} alt="FX Futures Crypto Team" />
+            </div>
           </div>
         </div>
       </section>
-      
-      {/* Mission Section with Card Design */}
-      <section className="mission-section">
-        <div className="container">
-          <div className="section-heading centered">
-            <span className="subtitle">Our Mission</span>
-            <h2>Democratizing Access to Global Markets</h2>
+
+      {/* What We Do Section */}
+      <section className="about-mission-section">
+        <div className="about-container">
+          <div className="about-section-heading about-centered">
+            <span className="about-subtitle">OUR MISSION</span>
+            <h2 className="about-heading-what-we-do">
+              What<br/>
+              We<br/>
+              Do
+            </h2>
+            <p className="about-section-intro">We run social media campaigns and brand awareness projects that actually connect with people. No fancy jargon, just real trading talk.</p>
           </div>
           
-          <div className="mission-content">
-            <motion.p 
-              className="mission-statement"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              We believe that access to global financial markets should be democratised, and that 
-              African traders deserve a platform built for their unique needs and challenges. Our mission is 
-              to empower African traders with the knowledge, community, and tools they need to compete 
-              confidently in global markets, while building wealth and financial independence.
-            </motion.p>
+          <div className="about-mission-content">
+            <div className="about-mission-statement-container">
+              <p className="about-mission-statement">
+                Whether it's breaking down what's happening in the markets or sharing relatable trading moments, we focus on content that feels honest, educational, and easy to vibe with. We're mainly rooted in the fintech space—because that's where the future is. But we do things differently. Instead of trying to sound smart, we focus on making sure what we say <strong>actually makes sense</strong>.
+              </p>
+            </div>
             
-            <div className="mission-pillars">
-              <motion.div 
-                className="pillar-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <div className="pillar-icon">
-                  <i className="fas fa-graduation-cap"></i>
+            <div className="about-mission-pillars">
+              <div className="about-pillar-card">
+                <div className="about-pillar-icon">
+                  <TrendingUp />
                 </div>
-                <h3>Education First</h3>
-                <p>Making quality trading education accessible to all Africans</p>
-              </motion.div>
+                <h3>Market Education</h3>
+                <p>We break down complex market concepts into digestible, actionable insights that traders at any level can understand and implement.</p>
+              </div>
               
-              <motion.div 
-                className="pillar-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div className="pillar-icon">
-                  <i className="fas fa-users"></i>
+              <div className="about-pillar-card">
+                <div className="about-pillar-icon">
+                  <Globe />
                 </div>
-                <h3>Community Driven</h3>
-                <p>Building supportive networks that elevate everyone</p>
-              </motion.div>
+                <h3>Social Media</h3>
+                <p>We create engaging content that resonates with traders, making complex financial concepts accessible and relatable through our various social platforms.</p>
+              </div>
               
-              <motion.div 
-                className="pillar-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <div className="pillar-icon">
-                  <i className="fas fa-shield-alt"></i>
+              <div className="about-pillar-card">
+                <div className="about-pillar-icon">
+                  <Users />
                 </div>
-                <h3>Trader Protection</h3>
-                <p>Promoting ethical practices and protecting our community</p>
-              </motion.div>
+                <h3>Community Building</h3>
+                <p>We foster a supportive environment where traders can connect, share insights, and grow together regardless of their experience level.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Services Section with Modern Card Layout */}
-      <section className="services-section">
-        <div className="container">
-          <div className="section-heading centered">
-            <span className="subtitle">What We Do</span>
-            <h2>Our Platform Services</h2>
-            <p className="section-intro">
-              Our platform serves as the central hub for African traders, providing everything needed to succeed
-            </p>
+      {/* Services Section */}
+      <section className="about-services-section">
+        <div className="about-container">
+          <div className="about-section-heading about-centered">
+            <span className="about-subtitle">What We Do</span>
+            <h2>Our Services</h2>
+            <p className="about-section-intro">We use our platforms to educate, entertain, and inspire real conversations around trading and finance.</p>
           </div>
           
-          <div className="services-grid">
-            <motion.div 
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="service-icon">
-                <i className="fas fa-people-group"></i>
+          <div className="about-services-grid">
+            <div className="about-service-card">
+              <div className="about-service-icon">
+                <TrendingUp />
               </div>
-              <div className="service-content">
-                <h3>Trading Communities</h3>
-                <p>Connect with verified trading communities and mentors from across Africa, sharing strategies and insights in a supportive environment.</p>
+              <div className="about-service-content">
+                <h3>Market Education</h3>
+                <p>Breaking down what's happening in the markets in simple, understandable terms that make sense to traders at all levels.</p>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="service-icon">
-                <i className="fas fa-chalkboard-teacher"></i>
+            <div className="about-service-card">
+              <div className="about-service-icon">
+                <Globe />
               </div>
-              <div className="service-content">
-                <h3>Educational Resources</h3>
-                <p>Access curated learning materials, webinars, and trading courses designed specifically for African market conditions and contexts.</p>
+              <div className="about-service-content">
+                <h3>Social Media Campaigns</h3>
+                <p>Creating compelling content that connects with real traders and builds authentic engagement around financial topics.</p>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="service-icon">
-                <i className="fas fa-trophy"></i>
+            <div className="about-service-card">
+              <div className="about-service-icon">
+                <Zap />
               </div>
-              <div className="service-content">
-                <h3>Trading Challenges</h3>
-                <p>Test your skills in our trading challenges and competitions, with opportunities to win capital and showcase your talent.</p>
+              <div className="about-service-content">
+                <h3>Brand Awareness</h3>
+                <p>Helping fintech brands connect with their audience through honest, value-driven content that resonates with the trading community.</p>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="service-icon">
-                <i className="fas fa-newspaper"></i>
+            <div className="about-service-card">
+              <div className="about-service-icon">
+                <MessageCircle />
               </div>
-              <div className="service-content">
-                <h3>Market Insights</h3>
-                <p>Stay informed with regular market analyses and African-focused reports that highlight relevant trading opportunities.</p>
+              <div className="about-service-content">
+                <h3>Community Management</h3>
+                <p>Building and nurturing trading communities where members can learn, share, and grow together in a supportive environment.</p>
               </div>
-            </motion.div>
-            
-            <motion.div 
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="service-icon">
-                <i className="fas fa-building-columns"></i>
-              </div>
-              <div className="service-content">
-                <h3>Prop Firm Partnerships</h3>
-                <p>Access exclusive partnerships with proprietary trading firms, offering funded accounts to qualifying African traders.</p>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="service-icon">
-                <i className="fas fa-calendar-alt"></i>
-              </div>
-              <div className="service-content">
-                <h3>Trading Events</h3>
-                <p>Join virtual and in-person trading events, conferences, and meetups to build your network and expand your knowledge.</p>
-              </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* Projects Section with Tabs */}
-      <section className="projects-section">
-        <div className="container">
-          <div className="section-heading centered">
-            <span className="subtitle">Current Projects</span>
-            <h2>Innovating African Trading</h2>
-            <p className="section-intro">
-              We're continuously developing innovative solutions to transform the African trading landscape
-            </p>
+      {/* Community Section */}
+      <section className="about-community-section">
+        <div className="about-container">
+          <div className="about-community-header">
+            <div className="about-community-text">
+              <div className="about-section-heading">
+                <span className="about-subtitle">JOIN US</span>
+                <h2>Our Free Retail Trading Community</h2>
+                <p className="about-section-intro">This is where the magic happens. A place where traders share, learn, and grow together.</p>
+              </div>
+              
+              <p className="about-mission-statement">
+                We run a free retail trading community where people share trades, ask questions, post wins (and losses), and just connect. You'll find beginners asking the right questions, intermediate traders learning by doing, and advanced traders breaking down real strategies in simple terms.
+              </p>
+              <p className="about-mission-statement about-bold-statement">
+                <strong>No one's above anyone else. Everyone's learning. That's the point.</strong>
+              </p>
+            </div>
           </div>
           
-          <div className="projects-showcase">
-            <motion.div 
-              className="project-card"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="project-image">
-                <img src={TraderStream} alt="TraderStream Platform" />
-                <div className="project-status">
-                  <span className="status in-development">In Development • Q3 2025</span>
-                </div>
-              </div>
-              <div className="project-content">
-                <h3>TraderStream</h3>
-                <p className="project-category">Trading Streaming Platform</p>
-                <p>
-                  TraderStream enables traders to livestream their trading sessions, share insights in real-time, and build their personal brand while monetising their expertise. This platform addresses the need for transparency in trading education while creating new income opportunities for skilled traders.
-                </p>
-                <div className="project-features">
-                  <span className="feature"><i className="fas fa-video"></i> Live Trading Sessions</span>
-                  <span className="feature"><i className="fas fa-comments"></i> Real-time Community Interaction</span>
-                  <span className="feature"><i className="fas fa-chart-line"></i> Performance Analytics</span>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="project-card"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <div className="project-image">
-                <img src={RSA} alt="RSA Humanitarian Coin" />
-                <div className="project-status">
-                  <span className="status upcoming">Launching • Q2 2025</span>
-                </div>
-              </div>
-              <div className="project-content">
-                <h3>$RSA Humanitarian Coin</h3>
-                <p className="project-category">Social Impact through Blockchain</p>
-                <p>
-                  The $RSA Humanitarian Coin is our initiative to leverage blockchain technology for social impact. This coin aims to raise awareness and provide support for humanitarian crises in Palestine and the Democratic Republic of Congo.
-                </p>
-                <div className="project-features">
-                  <span className="feature"><i className="fas fa-hand-holding-heart"></i> Direct Humanitarian Support</span>
-                  <span className="feature"><i className="fas fa-shield-alt"></i> Transparent Fund Allocation</span>
-                  <span className="feature"><i className="fas fa-globe"></i> Global Awareness Building</span>
-                </div>
-              </div>
-            </motion.div>
+          <div className="about-community-content">            
+            <div className="about-community-features">
+              <h3 className="about-features-heading">Inside the community, you'll get:</h3>
+              <ul className="about-feature-list">
+                <li className="about-feature-item">
+                  <div className="about-feature-icon">
+                    <TrendingUp />
+                  </div>
+                  <div className="about-feature-text">
+                    <h3>Daily Market Talk</h3>
+                    <p>We keep things active with chat around what's moving and why.</p>
+                  </div>
+                </li>
+                <li className="about-feature-item">
+                  <div className="about-feature-icon">
+                    <Target />
+                  </div>
+                  <div className="about-feature-text">
+                    <h3>Trade Ideas</h3>
+                    <p>See what others are looking at and share your setups.</p>
+                  </div>
+                </li>
+                <li className="about-feature-item">
+                  <div className="about-feature-icon">
+                    <MessageCircle />
+                  </div>
+                  <div className="about-feature-text">
+                    <h3>Real Feedback</h3>
+                    <p>Ask questions, get real answers. No judgment.</p>
+                  </div>
+                </li>
+                <li className="about-feature-item">
+                  <div className="about-feature-icon">
+                    <Users />
+                  </div>
+                  <div className="about-feature-text">
+                    <h3>Support</h3>
+                    <p>Trading can get lonely. It doesn't have to be.</p>
+                  </div>
+                </li>
+              </ul>
+              <p className="about-mission-statement">We're building something long-term here. Not just a group chat, but a culture where people grow together.</p>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* Values Section with Cards */}
-      <section className="values-section">
-        <div className="container">
-          <div className="section-heading centered">
-            <span className="subtitle">Our Values</span>
-            <h2>What Guides Us</h2>
-          </div>
-          
-          <div className="values-grid">
-            <motion.div 
-              className="value-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="value-icon">
-                <i className="fas fa-handshake"></i>
+      {/* Collaboration Section */}
+      <section className="about-collab-section">
+        <div className="about-container">
+          <div className="about-collab-content">
+            <div className="about-collab-text">
+              <div className="about-section-heading">
+                <span className="about-subtitle">Partnerships</span>
+                <h2>Open to Collabs? Always.</h2>
               </div>
-              <h3>Integrity</h3>
-              <p>
-                We promote ethical trading practices and transparency in all community interactions, rigorously vetting all trading communities on our platform.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="value-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="value-icon">
-                <i className="fas fa-lightbulb"></i>
-              </div>
-              <h3>Innovation</h3>
-              <p>
-                We continuously develop new tools and resources that address the unique challenges faced by African traders in global markets.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="value-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="value-icon">
-                <i className="fas fa-globe-africa"></i>
-              </div>
-              <h3>Pan-African</h3>
-              <p>
-                We embrace diversity and unite traders from all African countries, recognising that our collective strength lies in our shared knowledge and experiences.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="value-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="value-icon">
-                <i className="fas fa-seedling"></i>
-              </div>
-              <h3>Growth Mindset</h3>
-              <p>
-                We believe in continuous learning and improvement, helping traders develop both technical skills and psychological resilience.
-              </p>
-            </motion.div>
+              <p>If you're a brand, creator, or project in the fintech or trading space and you're looking to partner—<strong>we're open</strong>. We love collaborating on campaigns that make sense, that bring value, and that don't feel like forced ads.</p>
+              <p>Whether you're launching something new or just trying to tap into a real community, let's talk.</p>
+              <p>We don't do "one-size-fits-all." We take time to understand your goals, and if the vibe is right, we'll build something that works for everyone.</p>
+              <a href="mailto:naum@forexfuturescrypto.com" className="about-primary-button">
+    Get in Touch <ChevronRight size={18} />
+</a>
+            </div>
+            <div className="about-collab-image">
+              <img src={Collaboration} alt="Collaboration" />
+            </div>
           </div>
         </div>
       </section>
       
-      {/* How to Join Section - Updated Structure */}
-<section className="join-section">
-  <div className="container">
-    <div className="join-heading-container">
-      <span className="join-subtitle">HOW TO JOIN</span>
-      <h2 className="join-title">Be Part of the Movement</h2>
-      <p className="join-description">
-        There are multiple ways to partner with us and contribute to Africa's trading revolution
-      </p>
-    </div>
-    
-    <div className="join-grid">
-      <div className="join-card">
-        <div className="join-header">
-          <div className="join-icon">
-            <i className="fas fa-user-plus"></i>
+      {/* Values Section */}
+      <section className="about-values-section">
+        <div className="about-container">
+          <div className="about-section-heading about-centered">
+            <span className="about-subtitle">Our Philosophy</span>
+            <h2>Our Approach</h2>
+            <p className="about-section-intro">We believe in building trust first.</p>
           </div>
-          <h3>For Traders</h3>
-        </div>
-        <p>
-          Join our community platform to access educational resources, connect with fellow traders, and participate in trading challenges. Sign up for free and upgrade to premium for advanced features.
-        </p>
-        <a href="/auth" className="join-button">
-          Create Account <i className="fas fa-arrow-right"></i>
-        </a>
-      </div>
-      
-      <div className="join-card">
-        <div className="join-header">
-          <div className="join-icon">
-            <i className="fas fa-briefcase"></i>
+          
+          <div className="about-values-grid">
+            <div className="about-value-card">
+              <div className="about-value-icon">
+                <Coffee />
+              </div>
+              <h3>We listen before we talk</h3>
+              <p>Understanding comes before advice. We take the time to hear what matters to our community members.</p>
+            </div>
+            
+            <div className="about-value-card">
+              <div className="about-value-icon">
+                <Users />
+              </div>
+              <h3>We meet people where they are</h3>
+              <p>Everyone's at a different stage in their trading journey, and that's perfectly fine with us.</p>
+            </div>
+            
+            <div className="about-value-card">
+              <div className="about-value-icon">
+                <Award />
+              </div>
+              <h3>We focus on clarity, not hype</h3>
+              <p>Clear, honest communication beats flashy promises every time. We keep it real.</p>
+            </div>
+            
+            <div className="about-value-card">
+              <div className="about-value-icon">
+                <Shield />
+              </div>
+              <h3>We keep the door open</h3>
+              <p>We're always looking for better ways to do things and welcome new ideas and perspectives.</p>
+            </div>
           </div>
-          <h3>For Businesses</h3>
         </div>
-        <p>
-          Explore partnership opportunities to reach African traders, integrate your services with our platform, or collaborate on educational initiatives. We offer flexible partnership models for mutual growth.
-        </p>
-        <a href="https://api.whatsapp.com/send/?phone=%2B27810593062&text&type=phone_number&app_absent=0" className="join-button">
-          Explore Partnerships <i className="fas fa-arrow-right"></i>
-        </a>
-      </div>
-      
-      <div className="join-card">
-        <div className="join-header">
-          <div className="join-icon">
-            <i className="fas fa-hand-holding-usd"></i>
-          </div>
-          <h3>For Investors</h3>
-        </div>
-        <p>
-          Connect with our team to learn about investment opportunities, current funding rounds, and our detailed growth projections. We welcome both strategic and financial investors aligned with our mission.
-        </p>
-        <a href="https://api.whatsapp.com/send/?phone=%2B27810593062&text&type=phone_number&app_absent=0" className="join-button">
-          Investment Opportunities <i className="fas fa-arrow-right"></i>
-        </a>
-      </div>
-      
-      <div className="join-card">
-        <div className="join-header">
-          <div className="join-icon">
-            <i className="fas fa-graduation-cap"></i>
-          </div>
-          <h3>For Educators</h3>
-        </div>
-        <p>
-          If you're an experienced trader or financial educator, apply to become a verified mentor on our platform. Share your knowledge, build your following, and create new income streams.
-        </p>
-        <a href="/community" className="join-button">
-          Become a Mentor <i className="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
       
       {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <motion.div 
-            className="cta-content"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2>Join Africa's Fastest Growing Trading Ecosystem</h2>
-            <p>
-              Be part of a movement that's transforming how Africans trade, learn, and succeed in global markets.
-            </p>
-            <div className="cta-buttons">
-              <a href="/auth" className="primary-button">Create Free Account</a>
-              <a href="/community" className="secondary-button">Explore Communities</a>
+      <section className="about-cta-section">
+        <div className="about-container">
+          <div className="about-cta-content">
+            <h2>Join us. Be part of something real.</h2>
+            <p>If you've read this far, chances are you care about trading, community, or just doing things a little differently. That's exactly what we're about.</p>
+            <div className="about-cta-buttons">
+              <a href="#" className="about-primary-button">Join Our Community</a>
+              <a href="#" className="about-secondary-button">Partner With Us</a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
