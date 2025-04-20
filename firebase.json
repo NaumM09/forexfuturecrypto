@@ -15,7 +15,12 @@
         "type": 301
       },
       {
-        "source": "https://www.forexfuturescrypto.com",
+        "source": "https://mentorship-851db.firebaseapp.com/**",
+        "destination": "https://forexfuturescrypto.com",
+        "type": 301
+      },
+      {
+        "source": "https://www.forexfuturescrypto.com/**",
         "destination": "https://forexfuturescrypto.com",
         "type": 301
       }
