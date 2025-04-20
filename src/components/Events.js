@@ -303,22 +303,6 @@ const Events = () => {
             </div>
           )}
         </div>
-        
-        <div className="events-footer">
-          <div className="suggest-event">
-            <h3>Have an idea for a community event?</h3>
-            <p>We're always looking for traders who want to share their knowledge and insights with the community.</p>
-            <button className="suggest-btn">Suggest an Event</button>
-          </div>
-          
-          <div className="event-calendar">
-            <button className="calendar-btn">
-              <span className="calendar-icon">📅</span>
-              Subscribe to Event Calendar
-            </button>
-            <p className="calendar-info">Never miss an event! Add our community calendar to your Google or iCal.</p>
-          </div>
-        </div>
       </div>
     </section>
   );

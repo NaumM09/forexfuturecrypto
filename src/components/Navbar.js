@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import "../styles/Navbar.css";
+import logo from "./../images/logo.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -104,7 +105,11 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-brand">
           <NavLink to="/" className="brand-name" aria-label="FX Futures Crypto Africa Homepage">
-            <span className="brand-text">Fx Futures Crypto</span>
+            <img 
+              src={logo}
+              alt="Fx Futures Crypto" 
+              className="brand-logo" 
+            />
             <span className="brand-africa">Africa</span>
           </NavLink>
         </div>

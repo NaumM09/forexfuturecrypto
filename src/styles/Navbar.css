@@ -41,15 +41,17 @@
   gap: 4px;
 }
 
-.brand-text {
-  color: #2b7de9;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.5px;
-  transition: color 0.3s ease;
+/* Logo image styling */
+.brand-logo {
+  height: 48px;
+  width: auto;
+  transition: opacity 0.3s ease;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
-.brand-name:hover .brand-text {
-  color: #1e63c4;
+.brand-name:hover .brand-logo {
+  opacity: 0.9;
 }
 
 .brand-africa {
@@ -262,6 +264,11 @@
     justify-content: center;
     margin-top: 0.7rem;
   }
+  
+  /* Responsive logo adjustments */
+  .brand-logo {
+    height: 40px;
+  }
 }
 
 /* High-resolution screens */
@@ -272,6 +279,11 @@
   
   .nav-links li {
     margin: 0 1rem;
+  }
+  
+  /* Larger logo for bigger screens */
+  .brand-logo {
+    height: 54px;
   }
 }
 

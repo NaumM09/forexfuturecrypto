@@ -15,7 +15,7 @@ import {
   Timestamp 
 } from "firebase/firestore";
 import "../styles/Dashboard.css";
-import logo from "../images/logo-loader.png";
+import logo from "../images/logo.png";
 import { 
   FaPlay, FaLock, FaChevronDown, FaChevronRight, FaUser, 
   FaBell, FaSignOutAlt, FaCreditCard, FaCopy, FaCheck, 

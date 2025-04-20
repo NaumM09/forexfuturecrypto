@@ -8,6 +8,17 @@ const Articles = () => {
   // Enhanced articles data with images and categories
   const articles = [
     {
+      title: "Trade Wars 2025: Global Market Impact & Strategic Opportunities",
+      description:
+        "Escalating trade tensions between major economies are reshaping global markets. Discover how these trade wars affect currency values, commodity prices, and create unique trading opportunities for the informed investor.",
+      date: "April 20, 2025",
+      link: "/articles/trade-wars-2025",
+      image: "https://placehold.co/600x400/111827/e03c31?text=Trade+Wars",
+      category: "Geopolitics",
+      readTime: "7 min read",
+      author: "Market Analysis Team",
+    },
+    {
       title: "The 2025 Bull Run: What to Expect",
       description:
         "As the global economy shows signs of recovery, the 2025 bull run could be a game-changer for investors. Explore why analysts believe it could be the most significant market event in years.",
@@ -50,7 +61,8 @@ const Articles = () => {
       "Forex": { bg: "rgba(0, 102, 204, 0.15)", text: "#0066cc" },
       "Technology": { bg: "rgba(168, 85, 247, 0.15)", text: "#a855f7" },
       "Crypto": { bg: "rgba(247, 147, 26, 0.15)", text: "#f7931a" },
-      "Strategy": { bg: "rgba(204, 102, 0, 0.15)", text: "#cc6600" }
+      "Strategy": { bg: "rgba(204, 102, 0, 0.15)", text: "#cc6600" },
+      "Geopolitics": { bg: "rgba(224, 60, 49, 0.15)", text: "#e03c31" }
     };
     
     const { bg, text } = categoryColors[category] || 

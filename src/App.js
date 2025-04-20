@@ -7,7 +7,7 @@ import Hero from "./components/Hero";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Challenge from "./components/Challenge";
+// import Challenge from "./components/Challenge";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import Dashboard from "./components/Dashboard";
@@ -24,12 +24,14 @@ import { onAuthStateChanged } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Resource from "./components/Resource";
 import Articles from "./components/Articles"; // Articles section component
+import PodcastSection from "./components/Podcast"; // Import the new PodcastSection
 import "./App.css";
 
 // Individual article pages
 import Article2025BullRun from "./pages/articles/Article2025BullRun";
 import Article2025ForexOutlook from "./pages/articles/Article2025ForexOutlook";
 import ArticleAIInTrading from "./pages/articles/ArticleAIInTrading";
+import ArticleTradeWars from "./pages/articles/ArticleTradeWars";
 import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
 import Community from "./pages/navbar/community"; // Import the Community page
 import Eventspage from "./pages/navbar/events"; // Import the Community page
@@ -69,8 +71,9 @@ const App = () => {
                 <GlobalExchangeBanner/>
                 {/* <Services /> */}
                 <Events />
+                <PodcastSection /> {/* Add the new Podcast Section */}
                 {/* <Resource/> */}
-                <Challenge />
+                {/* <Challenge /> */}
                 <Articles /> {/* Include Articles section */}
                 <Contact />
                 <WhatsAppButton />
@@ -119,6 +122,7 @@ const App = () => {
           <Route path="/articles/2025-bull-run" element={<Article2025BullRun />} />
           <Route path="/articles/2025-forex-outlook" element={<Article2025ForexOutlook />} />
           <Route path="/articles/ai-in-trading" element={<ArticleAIInTrading />} />
+          <Route path="/articles/trade-wars-2025" element={<ArticleTradeWars/>} />
         </Routes>
         {showNavbar && <Footer />} {/* Conditionally render Footer */}
       </>
