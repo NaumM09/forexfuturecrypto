@@ -38,6 +38,11 @@ import Eventspage from "./pages/navbar/events"; // Import the Community page
 import Resourcespage from "./pages/navbar/resources";
 import AboutPage from "./pages/navbar/about";
 
+
+// Individual Footer Page
+import OpportunitiesPage from "./pages/footer/OpportunitiesPage";
+
+
 const App = () => {
   // Simple auth listener to log authentication status
   useEffect(() => {
@@ -117,6 +122,7 @@ const App = () => {
           <Route path="/events" element={<Eventspage />} />
           <Route path="/resources" element={<Resourcespage />} />
           <Route path="/about" element={< AboutPage/>} />
+            <Route path="/opportunities" element ={<OpportunitiesPage/>}/>
           
           {/* Articles Routes */}
           <Route path="/articles/2025-bull-run" element={<Article2025BullRun />} />
