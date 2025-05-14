@@ -524,7 +524,6 @@ export default function OpportunitiesPage() {
   transparency, equity, and sustainability, we’re helping close the gap between good ideas 
   and the capital they deserve.
 </p>
-
             </div>
             
             <div className="footer-column-OP">
