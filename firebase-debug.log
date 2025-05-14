@@ -1,0 +1,713 @@
+[debug] [2025-05-14T13:52:10.621Z] ----------------------------------------------------------------------
+[debug] [2025-05-14T13:52:10.627Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-05-14T13:52:10.628Z] CLI Version:   13.29.1
+[debug] [2025-05-14T13:52:10.628Z] Platform:      win32
+[debug] [2025-05-14T13:52:10.629Z] Node Version:  v22.13.0
+[debug] [2025-05-14T13:52:10.629Z] Time:          Wed May 14 2025 15:52:10 GMT+0200 (South Africa Standard Time)
+[debug] [2025-05-14T13:52:10.630Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-14T13:52:10.775Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-14T13:52:10.775Z] > authorizing via signed-in user (mahlatse.modiba@gmail.com)
+[debug] [2025-05-14T13:52:10.775Z] [iam] checking project mentorship-851db for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-05-14T13:52:10.777Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:10.778Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:10.779Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions [none]
+[debug] [2025-05-14T13:52:10.779Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:10.779Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-05-14T13:52:12.559Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions 200
+[debug] [2025-05-14T13:52:12.559Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-05-14T13:52:12.560Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:12.560Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:12.560Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-05-14T13:52:12.560Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-05-14T13:52:14.379Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-05-14T13:52:14.379Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'mentorship-851db'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-05-14T13:52:14.386Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.386Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.386Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db [none]
+[debug] [2025-05-14T13:52:14.717Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db 200
+[debug] [2025-05-14T13:52:14.718Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db {"projectNumber":"302864406450","projectId":"mentorship-851db","lifecycleState":"ACTIVE","name":"Forex Futures Crypto","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-01-12T17:07:37.419289Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-05-14T13:52:14.720Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.720Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.721Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.721Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-05-14T13:52:14.721Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.721Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-05-14T13:52:14.722Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.722Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:14.722Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-05-14T13:52:14.722Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:14.724Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-05-14T13:52:14.724Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:14.726Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com [none]
+[debug] [2025-05-14T13:52:14.726Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:14.727Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com [none]
+[debug] [2025-05-14T13:52:14.727Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:16.544Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com 200
+[debug] [2025-05-14T13:52:16.544Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com [omitted]
+[warn] !  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2025-05-14T13:52:16.545Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:16.545Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:16.545Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2025-05-14T13:52:16.545Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:16.551Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com 200
+[debug] [2025-05-14T13:52:16.551Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-05-14T13:52:16.554Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com 200
+[debug] [2025-05-14T13:52:16.555Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com [omitted]
+[warn] !  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2025-05-14T13:52:16.555Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:16.555Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:16.556Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2025-05-14T13:52:16.556Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:16.760Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com 200
+[debug] [2025-05-14T13:52:16.760Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-05-14T13:52:17.340Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com:enable 200
+[debug] [2025-05-14T13:52:17.340Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2025-05-14T13:52:17.371Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com:enable 200
+[debug] [2025-05-14T13:52:17.372Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2025-05-14T13:52:27.346Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:27.346Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:27.346Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com [none]
+[debug] [2025-05-14T13:52:27.347Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:27.377Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:27.377Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:27.377Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com [none]
+[debug] [2025-05-14T13:52:27.377Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:28.277Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com 200
+[debug] [2025-05-14T13:52:28.277Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-05-14T13:52:29.194Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com 200
+[debug] [2025-05-14T13:52:29.194Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-05-14T13:52:29.196Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:29.196Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:29.197Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mentorship-851db/adminSdkConfig [none]
+[debug] [2025-05-14T13:52:29.794Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mentorship-851db/adminSdkConfig 200
+[debug] [2025-05-14T13:52:29.794Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mentorship-851db/adminSdkConfig {"projectId":"mentorship-851db","databaseURL":"https://mentorship-851db-default-rtdb.firebaseio.com","storageBucket":"mentorship-851db.firebasestorage.app"}
+[debug] [2025-05-14T13:52:29.795Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:29.795Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:29.795Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mentorship-851db/configs [none]
+[debug] [2025-05-14T13:52:30.522Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mentorship-851db/configs 200
+[debug] [2025-05-14T13:52:30.523Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mentorship-851db/configs {}
+[debug] [2025-05-14T13:52:30.525Z] Validating nodejs source
+[debug] [2025-05-14T13:52:32.399Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "nodemailer": "^7.0.3"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-05-14T13:52:32.400Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-05-14T13:52:32.402Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-05-14T13:52:32.425Z] Found firebase-functions binary at 'C:\Users\leahm\Downloads\Mentorship\my-app\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8573
+
+[debug] [2025-05-14T13:52:34.672Z] Got response from /__/functions.yaml {"endpoints":{"sendContactEmail":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"sendContactEmail"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-05-14T13:52:38.725Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:38.725Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:38.725Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-05-14T13:52:38.725Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:40.512Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com 200
+[debug] [2025-05-14T13:52:40.512Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com [omitted]
+[warn] !  extensions: missing required API firebaseextensions.googleapis.com. Enabling now... 
+[debug] [2025-05-14T13:52:40.513Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:40.513Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:40.513Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com:enable [none]
+[debug] [2025-05-14T13:52:40.513Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com:enable x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:41.274Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com:enable 200
+[debug] [2025-05-14T13:52:41.274Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com:enable [omitted]
+[debug] [2025-05-14T13:52:51.278Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:51.278Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:51.278Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-05-14T13:52:51.279Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:53.279Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com 200
+[debug] [2025-05-14T13:52:53.279Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-05-14T13:52:53.283Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-14T13:52:53.283Z] > authorizing via signed-in user (mahlatse.modiba@gmail.com)
+[debug] [2025-05-14T13:52:53.283Z] [iam] checking project mentorship-851db for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-05-14T13:52:53.284Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:53.284Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:53.284Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions [none]
+[debug] [2025-05-14T13:52:53.284Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:52:53.284Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-05-14T13:52:55.138Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions 200
+[debug] [2025-05-14T13:52:55.138Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-05-14T13:52:55.139Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:55.139Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:52:55.139Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/mentorship-851db/instances pageSize=100&pageToken=
+[debug] [2025-05-14T13:53:01.305Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/mentorship-851db/instances 200
+[debug] [2025-05-14T13:53:01.305Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/mentorship-851db/instances {}
+[info] i  functions: Loaded environment variables from .env. 
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\leahm\Downloads\Mentorship\my-app\functions (62.46 KB) for uploading 
+[debug] [2025-05-14T13:53:01.382Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:01.383Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:01.383Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/mentorship-851db/locations/-/functions [none]
+[debug] [2025-05-14T13:53:02.438Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/mentorship-851db/locations/-/functions 200
+[debug] [2025-05-14T13:53:02.438Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/mentorship-851db/locations/-/functions {}
+[debug] [2025-05-14T13:53:02.439Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:02.439Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:02.439Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-05-14T13:53:03.524Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/-/functions 200
+[debug] [2025-05-14T13:53:03.524Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/-/functions {}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2025-05-14T13:53:03.527Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:03.527Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2025-05-14T13:53:03.528Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:03.528Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2025-05-14T13:53:03.529Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:03.529Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2025-05-14T13:53:03.530Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:03.530Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:03.530Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com [none]
+[debug] [2025-05-14T13:53:03.530Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:03.532Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com [none]
+[debug] [2025-05-14T13:53:03.532Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:03.534Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com [none]
+[debug] [2025-05-14T13:53:03.534Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:03.535Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com [none]
+[debug] [2025-05-14T13:53:03.535Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:05.304Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com 200
+[debug] [2025-05-14T13:53:05.305Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com [omitted]
+[warn] !  functions: missing required API eventarc.googleapis.com. Enabling now... 
+[debug] [2025-05-14T13:53:05.305Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:05.305Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:05.306Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com:enable [none]
+[debug] [2025-05-14T13:53:05.306Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com:enable x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:05.309Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com 200
+[debug] [2025-05-14T13:53:05.309Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com [omitted]
+[warn] !  functions: missing required API run.googleapis.com. Enabling now... 
+[debug] [2025-05-14T13:53:05.310Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:05.310Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:05.310Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com:enable [none]
+[debug] [2025-05-14T13:53:05.310Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com:enable x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:05.318Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com 200
+[debug] [2025-05-14T13:53:05.318Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2025-05-14T13:53:05.347Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com 200
+[debug] [2025-05-14T13:53:05.348Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[debug] [2025-05-14T13:53:06.041Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com:enable 200
+[debug] [2025-05-14T13:53:06.041Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com:enable [omitted]
+[debug] [2025-05-14T13:53:07.118Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com:enable 200
+[debug] [2025-05-14T13:53:07.118Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com:enable [omitted]
+[debug] [2025-05-14T13:53:16.051Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:16.052Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:16.052Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com [none]
+[debug] [2025-05-14T13:53:16.052Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:17.120Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:17.120Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:17.120Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com [none]
+[debug] [2025-05-14T13:53:17.120Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:17.834Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com 200
+[debug] [2025-05-14T13:53:17.834Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[debug] [2025-05-14T13:53:18.894Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com 200
+[debug] [2025-05-14T13:53:18.895Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-05-14T13:53:18.897Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:18.897Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-05-14T13:53:18.897Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:18.897Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:18.898Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-05-14T13:53:18.898Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-05-14T13:53:19.534Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-05-14T13:53:19.535Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-302864406450@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"100218901425546558024"}}
+[debug] [2025-05-14T13:53:20.847Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-05-14T13:53:20.847Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-302864406450@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"114825256659713384319"}}
+[debug] [2025-05-14T13:53:20.849Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:20.849Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:20.850Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db [none]
+[debug] [2025-05-14T13:53:22.478Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db 200
+[debug] [2025-05-14T13:53:22.478Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db {"projectNumber":"302864406450","projectId":"mentorship-851db","lifecycleState":"ACTIVE","name":"Forex Futures Crypto","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-01-12T17:07:37.419289Z"}
+[debug] [2025-05-14T13:53:22.480Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:22.480Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:22.480Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mentorship-851db/billingInfo [none]
+[debug] [2025-05-14T13:53:23.683Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mentorship-851db/billingInfo 200
+[debug] [2025-05-14T13:53:23.683Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mentorship-851db/billingInfo {"name":"projects/mentorship-851db/billingInfo","projectId":"mentorship-851db","billingAccountName":"billingAccounts/011BA9-2AAC69-36FD58","billingEnabled":true}
+[debug] [2025-05-14T13:53:23.684Z] [functions] found 1 new HTTP functions, testing setIamPolicy permission...
+[debug] [2025-05-14T13:53:23.685Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:23.685Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:23.685Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions [none]
+[debug] [2025-05-14T13:53:23.685Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:53:23.685Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2025-05-14T13:53:23.966Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions 200
+[debug] [2025-05-14T13:53:23.966Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2025-05-14T13:53:23.966Z] [functions] found setIamPolicy permission, proceeding with deploy
+[debug] [2025-05-14T13:53:23.967Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:23.967Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:23.967Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-05-14T13:53:26.248Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-05-14T13:53:26.248Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com/edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip?GoogleAccessId=service-302864406450@gcf-admin-robot.iam.gserviceaccount.com&Expires=1747232605&Signature=t4ejANB9998nouXgMACRe0I7sxWcpJSWBGX2bfuxeD%2B2i9Y1oZ12PLe2WbVRMXM0rV07q3pP%2BHS%2Fmf5NS9BDmMdhOiZ6U0N8R2bed8WzXX2AvMz82NmMlOkVDoS%2Fh4KHdiZfSvI2rf87tiGN3VqgdC4N3GirjZMP1gdT0GJfWLGGsGuXYQGgvSSB1QQYbDZ7ixyHcWSK2%2BQqV0d05fBx3Bh5F%2FVINiUmtTdB6f3VVU8S02oZH1Z6RRCXWOOFo5GjBWaz01iIKT4cOXzKuflkssDJ1BzwE5G2nbviTpG6P%2FNewPi7ujw3WQg1UX7Lv6asXd0WHUk84AjouScGan90zg%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com","object":"edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip"}}
+[debug] [2025-05-14T13:53:26.249Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com/edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip GoogleAccessId=service-302864406450%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1747232605&Signature=t4ejANB9998nouXgMACRe0I7sxWcpJSWBGX2bfuxeD%2B2i9Y1oZ12PLe2WbVRMXM0rV07q3pP%2BHS%2Fmf5NS9BDmMdhOiZ6U0N8R2bed8WzXX2AvMz82NmMlOkVDoS%2Fh4KHdiZfSvI2rf87tiGN3VqgdC4N3GirjZMP1gdT0GJfWLGGsGuXYQGgvSSB1QQYbDZ7ixyHcWSK2%2BQqV0d05fBx3Bh5F%2FVINiUmtTdB6f3VVU8S02oZH1Z6RRCXWOOFo5GjBWaz01iIKT4cOXzKuflkssDJ1BzwE5G2nbviTpG6P%2FNewPi7ujw3WQg1UX7Lv6asXd0WHUk84AjouScGan90zg%3D%3D
+[debug] [2025-05-14T13:53:26.249Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com/edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip [stream]
+[debug] [2025-05-14T13:53:27.268Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com/edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip 200
+[debug] [2025-05-14T13:53:27.268Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com/edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: creating Node.js 22 (2nd Gen) function sendContactEmail(us-central1)... 
+[debug] [2025-05-14T13:53:27.276Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:27.276Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:27.276Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions functionId=sendContactEmail
+[debug] [2025-05-14T13:53:27.277Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions {"name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-uploads-302864406450.us-central1.cloudfunctions.appspot.com","object":"edbf76fc-ecd8-4589-970e-db3e1b4e3164.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"}}
+[debug] [2025-05-14T13:53:29.015Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions 200
+[debug] [2025-05-14T13:53:29.015Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/functions {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2025-05-14T13:53:29.015Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:29.016Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:29.016Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:53:29.909Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:53:29.910Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2025-05-14T13:53:30.423Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:53:30.424Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:30.424Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:30.424Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:53:31.260Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:53:31.260Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2025-05-14T13:53:32.261Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:53:32.261Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:32.261Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:32.261Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:53:33.092Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:53:33.092Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2025-05-14T13:53:35.104Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:53:35.104Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:35.104Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:35.104Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:53:35.949Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:53:35.949Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2025-05-14T13:53:39.960Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:53:39.960Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:39.961Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:39.961Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:53:40.805Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:53:40.805Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:53:48.814Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:53:48.814Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:48.815Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:48.815Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:53:49.874Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:53:49.874Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:53:59.882Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:53:59.883Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:59.883Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:53:59.883Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:54:00.949Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:54:00.949Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:54:10.963Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:54:10.964Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:10.964Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:10.964Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:54:12.051Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:54:12.051Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:54:22.063Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:54:22.064Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:22.064Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:22.064Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:54:23.142Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:54:23.142Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:54:33.144Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:54:33.145Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:33.145Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:33.145Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:54:34.162Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:54:34.162Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:54:44.169Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:54:44.169Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:44.169Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:44.170Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:54:45.223Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:54:45.224Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","message":"Creating Cloud Run service","state":"IN_PROGRESS","resource":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/sendcontactemail?project=mentorship-851db"}],"sourceToken":"Cldwcm9qZWN0cy8zMDI4NjQ0MDY0NTAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy82OWY2ZmE3Yy0xYmVkLTQzNTMtYTYzNi02OGMzNDgwYzk5YWESd3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L21lbnRvcnNoaXAtODUxZGIvZ2NmLWFydGlmYWN0cy9tZW50b3JzaGlwLS04NTFkYl9fdXMtLWNlbnRyYWwxX19zZW5kX2NvbnRhY3RfZW1haWw6dmVyc2lvbl8xGLKvgKHoCCJKcHJvamVjdHMvbWVudG9yc2hpcC04NTFkYi9sb2NhdGlvbnMvdXMtY2VudHJhbDEvZnVuY3Rpb25zL3NlbmRDb250YWN0RW1haWwqCwiZwZLBBhDov+cPMghub2RlanMyMjp2CiNnY3IuaW8vZ2FlLXJ1bnRpbWVzL25vZGVqczIyOnN0YWJsZRJPdXMtY2VudHJhbDEtZG9ja2VyLnBrZy5kZXYvc2VydmVybGVzcy1ydW50aW1lcy9nb29nbGUtMjItZnVsbC9ydW50aW1lcy9ub2RlanMyMkAB","operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:54:45.224Z] Got source token Cldwcm9qZWN0cy8zMDI4NjQ0MDY0NTAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy82OWY2ZmE3Yy0xYmVkLTQzNTMtYTYzNi02OGMzNDgwYzk5YWESd3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L21lbnRvcnNoaXAtODUxZGIvZ2NmLWFydGlmYWN0cy9tZW50b3JzaGlwLS04NTFkYl9fdXMtLWNlbnRyYWwxX19zZW5kX2NvbnRhY3RfZW1haWw6dmVyc2lvbl8xGLKvgKHoCCJKcHJvamVjdHMvbWVudG9yc2hpcC04NTFkYi9sb2NhdGlvbnMvdXMtY2VudHJhbDEvZnVuY3Rpb25zL3NlbmRDb250YWN0RW1haWwqCwiZwZLBBhDov+cPMghub2RlanMyMjp2CiNnY3IuaW8vZ2FlLXJ1bnRpbWVzL25vZGVqczIyOnN0YWJsZRJPdXMtY2VudHJhbDEtZG9ja2VyLnBrZy5kZXYvc2VydmVybGVzcy1ydW50aW1lcy9nb29nbGUtMjItZnVsbC9ydW50aW1lcy9ub2RlanMyMkAB for region us-central1
+[debug] [2025-05-14T13:54:55.225Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:54:55.226Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:55.226Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:54:55.226Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:54:56.267Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:54:56.267Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","message":"Creating Cloud Run service","state":"IN_PROGRESS","resource":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/sendcontactemail?project=mentorship-851db"}],"sourceToken":"Cldwcm9qZWN0cy8zMDI4NjQ0MDY0NTAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy82OWY2ZmE3Yy0xYmVkLTQzNTMtYTYzNi02OGMzNDgwYzk5YWESd3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L21lbnRvcnNoaXAtODUxZGIvZ2NmLWFydGlmYWN0cy9tZW50b3JzaGlwLS04NTFkYl9fdXMtLWNlbnRyYWwxX19zZW5kX2NvbnRhY3RfZW1haWw6dmVyc2lvbl8xGLKvgKHoCCJKcHJvamVjdHMvbWVudG9yc2hpcC04NTFkYi9sb2NhdGlvbnMvdXMtY2VudHJhbDEvZnVuY3Rpb25zL3NlbmRDb250YWN0RW1haWwqCwiZwZLBBhDov+cPMghub2RlanMyMjp2CiNnY3IuaW8vZ2FlLXJ1bnRpbWVzL25vZGVqczIyOnN0YWJsZRJPdXMtY2VudHJhbDEtZG9ja2VyLnBrZy5kZXYvc2VydmVybGVzcy1ydW50aW1lcy9nb29nbGUtMjItZnVsbC9ydW50aW1lcy9ub2RlanMyMkAB","operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:54:56.268Z] Got source token Cldwcm9qZWN0cy8zMDI4NjQ0MDY0NTAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy82OWY2ZmE3Yy0xYmVkLTQzNTMtYTYzNi02OGMzNDgwYzk5YWESd3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L21lbnRvcnNoaXAtODUxZGIvZ2NmLWFydGlmYWN0cy9tZW50b3JzaGlwLS04NTFkYl9fdXMtLWNlbnRyYWwxX19zZW5kX2NvbnRhY3RfZW1haWw6dmVyc2lvbl8xGLKvgKHoCCJKcHJvamVjdHMvbWVudG9yc2hpcC04NTFkYi9sb2NhdGlvbnMvdXMtY2VudHJhbDEvZnVuY3Rpb25zL3NlbmRDb250YWN0RW1haWwqCwiZwZLBBhDov+cPMghub2RlanMyMjp2CiNnY3IuaW8vZ2FlLXJ1bnRpbWVzL25vZGVqczIyOnN0YWJsZRJPdXMtY2VudHJhbDEtZG9ja2VyLnBrZy5kZXYvc2VydmVybGVzcy1ydW50aW1lcy9nb29nbGUtMjItZnVsbC9ydW50aW1lcy9ub2RlanMyMkAB for region us-central1
+[debug] [2025-05-14T13:55:06.275Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:55:06.276Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:06.276Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:06.276Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:55:07.403Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:55:07.404Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/69f6fa7c-1bed-4353-a636-68c3480c99aa?project=302864406450"},{"name":"SERVICE","message":"Creating Cloud Run service","state":"IN_PROGRESS","resource":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/sendcontactemail?project=mentorship-851db"}],"sourceToken":"Cldwcm9qZWN0cy8zMDI4NjQ0MDY0NTAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy82OWY2ZmE3Yy0xYmVkLTQzNTMtYTYzNi02OGMzNDgwYzk5YWESd3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L21lbnRvcnNoaXAtODUxZGIvZ2NmLWFydGlmYWN0cy9tZW50b3JzaGlwLS04NTFkYl9fdXMtLWNlbnRyYWwxX19zZW5kX2NvbnRhY3RfZW1haWw6dmVyc2lvbl8xGLKvgKHoCCJKcHJvamVjdHMvbWVudG9yc2hpcC04NTFkYi9sb2NhdGlvbnMvdXMtY2VudHJhbDEvZnVuY3Rpb25zL3NlbmRDb250YWN0RW1haWwqCwiZwZLBBhDov+cPMghub2RlanMyMjp2CiNnY3IuaW8vZ2FlLXJ1bnRpbWVzL25vZGVqczIyOnN0YWJsZRJPdXMtY2VudHJhbDEtZG9ja2VyLnBrZy5kZXYvc2VydmVybGVzcy1ydW50aW1lcy9nb29nbGUtMjItZnVsbC9ydW50aW1lcy9ub2RlanMyMkAB","operationType":"CREATE_FUNCTION","buildName":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa"},"done":false}
+[debug] [2025-05-14T13:55:07.404Z] Got source token Cldwcm9qZWN0cy8zMDI4NjQ0MDY0NTAvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy82OWY2ZmE3Yy0xYmVkLTQzNTMtYTYzNi02OGMzNDgwYzk5YWESd3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L21lbnRvcnNoaXAtODUxZGIvZ2NmLWFydGlmYWN0cy9tZW50b3JzaGlwLS04NTFkYl9fdXMtLWNlbnRyYWwxX19zZW5kX2NvbnRhY3RfZW1haWw6dmVyc2lvbl8xGLKvgKHoCCJKcHJvamVjdHMvbWVudG9yc2hpcC04NTFkYi9sb2NhdGlvbnMvdXMtY2VudHJhbDEvZnVuY3Rpb25zL3NlbmRDb250YWN0RW1haWwqCwiZwZLBBhDov+cPMghub2RlanMyMjp2CiNnY3IuaW8vZ2FlLXJ1bnRpbWVzL25vZGVqczIyOnN0YWJsZRJPdXMtY2VudHJhbDEtZG9ja2VyLnBrZy5kZXYvc2VydmVybGVzcy1ydW50aW1lcy9nb29nbGUtMjItZnVsbC9ydW50aW1lcy9ub2RlanMyMkAB for region us-central1
+[debug] [2025-05-14T13:55:17.418Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:55:17.418Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:17.419Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:17.419Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:55:18.443Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:55:18.443Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"ARTIFACT_REGISTRY","state":"NOT_STARTED"},{"name":"SERVICE","message":"Deleting Cloud Run service","state":"IN_PROGRESS","resource":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail"}],"operationType":"CREATE_FUNCTION"},"done":false}
+[debug] [2025-05-14T13:55:28.454Z] [create-default-us-central1-sendContactEmail] Retrying task index 0
+[debug] [2025-05-14T13:55:28.454Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:28.455Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:28.455Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d [none]
+[debug] [2025-05-14T13:55:29.509Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d 200
+[debug] [2025-05-14T13:55:29.510Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d {"name":"projects/mentorship-851db/locations/us-central1/operations/operation-1747230806925-63518df965f62-3490c4ef-4aa8c26d","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-05-14T13:53:27.803237498Z","endTime":"2025-05-14T13:55:18.003825056Z","target":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","verb":"create","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail","timeoutSeconds":60,"environmentVariables":{"GMAIL_EMAIL":"globalexpedyte@gmail.com","GMAIL_PASSWORD":"Maletlabo_98","FIREBASE_CONFIG":"{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}","GCLOUD_PROJECT":"mentorship-851db","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mentorship-851db/locations/us-central1/services/sendContactEmail","FUNCTION_TARGET":"sendContactEmail","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"302864406450-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"environment":"GEN_2"},"stages":[{"name":"ARTIFACT_REGISTRY","message":"Deleting function artifacts in Artifact Registry","state":"COMPLETE"},{"name":"SERVICE","message":"Deleting Cloud Run service","state":"COMPLETE","resource":"projects/mentorship-851db/locations/us-central1/services/sendcontactemail"}],"operationType":"CREATE_FUNCTION"},"done":true,"error":{"code":3,"message":"Could not create or update Cloud Run service sendcontactemail, Container Healthcheck failed. Revision 'sendcontactemail-00001-mil' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.\n\nLogs URL: https://console.cloud.google.com/logs/viewer?project=mentorship-851db&resource=cloud_run_revision/service_name/sendcontactemail/revision_name/sendcontactemail-00001-mil&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22sendcontactemail%22%0Aresource.labels.revision_name%3D%22sendcontactemail-00001-mil%22 \nFor more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start"}}
+[debug] [2025-05-14T13:55:29.510Z] Got source token undefined for region us-central1
+[error] Could not create or update Cloud Run service sendcontactemail, Container Healthcheck failed. Revision 'sendcontactemail-00001-mil' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+Logs URL: https://console.cloud.google.com/logs/viewer?project=mentorship-851db&resource=cloud_run_revision/service_name/sendcontactemail/revision_name/sendcontactemail-00001-mil&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22sendcontactemail%22%0Aresource.labels.revision_name%3D%22sendcontactemail-00001-mil%22 
+For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+[debug] [2025-05-14T13:55:29.519Z] Total Function Deployment time: 122240
+[debug] [2025-05-14T13:55:29.519Z] 1 Functions Deployed
+[debug] [2025-05-14T13:55:29.519Z] 1 Functions Errored
+[debug] [2025-05-14T13:55:29.520Z] 0 Function Deployments Aborted
+[debug] [2025-05-14T13:55:29.520Z] Average Function Deployment time: 122239
+[info] 
+[info] Functions deploy had errors with the following functions:
+	sendContactEmail(us-central1)
+[debug] [2025-05-14T13:55:29.907Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2025-05-14T13:55:29.908Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:29.908Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:29.909Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:29.910Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:29.910Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts/packages/send_contact_email [none]
+[debug] [2025-05-14T13:55:29.911Z] >>> [apiv2][query] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list [none]
+[debug] [2025-05-14T13:55:31.162Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts/packages/send_contact_email 404
+[debug] [2025-05-14T13:55:31.162Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts/packages/send_contact_email {"error":{"code":404,"message":"Package \"projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts/packages/send_contact_email\" was not found.","status":"NOT_FOUND"}}
+[debug] [2025-05-14T13:55:32.660Z] <<< [apiv2][status] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list 404
+[debug] [2025-05-14T13:55:32.660Z] <<< [apiv2][body] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2025-05-14T13:55:32.661Z] Failed docker command with error  Request to https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2025-05-14T13:55:32.678Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:32.678Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:32.678Z] >>> [apiv2][query] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list [none]
+[debug] [2025-05-14T13:55:33.035Z] <<< [apiv2][status] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list 404
+[debug] [2025-05-14T13:55:33.035Z] <<< [apiv2][body] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2025-05-14T13:55:33.036Z] Failed docker command with error  Request to https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2025-05-14T13:55:33.144Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:33.144Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:55:33.144Z] >>> [apiv2][query] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list [none]
+[debug] [2025-05-14T13:55:33.515Z] <<< [apiv2][status] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list 404
+[debug] [2025-05-14T13:55:33.515Z] <<< [apiv2][body] GET https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2025-05-14T13:55:33.515Z] Failed docker command with error  Request to https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/mentorship-851db/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[warn] !  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/mentorship-851db/us/gcf 
+[debug] [2025-05-14T13:55:33.516Z] Functions deploy failed.
+[debug] [2025-05-14T13:55:33.516Z] {
+  "endpoint": {
+    "id": "sendContactEmail",
+    "project": "mentorship-851db",
+    "region": "us-central1",
+    "entryPoint": "sendContactEmail",
+    "platform": "gcfv2",
+    "runtime": "nodejs22",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "GMAIL_EMAIL": "globalexpedyte@gmail.com",
+      "GMAIL_PASSWORD": "Maletlabo_98",
+      "FIREBASE_CONFIG": "{\"projectId\":\"mentorship-851db\",\"databaseURL\":\"https://mentorship-851db-default-rtdb.firebaseio.com\",\"storageBucket\":\"mentorship-851db.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "mentorship-851db",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/mentorship-851db/locations/us-central1/services/sendContactEmail"
+    },
+    "codebase": "default",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "e7f2b6a83b456847414497eca7f8ddc25349459b"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Could not create or update Cloud Run service sendcontactemail, Container Healthcheck failed. Revision 'sendcontactemail-00001-mil' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.\n\nLogs URL: https://console.cloud.google.com/logs/viewer?project=mentorship-851db&resource=cloud_run_revision/service_name/sendcontactemail/revision_name/sendcontactemail-00001-mil&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22sendcontactemail%22%0Aresource.labels.revision_name%3D%22sendcontactemail-00001-mil%22 \nFor more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start",
+    "original": {
+      "code": 3,
+      "message": "Could not create or update Cloud Run service sendcontactemail, Container Healthcheck failed. Revision 'sendcontactemail-00001-mil' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.\n\nLogs URL: https://console.cloud.google.com/logs/viewer?project=mentorship-851db&resource=cloud_run_revision/service_name/sendcontactemail/revision_name/sendcontactemail-00001-mil&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22sendcontactemail%22%0Aresource.labels.revision_name%3D%22sendcontactemail-00001-mil%22 \nFor more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start"
+    },
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2025-05-14T13:55:33.697Z] Error: Failed to create function sendContactEmail in region us-central1
+    at C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:294:27
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Fabricator.createV2Function (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:278:30)
+    at async Fabricator.createEndpoint (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:137:13)
+    at async handle (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2025-05-14T13:59:21.281Z] ----------------------------------------------------------------------
+[debug] [2025-05-14T13:59:21.286Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2025-05-14T13:59:21.287Z] CLI Version:   14.3.1
+[debug] [2025-05-14T13:59:21.287Z] Platform:      win32
+[debug] [2025-05-14T13:59:21.288Z] Node Version:  v22.13.0
+[debug] [2025-05-14T13:59:21.288Z] Time:          Wed May 14 2025 15:59:21 GMT+0200 (South Africa Standard Time)
+[debug] [2025-05-14T13:59:21.288Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-14T13:59:21.661Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-14T13:59:21.662Z] > authorizing via signed-in user (mahlatse.modiba@gmail.com)
+[debug] [2025-05-14T13:59:21.662Z] [iam] checking project mentorship-851db for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-05-14T13:59:21.664Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:21.665Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:21.666Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions [none]
+[debug] [2025-05-14T13:59:21.666Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:21.666Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-05-14T13:59:23.388Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions 200
+[debug] [2025-05-14T13:59:23.388Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-05-14T13:59:23.389Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:23.389Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:23.389Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-05-14T13:59:23.389Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-05-14T13:59:25.054Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-05-14T13:59:25.055Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/mentorship-851db/serviceAccounts/mentorship-851db@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'mentorship-851db'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-05-14T13:59:25.061Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:25.061Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:25.061Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-05-14T13:59:25.062Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:26.928Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-05-14T13:59:26.928Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-05-14T13:59:26.928Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:26.929Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:26.929Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db [none]
+[debug] [2025-05-14T13:59:27.245Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db 200
+[debug] [2025-05-14T13:59:27.246Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db {"projectNumber":"302864406450","projectId":"mentorship-851db","lifecycleState":"ACTIVE","name":"Forex Futures Crypto","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-01-12T17:07:37.419289Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:27.248Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:27.248Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:27.248Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:27.248Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:27.249Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:27.249Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:27.249Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:27.249Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:27.250Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-05-14T13:59:27.250Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:27.250Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-05-14T13:59:27.251Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:27.253Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com [none]
+[debug] [2025-05-14T13:59:27.253Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:27.255Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com [none]
+[debug] [2025-05-14T13:59:27.255Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:28.870Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com 200
+[debug] [2025-05-14T13:59:28.870Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:29.046Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com 200
+[debug] [2025-05-14T13:59:29.046Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-05-14T13:59:29.051Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com 200
+[debug] [2025-05-14T13:59:29.052Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:29.061Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com 200
+[debug] [2025-05-14T13:59:29.061Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:29.062Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:29.062Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:29.063Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mentorship-851db/adminSdkConfig [none]
+[debug] [2025-05-14T13:59:29.662Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mentorship-851db/adminSdkConfig 200
+[debug] [2025-05-14T13:59:29.662Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mentorship-851db/adminSdkConfig {"projectId":"mentorship-851db","databaseURL":"https://mentorship-851db-default-rtdb.firebaseio.com","storageBucket":"mentorship-851db.firebasestorage.app"}
+[debug] [2025-05-14T13:59:29.663Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:29.663Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:29.663Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mentorship-851db/configs [none]
+[debug] [2025-05-14T13:59:30.406Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mentorship-851db/configs 200
+[debug] [2025-05-14T13:59:30.407Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mentorship-851db/configs {}
+[debug] [2025-05-14T13:59:30.409Z] Validating nodejs source
+[debug] [2025-05-14T13:59:31.932Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "nodemailer": "^7.0.3"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-05-14T13:59:31.933Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-05-14T13:59:31.935Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-05-14T13:59:31.953Z] Found firebase-functions binary at 'C:\Users\leahm\Downloads\Mentorship\my-app\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8410
+
+[debug] [2025-05-14T13:59:33.113Z] Got response from /__/functions.yaml {"endpoints":{"sendContactEmail":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"sendContactEmail"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:37.165Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:37.165Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:37.165Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-05-14T13:59:37.165Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:38.966Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com 200
+[debug] [2025-05-14T13:59:38.966Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:38.968Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-14T13:59:38.968Z] > authorizing via signed-in user (mahlatse.modiba@gmail.com)
+[debug] [2025-05-14T13:59:38.968Z] [iam] checking project mentorship-851db for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-05-14T13:59:38.969Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:38.969Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:38.969Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions [none]
+[debug] [2025-05-14T13:59:38.970Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:38.970Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-05-14T13:59:40.595Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions 200
+[debug] [2025-05-14T13:59:40.595Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-05-14T13:59:40.596Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:40.596Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:40.597Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/mentorship-851db/instances pageSize=100&pageToken=
+[debug] [2025-05-14T13:59:42.340Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/mentorship-851db/instances 200
+[debug] [2025-05-14T13:59:42.340Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/mentorship-851db/instances {}
+[info] i  functions: Loaded environment variables from .env. 
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\leahm\Downloads\Mentorship\my-app\functions (62.46 KB) for uploading 
+[debug] [2025-05-14T13:59:42.418Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:42.418Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:42.418Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/mentorship-851db/locations/-/functions [none]
+[debug] [2025-05-14T13:59:43.459Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/mentorship-851db/locations/-/functions 200
+[debug] [2025-05-14T13:59:43.459Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/mentorship-851db/locations/-/functions {}
+[debug] [2025-05-14T13:59:43.460Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:43.460Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:43.460Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-05-14T13:59:44.571Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/-/functions 200
+[debug] [2025-05-14T13:59:44.571Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mentorship-851db/locations/-/functions {"functions":[{"name":"projects/mentorship-851db/locations/us-central1/functions/sendContactEmail","buildConfig":{"build":"projects/302864406450/locations/us-central1/builds/69f6fa7c-1bed-4353-a636-68c3480c99aa","runtime":"nodejs22","entryPoint":"sendContactEmail","source":{"storageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-302864406450-us-central1","object":"sendContactEmail/function-source.zip","generation":"1747230807543649"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mentorship-851db/serviceAccounts/302864406450-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"FAILED","updateTime":"2025-05-14T13:55:18.011611345Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"e7f2b6a83b456847414497eca7f8ddc25349459b"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mentorship-851db/locations/us-central1/services/sendcontactemail for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mentorship-851db.cloudfunctions.net/sendContactEmail","createTime":"2025-05-14T13:53:27.799051359Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:44.576Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:44.576Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:44.577Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:44.577Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:44.577Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:44.577Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2025-05-14T13:59:44.578Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:44.578Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:44.578Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com [none]
+[debug] [2025-05-14T13:59:44.578Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:44.580Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com [none]
+[debug] [2025-05-14T13:59:44.580Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:44.582Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com [none]
+[debug] [2025-05-14T13:59:44.582Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:44.584Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com [none]
+[debug] [2025-05-14T13:59:44.584Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:45.265Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com 200
+[debug] [2025-05-14T13:59:45.265Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:46.398Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com 200
+[debug] [2025-05-14T13:59:46.398Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:46.614Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com 200
+[debug] [2025-05-14T13:59:46.614Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2025-05-14T13:59:46.622Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com 200
+[debug] [2025-05-14T13:59:46.623Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-05-14T13:59:46.624Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:46.624Z] Checked if tokens are valid: true, expires at: 1747233714653
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-05-14T13:59:46.625Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:46.625Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:46.626Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-05-14T13:59:46.626Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-05-14T13:59:47.086Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-05-14T13:59:47.087Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-302864406450@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"114825256659713384319"}}
+[debug] [2025-05-14T13:59:48.204Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-05-14T13:59:48.204Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/302864406450/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-302864406450@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"100218901425546558024"}}
+[debug] [2025-05-14T13:59:48.207Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:48.207Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:48.207Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-05-14T13:59:48.207Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/mentorship-851db
+[debug] [2025-05-14T13:59:49.809Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-05-14T13:59:49.809Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mentorship-851db/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-05-14T13:59:49.809Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:49.809Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:49.809Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db [none]
+[debug] [2025-05-14T13:59:51.446Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db 200
+[debug] [2025-05-14T13:59:51.447Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mentorship-851db {"projectNumber":"302864406450","projectId":"mentorship-851db","lifecycleState":"ACTIVE","name":"Forex Futures Crypto","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-01-12T17:07:37.419289Z"}
+[debug] [2025-05-14T13:59:51.448Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:51.448Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:51.448Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mentorship-851db/billingInfo [none]
+[debug] [2025-05-14T13:59:52.013Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mentorship-851db/billingInfo 200
+[debug] [2025-05-14T13:59:52.013Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mentorship-851db/billingInfo {"name":"projects/mentorship-851db/billingInfo","projectId":"mentorship-851db","billingAccountName":"billingAccounts/011BA9-2AAC69-36FD58","billingEnabled":true}
+[info] i  functions: updating Node.js 22 (2nd Gen) function sendContactEmail(us-central1)... 
+[debug] [2025-05-14T13:59:52.019Z] Precondition failed. Cannot update a GCFv2 function without storage
+[debug] [2025-05-14T13:59:52.026Z] Total Function Deployment time: 2
+[debug] [2025-05-14T13:59:52.026Z] 1 Functions Deployed
+[debug] [2025-05-14T13:59:52.026Z] 1 Functions Errored
+[debug] [2025-05-14T13:59:52.026Z] 0 Function Deployments Aborted
+[debug] [2025-05-14T13:59:52.027Z] Average Function Deployment time: 1
+[info] 
+[info] Functions deploy had errors with the following functions:
+	sendContactEmail(us-central1)
+[debug] [2025-05-14T13:59:52.411Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[debug] [2025-05-14T13:59:52.412Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:52.412Z] Checked if tokens are valid: true, expires at: 1747233714653
+[debug] [2025-05-14T13:59:52.412Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2025-05-14T13:59:53.452Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts 404
+[debug] [2025-05-14T13:59:53.452Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-05-14T13:59:53.453Z] Failed to check artifact cleanup policy for region us-central1: Request to https://artifactregistry.googleapis.com/v1/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://artifactregistry.googleapis.com/v1/projects/mentorship-851db/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found.","status":404}
+[debug] [2025-05-14T13:59:53.463Z] Functions deploy failed.
+[debug] [2025-05-14T13:59:53.463Z] {}
+[debug] [2025-05-14T13:59:53.651Z] Error: Precondition failed
+    at Fabricator.updateV2Function (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:382:19)
+    at Fabricator.updateEndpoint (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:155:24)
+    at C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:110:71
+    at handle (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:89:23)
+    at Fabricator.applyChangeset (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:110:26)
+    at C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:69:40
+    at Array.map (<anonymous>)
+    at Fabricator.applyPlan (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:68:54)
+    at release (C:\Users\leahm\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\index.js:76:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: There was an error deploying functions

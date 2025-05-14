@@ -31,7 +31,7 @@ export default function OpportunitiesPage() {
       
       // Email sending options using a server-side endpoint
       // This should point to your backend endpoint that handles the email sending
-      const response = await fetch('/api/send-application', {
+      const response = await fetch('us-central1-docker.pkg.dev/mentorship-851db/gcf-artifacts',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
