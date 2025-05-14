@@ -686,6 +686,9 @@
     font-size: 0.9rem;
   }
   
+  .email-button{
+    background-color: transparent;
+  }
   /* Responsive adjustments */
   @media (max-width: 992px) {
     .hero-title-OP{

@@ -33,7 +33,6 @@ import Article2025ForexOutlook from "./pages/articles/Article2025ForexOutlook";
 import ArticleAIInTrading from "./pages/articles/ArticleAIInTrading";
 import ArticleTradeWars from "./pages/articles/ArticleTradeWars";
 import GlobalExchangeBanner from "./components/GlobalExchangeBanner";
-import Community from "./pages/navbar/community"; // Import the Community page
 import Eventspage from "./pages/navbar/events"; // Import the Community page
 import Resourcespage from "./pages/navbar/resources";
 import AboutPage from "./pages/navbar/about";

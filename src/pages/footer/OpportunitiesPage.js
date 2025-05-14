@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, FileText, Globe, Mail, CheckCircle, Award, Users, ShieldCheck, Briefcase,DollarSign, TrendingUp} from 'lucide-react';
+import { ChevronDown, ChevronUp, FileText, Globe, Mail, CheckCircle, Award, Users, ShieldCheck, Briefcase} from 'lucide-react';
 import '../styles/OpportunitiesPage.css';
 
 export default function OpportunitiesPage() {
@@ -98,7 +98,7 @@ export default function OpportunitiesPage() {
   const benefits = [
     {
       title: "Innovative Funding",
-      description: "Access to alternative capital through cutting-edge blockchain tokenization technology",
+      description: "Access to alternative capital through cutting-edge Web3 technology",
       icon: <Award size={24} className="benefit-icon-OP" />
     },
     {
@@ -118,43 +118,43 @@ export default function OpportunitiesPage() {
     }
   ];
 
-  const partnerLogos = [
-    { 
-      name: "UK lending securitization Sukuk MTN Programme", 
-      id: "uae-logo-OP",
-      amount: "$50M",
-      region: "United Kingdom",
-      icon: <Globe className="text-blue-600" />
-    },
-    { 
-      name: "South African share repo programme of listed securities", 
-      id: "gifsb-logo-OP",
-      amount: "$800M",
-      region: "South Africa",
-      icon: <TrendingUp className="text-green-600" />
-    },
-    { 
-      name: "USA Family Property Fund", 
-      id: "bif-logo-OP",
-      amount: "$250M",
-      region: "United States",
-      icon: <DollarSign className="text-indigo-600" />
-    },
-    { 
-      name: "African Manufacturing Company trade finance revolving loan", 
-      id: "sdp-logo-OP",
-      amount: "$48M",
-      region: "Africa",
-      icon: <TrendingUp className="text-amber-600" />
-    },
-    { 
-      name: "Saudi Arabia Private Equity Vehicle", 
-      id: "mefi-logo-OP",
-      amount: "$500M",
-      region: "Saudi Arabia",
-      icon: <DollarSign className="text-emerald-600" />
-    }
-  ];
+  // const partnerLogos = [
+  //   { 
+  //     name: "UK lending securitization Sukuk MTN Programme", 
+  //     id: "uae-logo-OP",
+  //     amount: "$50M",
+  //     region: "United Kingdom",
+  //     icon: <Globe className="text-blue-600" />
+  //   },
+  //   { 
+  //     name: "South African share repo programme of listed securities", 
+  //     id: "gifsb-logo-OP",
+  //     amount: "$800M",
+  //     region: "South Africa",
+  //     icon: <TrendingUp className="text-green-600" />
+  //   },
+  //   { 
+  //     name: "USA Family Property Fund", 
+  //     id: "bif-logo-OP",
+  //     amount: "$250M",
+  //     region: "United States",
+  //     icon: <DollarSign className="text-indigo-600" />
+  //   },
+  //   { 
+  //     name: "African Manufacturing Company trade finance revolving loan", 
+  //     id: "sdp-logo-OP",
+  //     amount: "$48M",
+  //     region: "Africa",
+  //     icon: <TrendingUp className="text-amber-600" />
+  //   },
+  //   { 
+  //     name: "Saudi Arabia Private Equity Vehicle", 
+  //     id: "mefi-logo-OP",
+  //     amount: "$500M",
+  //     region: "Saudi Arabia",
+  //     icon: <DollarSign className="text-emerald-600" />
+  //   }
+  // ];
   
   return (
     <div className="opportunities-page-OP">
@@ -162,7 +162,7 @@ export default function OpportunitiesPage() {
         <div className="container-OP">
           <h1 className="hero-title-OP">Transformative Investment Opportunities</h1>
           <p className="hero-description-OP">
-            Join our pioneering initiative combining ethical finance, blockchain innovation, and sustainable impact through Sharia-compliant tokenization.
+            Join our pioneering initiative combining ethical finance, blockchain innovation, and sustainable impact.
           </p>
         </div>
       </header>
@@ -179,8 +179,7 @@ export default function OpportunitiesPage() {
               
               <p className="text-lg-OP">
                 We are bringing together <strong>visionary, high-impact projects</strong> to create a 
-                groundbreaking <strong>Sharia-compliant investment ecosystem</strong>, powered by blockchain 
-                tokenization and supported by leading UAE-based financial institutions.
+                groundbreaking <strong>Sharia-compliant investment ecosystem</strong>, powered by blockchain technology.
               </p>
               
               <p className="text-lg-OP">
@@ -241,7 +240,7 @@ export default function OpportunitiesPage() {
             </div>
             
             {/* What is Tokenisation */}
-            <div className="accordion-item-OP">
+            {/* <div className="accordion-item-OP">
               <button 
                 className="accordion-button-OP"
                 onClick={() => toggleAccordion('tokenisation')}
@@ -284,7 +283,7 @@ export default function OpportunitiesPage() {
                   </p>
                 </div>
               )}
-            </div>
+            </div> */}
             
             {/* IFSG Framework */}
             <div className="accordion-item-OP">
@@ -365,7 +364,7 @@ export default function OpportunitiesPage() {
         </section>
 
            {/* Partner Logos Section */}
-           <section className="partners-section-OP">
+           {/* <section className="partners-section-OP">
   <div className="container-OP">
     <h2 className="section-title-OP">Capital Raised</h2>
     <div className="capital-raised-grid-OP">
@@ -386,7 +385,7 @@ export default function OpportunitiesPage() {
       ))}
     </div>
   </div>
-</section>
+</section>  */}
         
         {/* Application Form Section */}
         <section className="form-section-OP">
@@ -529,7 +528,9 @@ export default function OpportunitiesPage() {
               <h3 className="footer-title-OP">Contact Us</h3>
               <div className="footer-contact-OP">
                 <Mail size={16} className="footer-icon-OP" />
+                <button className='email-button'>
                 <a href="mailto:naum@forexfuturescrypto.com" className="footer-link-OP">naum@forexfuturescrypto.com</a>
+                </button>
               </div>
             </div>
             
