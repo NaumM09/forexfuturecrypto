@@ -118,7 +118,6 @@ const App = () => {
           } />
           
           {/* Feature Routes - accessible to all, but with enhanced functionality for authenticated users */}
-          <Route path="/community" element={<Community />} />
           <Route path="/events" element={<Eventspage />} />
           <Route path="/resources" element={<Resourcespage />} />
           <Route path="/about" element={< AboutPage/>} />

@@ -94,7 +94,7 @@ const Navbar = () => {
 
   // Updated nav items for actual pages
   const navItems = [
-    { path: "/community", label: "Community" },
+    { path: "/Opportunities", label: "Opportunities" },
     { path: "/events", label: "Events" },
     { path: "/resources", label: "Resources" },
     { path: "/about", label: " About" },
