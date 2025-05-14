@@ -96,7 +96,7 @@ const Navbar = () => {
   const navItems = [
     { path: "/Opportunities", label: "Opportunities" },
     { path: "/events", label: "Events" },
-    { path: "/resources", label: "Resources" },
+    // { path: "/resources", label: "Resources" },
     { path: "/about", label: " About" },
   ];
 
