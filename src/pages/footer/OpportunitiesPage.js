@@ -518,10 +518,13 @@ export default function OpportunitiesPage() {
           <div className="footer-grid-OP">
             <div className="footer-column-OP">
               <h3 className="footer-title-OP">About This Initiative</h3>
-              <p className="footer-text-OP">
-                Our innovative tokenization platform unites ethical finance with blockchain technology to 
-                fund high-impact projects aligned with Sharia principles and sustainable development goals.
-              </p>
+            <p className="footer-text-OP">
+  We're on a mission to fund high-impact, ethically aligned projects that drive real change. 
+  By connecting purpose-driven initiatives with alternative finance solutions rooted in 
+  transparency, equity, and sustainability, we’re helping close the gap between good ideas 
+  and the capital they deserve.
+</p>
+
             </div>
             
             <div className="footer-column-OP">
