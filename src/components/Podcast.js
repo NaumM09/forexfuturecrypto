@@ -1,48 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Podcast.css';
 import podcast_image from "./../images/podcast-img.png";
-// Import Firebase modules - make sure these are installed
-// npm install firebase
+// Import Firebase modules
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
-// Firebase configuration - replace with your actual Firebase config
+// Use environment variables for Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-// Initialize Firebase (do this only once)
-let app;
-let db;
+// Initialize Firebase
+let firebaseApp;
+let firestore;
 
-// Function to ensure Firebase is initialized only once
-const initializeFirebase = () => {
-  if (!app) {
-    app = initializeApp(firebaseConfig);
-    db = getFirestore(app);
-  }
-  return { app, db };
-};
+try {
+  firebaseApp = initializeApp(firebaseConfig);
+  firestore = getFirestore(firebaseApp);
+} catch (error) {
+  console.error("Firebase initialization error:", error);
+}
 
 const PodcastSection = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [subscribeError, setSubscribeError] = useState(null);
-  
-  // Initialize Firebase when component mounts
-  useEffect(() => {
-    try {
-      initializeFirebase();
-    } catch (error) {
-      console.error("Error initializing Firebase:", error);
-    }
-  }, []);
   
   // Updated launch date to July 2025
   const launchDate = "July 2025";
@@ -66,21 +55,32 @@ const PodcastSection = () => {
     setEmail(e.target.value);
   };
 
+  // Firebase submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubscribeError(null);
     
+    if (!firestore) {
+      console.error("Firebase not initialized");
+      setSubscribeError("Subscription service unavailable. Please try again later.");
+      setIsSubmitting(false);
+      return;
+    }
+    
     try {
-      // Initialize Firebase if not already initialized
-      const { db } = initializeFirebase();
+      // Log for debugging
+      console.log("Attempting to add email to subscribers collection:", email);
       
-      // Add email to "podcast-subscribers" collection
-      await addDoc(collection(db, "podcast-subscribers"), {
+      // Save to your existing 'subscribers' collection
+      const docRef = await addDoc(collection(firestore, "subscribers"), {
         email: email,
-        timestamp: serverTimestamp(),
-        source: "website"
+        subscriptionDate: serverTimestamp(),
+        source: "podcast-page",
+        createdAt: new Date().toISOString()
       });
+      
+      console.log("Document written with ID: ", docRef.id);
       
       // Success!
       setIsSubscribed(true);
@@ -90,13 +90,30 @@ const PodcastSection = () => {
       setTimeout(() => {
         setIsSubscribed(false);
       }, 5000);
-      
     } catch (error) {
-      console.error("Error subscribing:", error);
-      setSubscribeError("Subscription failed. Please try again later.");
+      console.error("Error adding subscriber:", error);
+      console.error("Error code:", error.code);
+      console.error("Error message:", error.message);
+      setSubscribeError(`Subscription failed: ${error.message}`);
+      
+      // Try backup submission method as fallback
+      try {
+        submitBackupMethod(email);
+      } catch (backupError) {
+        console.error("Backup submission also failed:", backupError);
+      }
     } finally {
       setIsSubmitting(false);
     }
+  };
+  
+  // Backup submission method
+  const submitBackupMethod = (email) => {
+    // Create a mailto link as a last resort backup
+    const subject = "Add to Podcast Subscribers";
+    const body = `Please add this email to the podcast subscribers: ${email}`;
+    const mailtoLink = `mailto:naum@forexfuturescrypto.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink);
   };
 
   return (
@@ -207,15 +224,11 @@ const PodcastSection = () => {
                   <span>{subscribeError}</span>
                 </div>
               )}
-              <div className="podcast-security-note">
-                <i className="fas fa-shield-alt"></i>
-                <span>Your email is securely stored on Firebase and will only be used for podcast notifications.</span>
-              </div>
             </form>
           )}
           
           <div className="podcast-platforms">
-            <p className="podcast-platforms-text"></p>
+            <p className="podcast-platforms-text">Will be available on:</p>
             <div className="podcast-platform-icons">
               <span className="podcast-platform-icon" title="Spotify">
                 <i className="fab fa-spotify"></i>
