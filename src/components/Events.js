@@ -3,20 +3,8 @@ import { motion } from 'framer-motion';
 import '../styles/Events.css';
 import WikiFinance from '../images/wiki.jpg';
 
-// Updated event data with expanded WikiFinance description
+// Updated event data with postponed WikiFinance event
 const eventData = [
-  {
-    id: 7,
-    title: "Cape Town Traders Social",
-    date: "2025-04-15T18:30:00",
-    type: "in-person",
-    host: "WC Trading Community",
-    hostTitle: "Community Leaders",
-    description: "An evening of networking and market discussions with Cape Town's trading community. Includes guest speaker and refreshments.",
-    participants: 28,
-    image: "https://placehold.co/800x450/111827/45aaf2?text=Cape+Town+Social",
-    registrationUrl: "#" // Placeholder URL for Cape Town event
-  },
   {
     id: 9,
     title: "WIKI FINANCE EXPO JOHANNESBURG 2025",
@@ -36,7 +24,9 @@ const eventData = [
     participants: "10,000+", // Changed to string to show it's an estimate
     image: WikiFinance,
     registrationUrl: "https://www.wikiexpo.com/Africa/2025/en/index.html?c=RDfUy8WM",
-    isExternalEvent: true // Flag to indicate this is an external event
+    isExternalEvent: true, // Flag to indicate this is an external event
+    isPostponed: true, // Flag to indicate the event is postponed
+    postponementMessage: "This event has been postponed. New dates will be announced soon." // Message about the postponement
   }
 ];
 
@@ -123,6 +113,25 @@ const FeaturedBadge = () => (
   </div>
 );
 
+// Postponed Badge component
+const PostponedBadge = () => (
+  <div className="postponed-badge" style={{ 
+    position: 'absolute', 
+    top: '16px', 
+    right: '16px',
+    backgroundColor: 'rgba(220, 53, 69, 0.9)',
+    color: '#fff',
+    padding: '6px 12px',
+    borderRadius: '30px',
+    fontWeight: 'bold',
+    fontSize: '0.75rem',
+    zIndex: 5,
+    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+  }}>
+    Postponed
+  </div>
+);
+
 // Event card component
 const EventCard = ({ event }) => {
   const timeRemaining = getTimeRemaining(event.date);
@@ -139,9 +148,10 @@ const EventCard = ({ event }) => {
       style={isWikiFinanceEvent ? { borderColor: 'rgba(255, 215, 0, 0.3)', borderWidth: '2px' } : {}}
     >
       <div className="event-image">
-        <img src={event.image} alt={event.title} />
+        <img src={event.image} alt={event.title} style={event.isPostponed ? { opacity: 0.7 } : {}} />
         <EventTypeBadge type={event.type} />
         {isWikiFinanceEvent && <FeaturedBadge />}
+        {event.isPostponed && <PostponedBadge />}
       </div>
       
       <div className="event-content">
@@ -155,11 +165,29 @@ const EventCard = ({ event }) => {
           
           <div className="event-date">
             <span className="date-icon">📅</span>
-            <span className="date-text">{formatEventDate(event.date)}</span>
+            <span className="date-text">
+              {event.isPostponed 
+                ? <span style={{ color: 'var(--danger-color)', fontStyle: 'italic' }}>Date TBA</span>
+                : formatEventDate(event.date)
+              }
+            </span>
           </div>
         </div>
         
         <div className="event-description">
+          {event.isPostponed && (
+            <div className="postponement-message" style={{ 
+              backgroundColor: 'rgba(220, 53, 69, 0.1)',
+              padding: '12px',
+              borderRadius: '6px',
+              marginBottom: '15px',
+              color: 'var(--danger-color)',
+              fontWeight: '500'
+            }}>
+              {event.postponementMessage}
+            </div>
+          )}
+          
           <p>{event.description}</p>
           
           {/* Show detailed info for WikiFinance event */}
@@ -202,23 +230,27 @@ const EventCard = ({ event }) => {
             </span>
           </div>
           
-          {!timeRemaining.isPast ? (
-            <div className="countdown">
-              <div className="countdown-item">
-                <span className="count-value">{timeRemaining.days}</span>
-                <span className="count-label">days</span>
+          {!event.isPostponed ? (
+            !timeRemaining.isPast ? (
+              <div className="countdown">
+                <div className="countdown-item">
+                  <span className="count-value">{timeRemaining.days}</span>
+                  <span className="count-label">days</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="count-value">{timeRemaining.hours}</span>
+                  <span className="count-label">hours</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="count-value">{timeRemaining.minutes}</span>
+                  <span className="count-label">mins</span>
+                </div>
               </div>
-              <div className="countdown-item">
-                <span className="count-value">{timeRemaining.hours}</span>
-                <span className="count-label">hours</span>
-              </div>
-              <div className="countdown-item">
-                <span className="count-value">{timeRemaining.minutes}</span>
-                <span className="count-label">mins</span>
-              </div>
-            </div>
+            ) : (
+              <div className="event-past">Event has ended</div>
+            )
           ) : (
-            <div className="event-past">Event has ended</div>
+            <div className="event-postponed">Coming Soon</div>
           )}
           
           <a 
@@ -226,9 +258,16 @@ const EventCard = ({ event }) => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="register-btn"
-            style={isWikiFinanceEvent ? { background: 'linear-gradient(to right, #0066cc, #ffd700)' } : {}}
+            style={isWikiFinanceEvent ? 
+              event.isPostponed ? 
+                { background: 'var(--primary-color)', opacity: 0.8 } 
+                : { background: 'linear-gradient(to right, #0066cc, #ffd700)' } 
+              : {}}
           >
-            {timeRemaining.isPast ? 'View Recording' : 'Register Now'}
+            {event.isPostponed 
+              ? 'Get Updates' 
+              : (timeRemaining.isPast ? 'View Recording' : 'Register Now')
+            }
           </a>
         </div>
       </div>

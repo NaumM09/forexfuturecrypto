@@ -1,13 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Podcast.css';
 import podcast_image from "./../images/podcast-img.png";
+// Import Firebase modules - make sure these are installed
+// npm install firebase
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
+// Firebase configuration - replace with your actual Firebase config
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase (do this only once)
+let app;
+let db;
+
+// Function to ensure Firebase is initialized only once
+const initializeFirebase = () => {
+  if (!app) {
+    app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+  }
+  return { app, db };
+};
+
 const PodcastSection = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [subscribeError, setSubscribeError] = useState(null);
   
-  // Planned launch date
-  const launchDate = "June 2025";
+  // Initialize Firebase when component mounts
+  useEffect(() => {
+    try {
+      initializeFirebase();
+    } catch (error) {
+      console.error("Error initializing Firebase:", error);
+    }
+  }, []);
+  
+  // Updated launch date to July 2025
+  const launchDate = "July 2025";
   
   // Topics the podcast will cover - SEO optimized keywords
   const podcastTopics = [
@@ -17,17 +55,34 @@ const PodcastSection = () => {
     { icon: "users", text: "Community-driven episodes and guest submissions" }
   ];
 
+  // Sponsorship tiers
+  const sponsorshipTiers = [
+    { tier: "Platinum Partner", benefit: "Featured segments + brand mentions in all episodes" },
+    { tier: "Gold Sponsor", benefit: "Regular brand mentions + dedicated feature episode" },
+    { tier: "Silver Supporter", benefit: "Brand mentions + digital presence" }
+  ];
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubscribeError(null);
     
-    // Simulate API call to subscribe email
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Initialize Firebase if not already initialized
+      const { db } = initializeFirebase();
+      
+      // Add email to "podcast-subscribers" collection
+      await addDoc(collection(db, "podcast-subscribers"), {
+        email: email,
+        timestamp: serverTimestamp(),
+        source: "website"
+      });
+      
+      // Success!
       setIsSubscribed(true);
       setEmail('');
       
@@ -35,7 +90,13 @@ const PodcastSection = () => {
       setTimeout(() => {
         setIsSubscribed(false);
       }, 5000);
-    }, 1500);
+      
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      setSubscribeError("Subscription failed. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -73,7 +134,7 @@ const PodcastSection = () => {
             </div>
             
             <div className="podcast-topics">
-              <h4 className="podcast-topics-title"> What to Expect:</h4>
+              <h4 className="podcast-topics-title">What to Expect:</h4>
               <ul className="podcast-topics-list">
                 {podcastTopics.map((topic, index) => (
                   <li key={index} className="podcast-topic-item">
@@ -87,6 +148,28 @@ const PodcastSection = () => {
               </p>
             </div>
           </div>
+        </div>
+        
+        <div className="podcast-sponsorship">
+          <h3 className="podcast-sponsorship-title">
+            <i className="fas fa-handshake"></i> Sponsorship Opportunities
+          </h3>
+          <p className="podcast-sponsorship-intro">
+            Connect with our engaged community of female traders and finance professionals. We're currently seeking forward-thinking brands to partner with for our July 2025 launch.
+          </p>
+          
+          <div className="sponsorship-tiers">
+            {sponsorshipTiers.map((tier, index) => (
+              <div key={index} className="sponsorship-tier">
+                <span className="tier-name">{tier.tier}</span>
+                <span className="tier-benefits">{tier.benefit}</span>
+              </div>
+            ))}
+          </div>
+          
+          <p className="sponsorship-contact">
+            Interested in sponsoring? <a href="mailto:naum@forexfuturescrypto.com" className="sponsorship-link">Contact us</a> for custom packages and opportunities.
+          </p>
         </div>
         
         <div className="podcast-subscribe">
@@ -118,11 +201,21 @@ const PodcastSection = () => {
                   {isSubmitting ? 'Subscribing...' : 'Notify Me'}
                 </button>
               </div>
+              {subscribeError && (
+                <div className="podcast-error-message">
+                  <i className="fas fa-exclamation-circle"></i>
+                  <span>{subscribeError}</span>
+                </div>
+              )}
+              <div className="podcast-security-note">
+                <i className="fas fa-shield-alt"></i>
+                <span>Your email is securely stored on Firebase and will only be used for podcast notifications.</span>
+              </div>
             </form>
           )}
           
           <div className="podcast-platforms">
-            <p className="podcast-platforms-text">Will be available on:</p>
+            <p className="podcast-platforms-text"></p>
             <div className="podcast-platform-icons">
               <span className="podcast-platform-icon" title="Spotify">
                 <i className="fab fa-spotify"></i>

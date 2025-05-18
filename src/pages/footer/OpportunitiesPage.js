@@ -11,45 +11,45 @@ export default function OpportunitiesPage() {
     setActiveAccordion(activeAccordion === id ? '' : id);
   };
   
+  // Simplified form submission that uses mailto directly
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Create a FormData object from the form
-    const formData = new FormData(e.target);
-    
     try {
-      // Get values from form to send via email
-      const formValues = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        company: formData.get('company'),
-        position: formData.get('position'),
-        project: formData.get('project'),
-        valuation: formData.get('valuation')
-      };
+      // Get form data
+      const formData = new FormData(e.target);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const company = formData.get('company');
+      const position = formData.get('position');
+      const project = formData.get('project');
+      const valuation = formData.get('valuation');
       
-      // Email sending options using a server-side endpoint
-      // This should point to your backend endpoint that handles the email sending
-      const response = await fetch('us-central1-docker.pkg.dev/mentorship-851db/gcf-artifacts',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formValues),
-      });
+      // Create email subject and body
+      const subject = `New Investment Opportunity: ${company}`;
+      const body = `
+Name: ${name}
+Email: ${email}
+Company: ${company}
+Position: ${position}
+Valuation: ${valuation}
+
+Project Overview:
+${project}
+      `;
       
-      if (response.ok) {
-        // Show success message
-        setSubmitStatus('success');
-        // Reset form
-        e.target.reset();
-      } else {
-        // Show error message
-        setSubmitStatus('error');
-      }
+      // Create and open mailto link directly
+      const mailtoLink = `mailto:naum@forexfuturescrypto.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      setSubmitStatus('success');
+      
+      // Reset form
+      e.target.reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error with form submission:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -117,44 +117,6 @@ export default function OpportunitiesPage() {
       icon: <ShieldCheck size={24} className="benefit-icon-OP" />
     }
   ];
-
-  // const partnerLogos = [
-  //   { 
-  //     name: "UK lending securitization Sukuk MTN Programme", 
-  //     id: "uae-logo-OP",
-  //     amount: "$50M",
-  //     region: "United Kingdom",
-  //     icon: <Globe className="text-blue-600" />
-  //   },
-  //   { 
-  //     name: "South African share repo programme of listed securities", 
-  //     id: "gifsb-logo-OP",
-  //     amount: "$800M",
-  //     region: "South Africa",
-  //     icon: <TrendingUp className="text-green-600" />
-  //   },
-  //   { 
-  //     name: "USA Family Property Fund", 
-  //     id: "bif-logo-OP",
-  //     amount: "$250M",
-  //     region: "United States",
-  //     icon: <DollarSign className="text-indigo-600" />
-  //   },
-  //   { 
-  //     name: "African Manufacturing Company trade finance revolving loan", 
-  //     id: "sdp-logo-OP",
-  //     amount: "$48M",
-  //     region: "Africa",
-  //     icon: <TrendingUp className="text-amber-600" />
-  //   },
-  //   { 
-  //     name: "Saudi Arabia Private Equity Vehicle", 
-  //     id: "mefi-logo-OP",
-  //     amount: "$500M",
-  //     region: "Saudi Arabia",
-  //     icon: <DollarSign className="text-emerald-600" />
-  //   }
-  // ];
   
   return (
     <div className="opportunities-page-OP">
@@ -239,52 +201,6 @@ export default function OpportunitiesPage() {
               )}
             </div>
             
-            {/* What is Tokenisation */}
-            {/* <div className="accordion-item-OP">
-              <button 
-                className="accordion-button-OP"
-                onClick={() => toggleAccordion('tokenisation')}
-              >
-                <div className="accordion-button-content-OP">
-                  <FileText size={24} className="accordion-icon-OP" />
-                  <h3 className="accordion-title-OP">The Power of Tokenization</h3>
-                </div>
-                {activeAccordion === 'tokenisation' ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-              </button>
-              
-              {activeAccordion === 'tokenisation' && (
-                <div className="accordion-content-OP">
-                  <p className="content-text-OP">
-                    Tokenization transforms traditional assets into <strong>secure digital tokens</strong> on the blockchain, 
-                    creating unprecedented opportunities to:
-                  </p>
-                  <ul className="bullet-list-OP">
-                    <li className="bullet-item-OP">
-                      <span className="bullet-OP"></span>
-                      <span><strong>Access global capital</strong> without conventional financial intermediaries</span>
-                    </li>
-                    <li className="bullet-item-OP">
-                      <span className="bullet-OP"></span>
-                      <span><strong>Enhance liquidity</strong> of traditionally illiquid assets</span>
-                    </li>
-                    <li className="bullet-item-OP">
-                      <span className="bullet-OP"></span>
-                      <span><strong>Automate compliance</strong> through smart contracts</span>
-                    </li>
-                    <li className="bullet-item-OP">
-                      <span className="bullet-OP"></span>
-                      <span><strong>Create transparent</strong>, immutable transaction records</span>
-                    </li>
-                  </ul>
-                  <p className="content-text-OP">
-                    In essence, tokenization brings your project into the future of finance—creating digital shares 
-                    that can be efficiently traded and invested in under a secure, transparent system aligned with 
-                    Sharia principles.
-                  </p>
-                </div>
-              )}
-            </div> */}
-            
             {/* IFSG Framework */}
             <div className="accordion-item-OP">
               <button 
@@ -362,30 +278,6 @@ export default function OpportunitiesPage() {
             </div>
           </div>
         </section>
-
-           {/* Partner Logos Section */}
-           {/* <section className="partners-section-OP">
-  <div className="container-OP">
-    <h2 className="section-title-OP">Capital Raised</h2>
-    <div className="capital-raised-grid-OP">
-      {partnerLogos.map((logo) => (
-        <div key={logo.id} className="capital-card-OP">
-          <div className="capital-card-header-OP">
-            <div className="capital-icon-container-OP">
-              {logo.icon}
-            </div>
-            <span className="capital-region-OP">{logo.region}</span>
-          </div>
-          
-          <div className="capital-card-content-OP">
-            <h3 className="capital-name-OP">{logo.name}</h3>
-            <div className="capital-amount-OP">{logo.amount} <span className="capital-currency-OP">USD</span></div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>  */}
         
         {/* Application Form Section */}
         <section className="form-section-OP">
@@ -498,13 +390,13 @@ export default function OpportunitiesPage() {
                 {submitStatus === 'success' && (
                   <div className="success-message-OP">
                     <CheckCircle size={24} className="success-icon-OP" />
-                    <p>Your application has been successfully submitted. We'll be in touch shortly.</p>
+                    <p>Your application has been submitted. Please complete the email that has opened to send your details to our team.</p>
                   </div>
                 )}
                 
                 {submitStatus === 'error' && (
                   <div className="error-message-OP">
-                    <p>There was an error submitting your application. Please try again or contact us directly.</p>
+                    <p>There was an error processing your application. Please try again or contact us directly at <a href="mailto:naum@forexfuturescrypto.com">naum@forexfuturescrypto.com</a></p>
                   </div>
                 )}
               </form>
@@ -518,39 +410,21 @@ export default function OpportunitiesPage() {
           <div className="footer-grid-OP">
             <div className="footer-column-OP">
               <h3 className="footer-title-OP">About This Initiative</h3>
-            <p className="footer-text-OP">
-  We're on a mission to fund high-impact, ethically aligned projects that drive real change. 
-  By connecting purpose-driven initiatives with alternative finance solutions rooted in 
-  transparency, equity, and sustainability, we’re helping close the gap between good ideas 
-  and the capital they deserve.
-</p>
+              <p className="footer-text-OP">
+                We're on a mission to fund high-impact, ethically aligned projects that drive real change. 
+                By connecting purpose-driven initiatives with alternative finance solutions rooted in 
+                transparency, equity, and sustainability, we're helping close the gap between good ideas 
+                and the capital they deserve.
+              </p>
             </div>
             
             <div className="footer-column-OP">
               <h3 className="footer-title-OP">Contact Us</h3>
               <div className="footer-contact-OP">
                 <Mail size={16} className="footer-icon-OP" />
-                <button className='email-button'>
                 <a href="mailto:naum@forexfuturescrypto.com" className="footer-link-OP">naum@forexfuturescrypto.com</a>
-                </button>
               </div>
             </div>
-            
-            {/* <div className="footer-column-OP">
-              <h3 className="footer-title-OP">Resources</h3>
-              <a href="#" className="footer-resource-OP">
-                <Download size={16} className="footer-icon-OP" />
-                Download Project Proposal Template
-              </a>
-              <a href="#" className="footer-resource-OP">
-                <FileText size={16} className="footer-icon-OP" />
-                IFSG Framework Guide
-              </a>
-              <a href="#" className="footer-resource-OP">
-                <Globe size={16} className="footer-icon-OP" />
-                Tokenization Education Hub
-              </a>
-            </div> */}
           </div>
         </div>
       </footer>

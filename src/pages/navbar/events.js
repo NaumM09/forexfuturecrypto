@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet'; // For SEO optimization
-import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock, FaFilter, FaSearch, FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock, FaFilter, FaSearch, FaRegBookmark, FaBookmark, FaExclamationTriangle } from 'react-icons/fa';
 import '../styles/events.css';
-import WikiFinance from '../../images/wiki.jpg';
 
-// Updated event data with registration URL for WikiFinance
+// Updated event data with postponed status for WikiFinance
 const eventData = [
   {
     id: 7,
@@ -31,31 +30,6 @@ const eventData = [
     tags: ["networking", "cape town", "in-person", "social"],
     registrationUrl: "#" // Placeholder URL
   },
-  {
-    id: 9,
-    title: "WIKI FINANCE EXPO JOHANNESBURG 2025",
-    date: "2025-08-16T09:00:00",
-    type: "in-person",
-    category: "fintech",
-    host: "Wiki Global",
-    hostTitle: "Event Organizers",
-    description: "Join the Pinnacle of Global Fintech Innovation! Bringing together over 10,000 attendees and 3,000 top-tier companies, showcasing the latest trends in Fintech, Forex, Crypto, Stocks, Payments, and AI.",
-    detailedDescription: "WIKI FINANCE EXPO JOHANNESBURG 2025 lands in Johannesburg on August 16, 2025, delivering an unparalleled financial technology experience. As the world's largest fintech event, this expo will bring together over 10,000 attendees and 3,000 top-tier companies, showcasing the latest trends and breakthroughs in Fintech, Forex, Crypto, Stocks, Payments, and AI.\n\nWho Should Attend?\n- Forex and Crypto traders, KOLs, Brokers, Affiliates & IBs, Fund managers, Bankers, Project Owners\n- Web3.0, Blockchain, Online trading platform developers and users\n- AI, Fintech, Liquidity, Financial Services providers and professionals\n- Entrepreneurs, VCs who are eager to master global financial trends\n\nAll free for attendees! To purchase a sponsorship or booth, email: loki@wikiglobal.com",
-    participants: "10,000+", // Changed to string to show it's an estimate
-    maxParticipants: "Expected: 10,000+", // Updated to match the string format
-    location: "Johannesburg, South Africa",
-    duration: "All day",
-    prerequisites: "None",
-    difficulty: "All Levels",
-    image: WikiFinance,
-    featured: true,
-    isFree: true,
-    price: "Free",
-    isSaved: false,
-    tags: ["fintech", "forex", "crypto", "blockchain", "AI", "expo", "networking"],
-    registrationUrl: " https://www.wikiexpo.com/Africa/2025/en/index.html?c=RDfUy8WM", // Added the registration URL
-    isExternalEvent: true // Flag to indicate external event
-  }
 ];
 
 // Helper for formatting dates
@@ -90,7 +64,7 @@ const getTimeRemaining = (dateString) => {
 };
 
 // Type badge component
-const EventTypeBadge = ({ type, featured }) => {
+const EventTypeBadge = ({ type, featured, isPostponed }) => {
   let bgColor, textColor, label;
   
   switch (type) {
@@ -125,6 +99,11 @@ const EventTypeBadge = ({ type, featured }) => {
           Featured
         </div>
       )}
+      {isPostponed && (
+        <div className="postponed-badge">
+          <FaExclamationTriangle /> Postponed
+        </div>
+      )}
     </div>
   );
 };
@@ -135,7 +114,7 @@ const EventCard = ({ event, onToggleSave, openEventDetails }) => {
   
   return (
     <motion.div 
-      className="event-card"
+      className={`event-card ${event.isPostponed ? 'postponed-event' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -144,7 +123,11 @@ const EventCard = ({ event, onToggleSave, openEventDetails }) => {
     >
       <div className="event-image">
         <img src={event.image} alt={event.title} />
-        <EventTypeBadge type={event.type} featured={event.featured} />
+        <EventTypeBadge 
+          type={event.type} 
+          featured={event.featured} 
+          isPostponed={event.isPostponed}
+        />
         <button 
           className="save-event-btn" 
           onClick={(e) => {
@@ -156,6 +139,11 @@ const EventCard = ({ event, onToggleSave, openEventDetails }) => {
         </button>
         {!event.isFree && (
           <div className="event-price">{event.price}</div>
+        )}
+        {event.isPostponed && (
+          <div className="event-postponed-overlay">
+            <span>Date Changed</span>
+          </div>
         )}
       </div>
       
@@ -372,8 +360,8 @@ const EventFilters = ({
 const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) => {
   if (!event) return null;
   
-  const timeRemaining = getTimeRemaining(event.date);
-  const isWikiFinanceEvent = event && event.id === 9;
+  const timeRemaining = getTimeRemaining(event.date); // eslint-disable-next-line 
+  const isWikiFinanceEvent = event && event.id === 9; 
   
   return (
     <AnimatePresence>
@@ -386,7 +374,7 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
           onClick={onClose}
         >
           <motion.div 
-            className="event-detail-modal"
+            className={`event-detail-modal ${event.isPostponed ? 'postponed-modal' : ''}`}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
@@ -396,9 +384,20 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
             
             <div className="modal-image">
               <img src={event.image} alt={event.title} />
-              <EventTypeBadge type={event.type} featured={event.featured} />
+              <EventTypeBadge 
+                type={event.type} 
+                featured={event.featured} 
+                isPostponed={event.isPostponed}
+              />
               {!event.isFree && (
                 <div className="event-price modal-price">{event.price}</div>
+              )}
+              {event.isPostponed && (
+                <div className="event-postponed-overlay-modal">
+                  <div className="postponed-notice">
+                    <FaExclamationTriangle /> Event Postponed
+                  </div>
+                </div>
               )}
             </div>
             
@@ -413,6 +412,16 @@ const EventDetailModal = ({ event, isOpen, onClose, onRegister, onToggleSave }) 
                   <span>{event.isSaved ? 'Saved' : 'Save Event'}</span>
                 </button>
               </div>
+              
+              {event.isPostponed && (
+                <div className="postponed-alert">
+                  <FaExclamationTriangle className="alert-icon" />
+                  <div className="alert-content">
+                    <h4>Event Date Changed</h4>
+                    <p>This event has been postponed from August 16 to November 22, 2025.</p>
+                  </div>
+                </div>
+              )}
               
               <div className="modal-meta">
                 <div className="meta-item">
@@ -822,7 +831,7 @@ const Eventspage = () => {
                       {monthEvents.map(event => (
                         <div 
                           key={event.id} 
-                          className="list-event-item" 
+                          className={`list-event-item ${event.isPostponed ? 'postponed-list-item' : ''}`}
                           onClick={() => openEventDetails(event.id)}
                         >
                           <div className="list-event-date">
@@ -845,6 +854,11 @@ const Eventspage = () => {
                               )}
                               {event.featured && (
                                 <div className="featured-tag">Featured</div>
+                              )}
+                              {event.isPostponed && (
+                                <div className="postponed-tag">
+                                  <FaExclamationTriangle /> Postponed
+                                </div>
                               )}
                             </div>
                             
