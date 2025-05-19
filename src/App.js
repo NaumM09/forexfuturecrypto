@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 // import Services from "./components/Service";
 import Events from "./components/Events";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 // import Challenge from "./components/Challenge";
 import SignupPage from "./components/SignupPage";
@@ -40,6 +39,7 @@ import AboutPage from "./pages/navbar/about";
 
 // Individual Footer Page
 import OpportunitiesPage from "./pages/footer/OpportunitiesPage";
+import PartnershipSection from "./components/Partnerships";
 
 
 const App = () => {
@@ -72,14 +72,12 @@ const App = () => {
             element={
               <>
                 <Hero />
-                <GlobalExchangeBanner/>
                 {/* <Services /> */}
                 <Events />
-                <PodcastSection /> {/* Add the new Podcast Section */}
-                {/* <Resource/> */}
-                {/* <Challenge /> */}
+                <PartnershipSection/>
+                <GlobalExchangeBanner/> 
+                  <PodcastSection /> 
                 <Articles /> {/* Include Articles section */}
-                <Contact />
                 <WhatsAppButton />
               </>
             }

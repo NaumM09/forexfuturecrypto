@@ -1,0 +1,500 @@
+/* Improved BingX Partnership Section Styles with Enhanced Mobile Experience */
+
+/* Main Container */
+.bingx-partnership-section {
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 1.5rem);
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.bingx-partnership-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(0, 102, 204, 0.03), transparent 30%),
+    radial-gradient(circle at 90% 90%, rgba(0, 204, 153, 0.03), transparent 30%);
+  z-index: 0;
+}
+
+.partnership-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+/* Header Styles */
+.partnership-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.partnership-title {
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.partnership-title .highlight {
+  background: linear-gradient(135deg, #0066cc, #1e40af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.partnership-subtitle {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.title-underline {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #0066cc, #00cc99);
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* BingX Card Styles */
+.bingx-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  transform: translateZ(0); /* Hardware acceleration for mobile */
+}
+
+.bingx-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 102, 204, 0.05), transparent);
+  pointer-events: none;
+}
+
+/* Card Header */
+.bingx-card-header {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background-color: #000000;
+}
+
+.logos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: 0.5rem 0;
+}
+
+.logo-divider {
+  width: 1px;
+  height: clamp(30px, 7vw, 40px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Logo classes - matches your React component */
+.bingx-logo {
+  height: clamp(120px, 10vw, 120px);
+  width: auto;
+  object-fit: contain;
+}
+
+.chelsea-logo {
+  height: clamp(360px, 60vw, 360px);
+  width: auto;
+  object-fit: contain;
+}
+
+/* Card Content */
+.bingx-card-content {
+  padding: clamp(1.5rem, 6vw, 3rem) clamp(1.25rem, 4vw, 2rem);
+}
+
+.bingx-card-body {
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* CTA Section */
+.bingx-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: clamp(1.5rem, 4vw, 2rem);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 12px;
+  background: linear-gradient(to right, #0f172a, #1e293b);
+  position: relative;
+  overflow: hidden;
+}
+
+.bingx-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+/* Bonus Badge */
+.bonus-badge {
+  position: relative;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.25);
+  animation: pulse 2s infinite;
+  -webkit-transform: translateZ(0); /* Prevent animation lag on mobile */
+  will-change: transform; /* Optimize for animations */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bonus-amount {
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.bonus-text {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: 600;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(to right, #0066cc, #0ea5e9);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 700;
+  padding: clamp(0.875rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  width: 100%;
+  max-width: 300px;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 102, 204, 0.3);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0, 102, 204, 0.2);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+  width: clamp(14px, 3vw, 18px);
+  height: auto;
+}
+
+.cta-button:hover .arrow-icon {
+  transform: translateX(3px);
+}
+
+/* Chelsea Banner */
+.chelsea-banner {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.chelsea-banner-image {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 60vw, 280px);
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(0, 102, 204, 0.85), rgba(30, 64, 175, 0.6));
+}
+
+.banner-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  color: white;
+}
+
+/* Trust Signals */
+.trust-signals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: clamp(1.5rem, 4vw, 3rem) 0;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  background-color: white;
+  border-radius: 12px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.trust-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.trust-icon {
+  width: clamp(36px, 8vw, 48px);
+  height: clamp(36px, 8vw, 48px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+}
+
+.users-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc' width='24' height='24'%3E%3Cpath d='M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75'/%3E%3C/svg%3E");
+}
+
+.security-badge-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc' width='24' height='24'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E");
+}
+
+.customer-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc' width='24' height='24'%3E%3Cpath d='M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z'/%3E%3C/svg%3E");
+}
+
+.trust-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-number {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.trust-label {
+  font-size: clamp(0.875rem, 2vw, 0.95rem);
+  color: #64748b;
+}
+
+/* Disclaimer */
+.partnership-disclaimer {
+  padding: clamp(1.25rem, 3vw, 1.5rem);
+  background-color: #f8fafc;
+  border-radius: 12px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: #64748b;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  line-height: 1.6;
+}
+
+.partnership-disclaimer strong {
+  color: #0f172a;
+}
+
+/* Mobile Optimization Enhancements */
+@media (max-width: 768px) {
+  /* Better touch targets for mobile */
+  .cta-button {
+    padding: 1rem 1.5rem;
+    width: 100%;
+  }
+  
+  /* Improved mobile visual spacing */
+  .partnership-container {
+    gap: 1.5rem;
+  }
+  
+  /* Optimize banner for mobile */
+  .chelsea-banner-image {
+    height: 150px;
+  }
+  
+  /* Better scrolling performance */
+  .bingx-partnership-section {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Style trust signals to match your screenshot */
+  .trust-signals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .trust-item {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .trust-icon {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Small Mobile Optimization */
+@media (max-width: 480px) {
+  /* Stack trust items on very small screens */
+  .trust-signals {
+    padding-bottom: 1rem;
+  }
+  
+  /* Adjust CTA for very small screens */
+  .bonus-badge {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  /* Prevent horizontal overflow */
+  .bonus-text {
+    font-size: 0.7rem;
+  }
+  
+  /* Optimize touchable areas */
+  .cta-button {
+    font-size: 0.95rem;
+  }
+  
+  /* Better logo display */
+  .logos-container {
+    padding: 0.75rem 0;
+  }
+}
+
+/* Fix iPad-specific issues */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .trust-signals {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .chelsea-banner-image {
+    height: 280px;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .bonus-badge {
+    animation: none;
+  }
+  
+  .cta-button::before {
+    display: none;
+  }
+  
+  .trust-item:hover,
+  .cta-button:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .partnership-disclaimer {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .partnership-disclaimer strong {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
